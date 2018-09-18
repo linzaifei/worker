@@ -9,6 +9,7 @@ import {
     Image,
     StatusBar,
     AsyncStorage,
+    TouchableOpacity,
 } from 'react-native';
 
 
@@ -29,6 +30,7 @@ import AddScreen from './views/add/GWAdd'
 
 //个人中心
 import CenterScreen from './views/center/GWCenter'
+import ForgetPwdScreen from './views/center/GWForgetPwd'
 
 
 const HomeStack=createStackNavigator({
@@ -104,9 +106,58 @@ const LogonStack=createStackNavigator({
     })
 })
 
-const RootStack =createStackNavigator({
-    IndexStack: {screen: IndexStack,}
+const RootStack = createStackNavigator({
+    IndexStack: {screen: IndexStack},
+    ForgetPwd:{
+        screen:ForgetPwdScreen,
+        navigationOptions: ({navigation}) => navigationOption({navigation})
+    }
+},{
+    transitionConfig:()=>({
+        // screenInterpolator:CardStackStyleInterpolator.forHorizontal,
+    })
 })
+
+const navigationOption = ({navigation}) => {
+    let {state,goBack} = navigation;
+
+
+    const headerTitleStyle = {
+        fontWeight:'600',textAlign:'center',alignSelf:'center',flex:1,alignItems:'center',}
+    const headerBackTitle = false;
+    const headerLeft = (
+        <TouchableOpacity onPress={()=>{goBack()}}>
+            <View style={{flexDirection:'row',alignItems:'center',marginLeft:15}}>
+                <Image source={{uri:"ic_navi_white_back"}} style={{width:18,height:18}} />
+                <Text style={{color:'#ffff',fontSize:16}}>返回</Text>
+            </View>
+        </TouchableOpacity>
+    );
+    const headerStyle={backgroundColor:defaultColor};
+    const headerTintColor='#fff'
+    const headerRight= (
+        <View style={{height: 44,width: 55,justifyContent: 'center',paddingRight:15} }/>
+    );
+    return {headerLeft,headerTitleStyle,headerBackTitle,headerRight,headerStyle,headerTintColor}
+};
+
+const navigationRightOption = ({navigation}) => {
+    let {state,goBack} = navigation;
+    const headerTitleStyle = {
+        fontWeight:'400',textAlign:'center',alignSelf:'center',flex:1,alignItems:'center',}
+    const headerBackTitle = false;
+    const headerLeft = (
+        <TouchableOpacity onPress={()=>{goBack()}}>
+            <View style={{flexDirection:'row',alignItems:'center',marginLeft:15}}>
+                <Image source={{uri:"ic_navi_white_back"}} style={{width:18,height:18}} />
+                <Text style={{color:'#fff',fontSize:16}}>返回</Text>
+            </View>
+        </TouchableOpacity>
+    );
+    const headerStyle={backgroundColor:defaultColor};
+    const headerTintColor='#fff'
+    return {headerLeft,headerTitleStyle,headerBackTitle,headerStyle,headerTintColor}
+};
 
 class AuthLoadingScreen extends Component {
     constructor() {
@@ -115,7 +166,7 @@ class AuthLoadingScreen extends Component {
     }
     async _bootstrapAsync(){
         const userToken = await AsyncStorage.getItem('token');
-        this.props.navigation.navigate(userToken ? 'Mian' : 'Auth');
+        this.props.navigation.navigate(userToken ? 'MianTabBar' : 'Auth');
     };
     render() {
         return (
@@ -129,7 +180,7 @@ class AuthLoadingScreen extends Component {
 const SwithStack=createSwitchNavigator({
     AuthLoading:AuthLoadingScreen,
     Auth:LogonStack,
-    Mian:RootStack,
+    MianTabBar:RootStack,
 },{
     initialRouteName:'AuthLoading'
 })

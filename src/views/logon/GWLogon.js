@@ -23,7 +23,7 @@ export default class GWLogon extends Component {
         var self = this;
         storage.gw_saveItem('token','ddsdss',function () {
             
-            self.props.navigation.navigate('Home');
+            self.props.navigation.navigate('MianTabBar');
         })
     }
 

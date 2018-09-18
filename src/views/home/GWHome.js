@@ -6,17 +6,21 @@ import {
     View,
 } from 'react-native';
 import Buttom from "../../components/buttom/Buttom";
+import GWSelectItem from "../../components/selectItem/GWSelectItem";
+
 
 
 export default class GWHome extends Component {
     static navigationOptions=({navigation})=>{
         return{
-            title:'首页'
+            headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
+            headerTitle:(
+                <Text style={{fontSize:16,color:'#fff'}}>首页</Text>
+            )
         }
     }
 
     constructor(props) {
-
         super(props);
 
 
@@ -36,6 +40,10 @@ export default class GWHome extends Component {
                 <Buttom title="退出" onClickItem={()=>{
                     this._out()
                 }}/>
+
+
+
+
             </View>
         );
     }
