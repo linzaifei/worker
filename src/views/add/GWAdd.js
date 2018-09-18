@@ -75,7 +75,7 @@ export default class GWAdd extends Component {
                 />
                 <GWSelectItem
                     title="出生日期"
-                    url="ic_center_csri"
+                    url="ic_center_csrq"
                     borderRadius={5}
                     onClickItem={()=>{
 

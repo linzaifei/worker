@@ -90,7 +90,7 @@ export default class GWSelectItem extends Component {
                 } underlineColorAndroid={'transparent'} keyboardType={keyboard} maxLength={max} placeholder={placeholder} editable={editable}/>
             )
         }else {
-
+            return null
         }
     }
 

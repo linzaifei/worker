@@ -110,7 +110,7 @@ const RootStack = createStackNavigator({
     IndexStack: {screen: IndexStack},
     ForgetPwd:{
         screen:ForgetPwdScreen,
-        navigationOptions: ({navigation}) => navigationOption({navigation})
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
     }
 },{
     transitionConfig:()=>({
@@ -193,7 +193,7 @@ export default class Index extends Component{
 
 const styles = StyleSheet.create({
     iconStyle:{
-        width: Platform.OS === 'ios' ? 25 : 28,
-        height:Platform.OS === 'ios' ? 25 : 28,
+        width: Platform.OS === 'ios' ? 25 : 23,
+        height:Platform.OS === 'ios' ? 25 : 23,
     },
 })
