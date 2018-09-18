@@ -58,8 +58,7 @@ export default class GWCenter extends Component {
                 <GWSelectItem
                     title="修改密码"
                     borderRadius={5}
-                    onclickitem={()=>{
-                        alert()
+                    onClickItem={()=>{
                         self.props.navigation.navigate('ForgetPwd')
                     }}
                 />
@@ -67,7 +66,7 @@ export default class GWCenter extends Component {
                     title="退出登录"
                     hasBack={false}
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />

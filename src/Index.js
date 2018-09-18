@@ -128,7 +128,7 @@ const navigationOption = ({navigation}) => {
     const headerLeft = (
         <TouchableOpacity onPress={()=>{goBack()}}>
             <View style={{flexDirection:'row',alignItems:'center',marginLeft:15}}>
-                <Image source={{uri:"ic_navi_white_back"}} style={{width:18,height:18}} />
+                <Image source={{uri:"ic_back"}} style={{width:18,height:18}} />
                 <Text style={{color:'#ffff',fontSize:16}}>返回</Text>
             </View>
         </TouchableOpacity>
@@ -149,7 +149,7 @@ const navigationRightOption = ({navigation}) => {
     const headerLeft = (
         <TouchableOpacity onPress={()=>{goBack()}}>
             <View style={{flexDirection:'row',alignItems:'center',marginLeft:15}}>
-                <Image source={{uri:"ic_navi_white_back"}} style={{width:18,height:18}} />
+                <Image source={{uri:"ic_back"}} style={{width:18,height:18}} />
                 <Text style={{color:'#fff',fontSize:16}}>返回</Text>
             </View>
         </TouchableOpacity>

@@ -46,7 +46,7 @@ export default class GWAdd extends Component {
                     title="性别"
                     url="ic_center_sex"
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
@@ -77,7 +77,7 @@ export default class GWAdd extends Component {
                     title="出生日期"
                     url="ic_center_csri"
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
@@ -114,7 +114,7 @@ export default class GWAdd extends Component {
                     title="擅长工种"
                     url="ic_center_sc"
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
@@ -122,7 +122,7 @@ export default class GWAdd extends Component {
                     title="工作地点"
                     url="ic_center_address"
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
@@ -130,7 +130,7 @@ export default class GWAdd extends Component {
                     title="工资要求"
                     url="ic_center_gz"
                     borderRadius={5}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
@@ -139,7 +139,7 @@ export default class GWAdd extends Component {
                     url="ic_center_state"
                     borderRadius={5}
                     mTop={10}
-                    onclickitem={()=>{
+                    onClickItem={()=>{
 
                     }}
                 />
