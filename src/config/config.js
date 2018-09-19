@@ -5,7 +5,11 @@ import {
 let {height, width} = Dimensions.get('window');
 import './GWColor'
 import storage from '../components/storage/Storage'
+import link from '../Link'
+import GWRequest from '../request/GWRequest'
 global.storage = storage;
+global.urls = link;
+global.gwrequest = GWRequest;
 
 global.IOS =(Platform.OS === 'ios');
 global.Android =(Platform.OS === 'android');

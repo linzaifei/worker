@@ -125,7 +125,7 @@ export default class GWTag extends Component {
                     {this._text2()}
                 </View>
             )
-        }else{
+        }else if(ps == 'bottom'){
             return (
                 <View  style={{flexDirection:'column',alignItems:'center',backgroundColor:bgColor,padding,marginTop}}>
                     {this._text3}

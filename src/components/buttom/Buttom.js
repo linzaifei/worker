@@ -22,8 +22,10 @@ export default class Buttom extends Component {
         fontSize:PropTypes.number,
         marginTop:PropTypes.number,
         marginLeft:PropTypes.number,
-        radius:PropTypes.number,
-        btnWidth:PropTypes.number,
+        marginRight:PropTypes.number,
+        marginBottom:PropTypes.number,
+        borderRadius:PropTypes.number,
+        width:PropTypes.number,
         onClickItem:PropTypes.func,
 
     }
@@ -38,42 +40,27 @@ export default class Buttom extends Component {
         radius:0,
     }
 
-    _didClickCell(data) {
-        if (this.props.onClickItem == null) return;
-        this.props.onClickItem(data);
-    }
 
     render() {
         const {
-            padding,
-            marginTop,
-            marginLeft,
-            backgroundColor,
-            btnWidth,
-            radius,
-            borderWidth,
-            borderColor,
             color,
             fontSize,
-            title
+            title,
+            onClickItem
         }=this.props
         return (
-            <TouchableOpacity style={{
-                padding,
-                marginTop,
-                marginLeft,
-                backgroundColor,
-                width:btnWidth,
-                borderRadius:radius,
-                justifyContent:'center',
-                alignItems:'center',
-                borderColor,
-                borderWidth,
-            }} onPress={()=>this._didClickCell()}>
-                <Text style={{
-                    color,
-                    fontSize
-                }}>{title}</Text>
+            <TouchableOpacity  onPress={()=>{
+                onClickItem && onClickItem()
+            }}>
+                <View {...this.props} style={{
+                    justifyContent:'center',
+                    alignItems:'center',
+                }}>
+                    <Text style={{
+                        color,
+                        fontSize
+                    }}>{title}</Text>
+                </View>
             </TouchableOpacity>
         );
     }

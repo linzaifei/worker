@@ -7,9 +7,9 @@ import {
     ScrollView,
 } from 'react-native';
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
+import BaseComponent from "../../components/base/BaseComponent";
 
-
-export default class GWCenter extends Component {
+export default class GWCenter extends BaseComponent {
     static navigationOptions =({navigation})=>{
         return{
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
@@ -27,9 +27,33 @@ export default class GWCenter extends Component {
             telephone:'12345678912',
         }
     }
+    
+    _loadData(){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.queryUserInfo,{},function (ret) {
+            console.log(JSON.stringify(ret))
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
 
+    componentDidMount(){
+        this._loadData()
+    }
+
+    _out(){
+        gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
+            storage.gw_clear(function () {
+                self.props.navigation.navigate('Auth');
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
+    
 
     render() {
+        
         var self = this;
         const {
             name,
@@ -67,9 +91,14 @@ export default class GWCenter extends Component {
                     hasBack={false}
                     borderRadius={5}
                     onClickItem={()=>{
-
+                        self.alertView.show('退出退出账号？',['取消','确定'],function (index) {
+                            if(index==1){
+                                self._out()
+                            }
+                        })
                     }}
                 />
+                {this._alertAction()}
             </ScrollView>
         );
     }
