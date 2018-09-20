@@ -1,74 +1,82 @@
 [
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_enter.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_tooltip_enter.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_exit.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_tooltip_exit.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_down.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_slide_down.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_slide_in_top.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_slide_out_top.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_push_up_out.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_in.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_fade_in.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\picker_enter.xml",
+        "source": "E:\\rncode\\gitcode\\worker\\node_modules\\react-native-picker\\android\\build\\intermediates\\bundles\\default\\res\\anim\\picker_enter.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_out.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_fade_out.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_in.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_fade_in.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_push_up_out.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_enter.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_tooltip_enter.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_out.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_fade_out.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_up.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_slide_up.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_push_up_in.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_fade_out.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_fade_in.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_popup_enter.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_slide_out_bottom.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_up.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_slide_up.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_popup_exit.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_exit.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_tooltip_exit.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_down.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/anim/catalyst_slide_down.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\picker_exit.xml",
+        "source": "E:\\rncode\\gitcode\\worker\\node_modules\\react-native-picker\\android\\build\\intermediates\\bundles\\default\\res\\anim\\picker_exit.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/anim/abc_slide_in_bottom.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_in.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\anim\\catalyst_push_up_in.xml"
     }
 ]

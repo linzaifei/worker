@@ -59,18 +59,18 @@ public final class R {
         public static final int notification_top_pad_large_text = 0x7f080067;
     }
     public static final class drawable {
-        public static final int notification_action_background = 0x7f020070;
-        public static final int notification_bg = 0x7f020071;
-        public static final int notification_bg_low = 0x7f020072;
-        public static final int notification_bg_low_normal = 0x7f020073;
-        public static final int notification_bg_low_pressed = 0x7f020074;
-        public static final int notification_bg_normal = 0x7f020075;
-        public static final int notification_bg_normal_pressed = 0x7f020076;
-        public static final int notification_icon_background = 0x7f020077;
-        public static final int notification_template_icon_bg = 0x7f02007c;
-        public static final int notification_template_icon_low_bg = 0x7f02007d;
-        public static final int notification_tile_bg = 0x7f020078;
-        public static final int notify_panel_notification_icon_bg = 0x7f020079;
+        public static final int notification_action_background = 0x7f020072;
+        public static final int notification_bg = 0x7f020073;
+        public static final int notification_bg_low = 0x7f020074;
+        public static final int notification_bg_low_normal = 0x7f020075;
+        public static final int notification_bg_low_pressed = 0x7f020076;
+        public static final int notification_bg_normal = 0x7f020077;
+        public static final int notification_bg_normal_pressed = 0x7f020078;
+        public static final int notification_icon_background = 0x7f020079;
+        public static final int notification_template_icon_bg = 0x7f02007e;
+        public static final int notification_template_icon_low_bg = 0x7f02007f;
+        public static final int notification_tile_bg = 0x7f02007a;
+        public static final int notify_panel_notification_icon_bg = 0x7f02007b;
     }
     public static final class id {
         public static final int action_container = 0x7f0c0081;
@@ -124,12 +124,12 @@ public final class R {
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f090073;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f090074;
-        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f0900ff;
+        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f090101;
         public static final int TextAppearance_Compat_Notification_Time = 0x7f090075;
         public static final int TextAppearance_Compat_Notification_Title = 0x7f090076;
         public static final int Widget_Compat_NotificationActionContainer = 0x7f090077;
         public static final int Widget_Compat_NotificationActionText = 0x7f090078;
-        public static final int Widget_Support_CoordinatorLayout = 0x7f090168;
+        public static final int Widget_Support_CoordinatorLayout = 0x7f09016a;
     }
     public static final class styleable {
         public static final int[] CoordinatorLayout = { 0x7f0100b0, 0x7f0100b1 };

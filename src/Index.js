@@ -27,6 +27,7 @@ import HomeScreen from './views/home/GWHome'
 
 //添加
 import AddScreen from './views/add/GWAdd'
+import SalarySelect from './views/add/SalarySelect'
 
 //个人中心
 import CenterScreen from './views/center/GWCenter'
@@ -49,11 +50,11 @@ const IndexStack= createBottomTabNavigator({
         },
         Mediate:{
             screen:MediateStack,
-            navigationOptions:()=> TabOptions("调解",'ic_tab_add','ic_tab_add_sel'),
+            navigationOptions:()=> TabOptions("添加用工",'ic_tab_add','ic_tab_add_sel'),
         },
         Mine:{
             screen:MineStack,
-            navigationOptions:()=> TabOptions("我的",'ic_tab_center','ic_tab_center_sel'),
+            navigationOptions:()=> TabOptions("个人中心",'ic_tab_center','ic_tab_center_sel'),
         },
     },{
         tabBarOptions:{
@@ -110,6 +111,10 @@ const RootStack = createStackNavigator({
     IndexStack: {screen: IndexStack},
     ForgetPwd:{
         screen:ForgetPwdScreen,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+    SelectSalary:{
+        screen:SalarySelect,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
     }
 },{

@@ -17,7 +17,9 @@ export default class GWAdd extends BaseComponent {
         return{
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
             headerTitle:(
+                <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
                 <Text style={{fontSize:16,color:'#fff'}}>添加</Text>
+                </View>
             )
         }
     }
@@ -200,7 +202,8 @@ export default class GWAdd extends BaseComponent {
                     borderRadius={5}
                     editable={false}
                     onClickItem={()=>{
-                        self._onClickItem(5);
+                        self.props.navigation.navigate('SelectSalary')
+                        // self._onClickItem(5);
                     }}
                 />
                 <GWSelectItem

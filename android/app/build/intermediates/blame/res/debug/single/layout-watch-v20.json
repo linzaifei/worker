@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-watch-v20/abc_alert_dialog_title_material.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/layout-watch-v20/abc_alert_dialog_title_material.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
-        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml"
     }
 ]

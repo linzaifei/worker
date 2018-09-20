@@ -14,7 +14,10 @@ export default class GWHome extends Component {
         return{
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
             headerTitle:(
-                <Text style={{fontSize:16,color:'#fff'}}>首页</Text>
+                <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
+                    <Text style={{fontSize:16,color:'#fff'}}>首页</Text>
+                </View>
+
             )
         }
     }
