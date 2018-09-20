@@ -7,9 +7,10 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
+import BaseComponent from "../../components/base/BaseComponent";
 
 
-export default class GWForgetPwd extends Component {
+export default class GWForgetPwd extends BaseComponent {
 
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
@@ -30,17 +31,46 @@ export default class GWForgetPwd extends Component {
 
     _submit=()=>{
 
+        var self = this;
+        const {
+            oldPwd,
+            newPwd,
+            reNewPwd,
+        }=self.state
+
+        if (!oldPwd && !newPwd && !reNewPwd && newPwd !=reNewPwd){
+            return;
+        }
+
+        gwrequest.gw_tokenRequest(urls.changePass,)
+
     }
 
     constructor(props) {
         super(props);
         this.state={
+            oldPwd:'',
+            newPwd:'',
+            reNewPwd:'',
+            userId:'',
 
         }
+    }
 
+    componentDidMount(){
+        var self = this;
+        storage.getItem('userInfo',function (ret) {
+            console.log('======'+JSON.stringify(ret))
+            self.setState({
+                userId:ret.id,
+            })
+        },function (e) {
+
+        })
     }
 
     render() {
+        var self = this;
         return (
             <View style={styles.container}>
                 <GWSelectItem
@@ -50,7 +80,9 @@ export default class GWForgetPwd extends Component {
                     hasText={true}
                     borderRadius={5}
                     ontextchange={(text)=>{
-
+                        self.setState({
+                            oldPwd:text,
+                        })
                     }}
                      />
                 <GWSelectItem
@@ -60,7 +92,9 @@ export default class GWForgetPwd extends Component {
                     hasText={true}
                     borderRadius={5}
                     ontextchange={(text)=>{
-
+                        self.setState({
+                            newPwd:text,
+                        })
                     }}
                 />
                 <GWSelectItem
@@ -70,7 +104,9 @@ export default class GWForgetPwd extends Component {
                     hasText={true}
                     borderRadius={5}
                     ontextchange={(text)=>{
-
+                        self.setState({
+                            reNewPwd:text,
+                        })
                     }}
                 />
             </View>

@@ -8,15 +8,10 @@ import {
     TouchableOpacity,
     Image,
 } from 'react-native';
-// import ImageViewer from 'react-native-image-zoom-viewer';
-// import DropdownAlert from 'react-native-dropdownalert';
-// import ActionSheet from 'react-native-actionsheet'
+
 import GWAlertView from "../alert/GWAlertView";
-// import ZFHud from "../HUD/ZFHud";
-
-
-
-
+import DropdownAlert from 'react-native-dropdownalert';
+import GWActionSheet from "../ActionSheet/GWActionSheet";
 
 export default class BaseComponent extends Component {
 
@@ -27,75 +22,40 @@ export default class BaseComponent extends Component {
             images:[],
         }
     }
-
-    _getAlert(){
-
-    }
-
-
-
-
-    // _ImageBrower(){
-    //     return (
-    //         <Modal visible={this.state.showImg} transparent={true}>
-    //             <ImageViewer imageUrls={this.state.images} onClick={()=>{
-    //                 this.setState({
-    //                     showImg:false
-    //                 })
-    //             }}  />
-    //         </Modal>
-    //     )
-    // }
-
     _alertAction(){
         return (
             <GWAlertView ref={a => this.alertView = a} />
         )
     }
+    点击重新刷新
+    _clickNullView(){
 
-    // _HUD(){
-    //     return(
-    //         <ZFHud ref={a => this.hud = a} />
-    //     )
-    // }
+    }
+    //空试图
+    _nullView(){
+        return (
+            <TouchableOpacity style={{justifyContent:CENTER,alignItems:CENTER}} onPress={()=>{this._clickNullView()}}>
+                <Image style={{width:200,height:200}}  source={{uri:'ic_detail_null'}}/>
+            </TouchableOpacity>
+        )
+    }
+    _Alert(){
+        var self = this;
+        return (
+            <DropdownAlert  containerStyle={{
+                backgroundColor:defaultColor,
+            }}  imageSrc="ic_navi_notif" closeInterval={2000} ref={ref => self.dropdown = ref} onClose={data => {
+                self.dropdown.close();
+            }} />
+        )
+    }
 
-    //点击重新刷新
-    // _clickNullView(){
-    //
-    // }
-    // //空试图
-    // _nullView(){
-    //     return (
-    //         <TouchableOpacity style={{justifyContent:CENTER,alignItems:CENTER}} onPress={()=>{this._clickNullView()}}>
-    //             <Image style={{width:200,height:200}}  source={{uri:'ic_detail_null'}}/>
-    //         </TouchableOpacity>
-    //     )
-    // }
-    // _Alert(){
-    //     var self = this;
-    //     return (
-    //         <DropdownAlert  containerStyle={{
-    //             backgroundColor:defaultColor,
-    //         }}  imageSrc="ic_navi_notif" closeInterval={2000} ref={ref => self.dropdown = ref} onClose={data => {
-    //             self.dropdown.close();
-    //         }} />
-    //     )
-    // }
-
-    // _actionSheet(title,options,index,select){
-    //     var self = this;
-    //     return (
-    //         <ActionSheet
-    //             ref={o => self.ActionSheet = o}
-    //             title= {title}
-    //             options={options}
-    //             cancelButtonIndex={index}
-    //             onPress={(index) =>{
-    //                 select(index,self)
-    //             }}
-    //         />
-    //     )
-    // }
+    _actionSheet(){
+        var self = this;
+        return (
+            <GWActionSheet ref={o => self.actionSheet = o} />
+        )
+    }
 
 }
 

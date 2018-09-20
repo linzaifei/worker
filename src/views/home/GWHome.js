@@ -4,11 +4,10 @@ import {
     StyleSheet,
     Text,
     View,
+    DeviceEventEmitter,
 } from 'react-native';
-import Buttom from "../../components/buttom/Buttom";
-import GWSelectItem from "../../components/selectItem/GWSelectItem";
 
-
+import ScrollableTabView,{DefaultTabBar,ScrollableTabBar} from 'react-native-scrollable-tab-view'
 
 export default class GWHome extends Component {
     static navigationOptions=({navigation})=>{
@@ -22,27 +21,35 @@ export default class GWHome extends Component {
 
     constructor(props) {
         super(props);
-
+        this._addLiner()
 
     }
-
-
-    _out(){
+    componentWillUnmount(){
+        this.subscription.remove();
+    };
+    _addLiner(){
         var  self = this;
-       storage.gw_clear(function () {
-           self.props.navigation.navigate('Auth');
-       })
+        this.subscription = DeviceEventEmitter.addListener('outLogon',function (e) {
+            self.props.navigation.navigate('Auth');
+        })
     }
 
     render() {
         return (
             <View>
-                <Buttom title="退出" onClickItem={()=>{
-                    this._out()
-                }}/>
-
-
-
+                <ScrollableTabView tabBarUnderlineStyle={{
+                    backgroundColor: '#fff',
+                    height: 2,
+                    marginBottom:10,
+                }} locked={false} tabBarActiveTextColor='#fff' tabBarInactiveTextColor='#fff' tabBarBackgroundColor= {defaultColor}
+                                   renderTabBar={() => <ScrollableTabBar />}
+                >
+                    <View tabLabel='全部' navigation={this.props.navigation} />
+                    <View tabLabel='今天' navigation={this.props.navigation} />
+                    <View tabLabel='最近1月' navigation={this.props.navigation} />
+                    <View tabLabel='最近3月' navigation={this.props.navigation} />
+                    <View tabLabel='最近半年' navigation={this.props.navigation} />
+                </ScrollableTabView>
 
             </View>
         );

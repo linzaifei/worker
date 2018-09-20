@@ -36,6 +36,7 @@ export default class GWCenter extends BaseComponent {
                 name:ret.realName,
                 telephone:ret.userName,
             })
+            storage.saveItem('userInfo',ret)
         },function (e) {
             console.log(JSON.stringify(e))
         })
@@ -48,7 +49,7 @@ export default class GWCenter extends BaseComponent {
     _out(){
         var self = this;
         gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
-            storage.gw_clear(function () {
+            storage.gw_removeItem('token',function () {
                 self.props.navigation.navigate('Auth');
             })
         },function (e) {
@@ -69,6 +70,7 @@ export default class GWCenter extends BaseComponent {
                 <GWSelectItem
                     title="姓名"
                     borderRadius={5}
+                    editable={false}
                     ontextchange={(text)=>{
 
                     }}
@@ -77,6 +79,7 @@ export default class GWCenter extends BaseComponent {
                 </GWSelectItem>
                 <GWSelectItem
                     title="手机号码"
+                    editable={false}
                     borderRadius={5}
                     ontextchange={(text)=>{
 
@@ -87,6 +90,7 @@ export default class GWCenter extends BaseComponent {
                 <GWSelectItem
                     title="修改密码"
                     borderRadius={5}
+                    editable={false}
                     onClickItem={()=>{
                         self.props.navigation.navigate('ForgetPwd')
                     }}
@@ -95,6 +99,7 @@ export default class GWCenter extends BaseComponent {
                     title="退出登录"
                     hasBack={false}
                     borderRadius={5}
+                    editable={false}
                     onClickItem={()=>{
                         self.alertView.show('退出退出账号？',['取消','确定'],function (index) {
                             if(index==1){

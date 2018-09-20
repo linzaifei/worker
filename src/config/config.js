@@ -7,9 +7,12 @@ import './GWColor'
 import storage from '../components/storage/Storage'
 import link from '../Link'
 import GWRequest from '../request/GWRequest'
+import Picker from '../components/Picker/GWPicker'
+
 global.storage = storage;
 global.urls = link;
 global.gwrequest = GWRequest;
+global.Picker = Picker;
 
 global.IOS =(Platform.OS === 'ios');
 global.Android =(Platform.OS === 'android');

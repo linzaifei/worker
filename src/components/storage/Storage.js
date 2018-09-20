@@ -115,5 +115,5 @@ function gw_clear(success) {
 
 
 export default {
-    saveItem,saveItem,gw_saveItem,gw_getItem,gw_removeItem,gw_clear,
+    saveItem,getItem,gw_saveItem,gw_getItem,gw_removeItem,gw_clear,
 }

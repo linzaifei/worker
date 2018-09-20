@@ -34,6 +34,7 @@ export default class GWSelectItem extends Component {
         editable:PropTypes.bool,
         onTextChange:PropTypes.func,
         value:PropTypes.string,
+        textColor:PropTypes.string,
         space:PropTypes.number,
         max:PropTypes.number,
         keyboard:PropTypes.oneOf(['default','phone-pad']),
@@ -55,7 +56,8 @@ export default class GWSelectItem extends Component {
         iconHeight:20,
         iconWidth:20,
         space:5,
-        mTop:5
+        mTop:5,
+        textColor:dpColor,
     }
 
     getBack(){
@@ -81,16 +83,27 @@ export default class GWSelectItem extends Component {
             editable,
             hasText,
             children,
+            textColor,
         }=this.props;
 
-        if(hasText && !children){
-            return (
-                <TextInput style={styles.textInput} defaultValue={value} onChange={(e)=>
-                    onTextChange && onTextChange(e.nativeEvent.text)
-                } underlineColorAndroid={'transparent'} keyboardType={keyboard} maxLength={max} placeholder={placeholder} editable={editable}/>
-            )
-        }else {
-            return null
+        if(!children){
+            if(editable){
+                return (
+                    <TextInput style={styles.textInput} defaultValue={value} onChange={(e)=>
+                        onTextChange && onTextChange(e.nativeEvent.text)
+                    } underlineColorAndroid={'transparent'} keyboardType={keyboard} maxLength={max} placeholder={placeholder} editable={editable}/>
+                )
+            }else {
+                if(value){
+                    return (
+                        <Text numberOfLines={3}  style={{fontSize:15,marginLeft:15,color:textColor,textAlign:'right',flex:1}}>{value}</Text>
+                    )
+                }else {
+                    return (
+                        <Text style={{fontSize:15,color:dddColor,textAlign:'right',flex:1}}>{placeholder}</Text>
+                    )
+                }
+            }
         }
     }
 
@@ -108,8 +121,9 @@ export default class GWSelectItem extends Component {
             }}>
                 <GWTag {...this.props} />
                 <View style={styles.right}>
-                    {this.getBack()}
+
                     {this.getRightText()}
+                    {this.getBack()}
                     {this.props.children}
                 </View>
             </TouchableOpacity>

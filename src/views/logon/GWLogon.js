@@ -29,7 +29,7 @@ export default class GWLogon extends Component {
     componentDidMount(){
         var self = this;
         storage.gw_getItem('telephone',function (e,ret) {
-            console.log('=========='+JSON.stringify(ret))
+            console.log('获取到tel========================'+ret)
             if (ret){
                 self.setState({
                     telephone:ret,
@@ -55,7 +55,7 @@ export default class GWLogon extends Component {
                 self.props.navigation.navigate('MianTabBar');
             })
             storage.gw_saveItem('telephone',telephone,function () {
-
+                console.log('=========成功了')
             })
         },function (e) {
             console.log(JSON.stringify(e))
