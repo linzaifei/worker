@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dee1de63-05f5-4f38-8b35-fb7ef93d8663" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/ActionSheet/GWActionSheet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Picker/GWPicker.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/workerSystem.xcodeproj/project.xcworkspace/xcuserdata/linzaifei.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/ios/workerSystem.xcodeproj/project.xcworkspace/xcuserdata/linzaifei.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/app/build.gradle" afterPath="$PROJECT_DIR$/android/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/app/src/main/java/com/workersystem/MainApplication.java" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/workersystem/MainApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/settings.gradle" afterPath="$PROJECT_DIR$/android/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/workerSystem.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ios/workerSystem.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/base/BaseComponent.js" afterPath="$PROJECT_DIR$/src/components/base/BaseComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/selectItem/GWSelectItem.js" afterPath="$PROJECT_DIR$/src/components/selectItem/GWSelectItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/storage/Storage.js" afterPath="$PROJECT_DIR$/src/components/storage/Storage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/config.js" afterPath="$PROJECT_DIR$/src/config/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/add/GWAdd.js" afterPath="$PROJECT_DIR$/src/views/add/GWAdd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/center/GWCenter.js" afterPath="$PROJECT_DIR$/src/views/center/GWCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/center/GWForgetPwd.js" afterPath="$PROJECT_DIR$/src/views/center/GWForgetPwd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/GWHome.js" afterPath="$PROJECT_DIR$/src/views/home/GWHome.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/logon/GWLogon.js" afterPath="$PROJECT_DIR$/src/views/logon/GWLogon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GWHome.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GWHome.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/home/GWHome.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="335">
@@ -90,7 +73,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-258">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SceneComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -128,18 +121,6 @@
             <state relative-caret-position="67">
               <caret line="107" column="20" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#110#128#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -185,8 +166,8 @@
         <option value="$PROJECT_DIR$/src/config/config.js" />
         <option value="$PROJECT_DIR$/src/views/add/GWAdd.js" />
         <option value="$PROJECT_DIR$/src/views/center/GWCenter.js" />
-        <option value="$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
         <option value="$PROJECT_DIR$/src/views/home/GWHome.js" />
+        <option value="$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
       </list>
     </option>
   </component>
@@ -201,7 +182,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="822" />
@@ -230,6 +211,17 @@
             <path>
               <item name="worker" type="b2602c69:ProjectViewProjectNode" />
               <item name="worker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="worker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="worker" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="worker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="worker" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="react-native-scrollable-tab-view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="worker" type="b2602c69:ProjectViewProjectNode" />
@@ -300,15 +292,15 @@
       <workItem from="1537319227599" duration="8453000" />
       <workItem from="1537338450570" duration="1877000" />
       <workItem from="1537405416353" duration="2734000" />
-      <workItem from="1537443897215" duration="5199000" />
+      <workItem from="1537443897215" duration="5666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34904000" />
+    <option name="totallyTimeSpent" value="35371000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="822" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -342,16 +334,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/logon/GWLogon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/center/GWForgetPwd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -766,14 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/add/GWAdd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -789,6 +763,22 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
