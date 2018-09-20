@@ -10,24 +10,13 @@ import {
 // var RNToNative = NativeModules.RNToNative;
 
 
-function gw_request(url,parmas,success,fail,method='POST') {
-    let request;
-
-    // if(method == 'GET'){
-        url = getUrlStr(url,parmas)
-        // console.log('+++++'+JSON.stringify(url));
-    //     request=new Request(url, {
-    //         method: 'GET',
-    //     })
-    // }else {
-    //     request=new Request(url, {
-    //         method: 'POST',
-    //         body:getFormat(parmas)
-    //     })
-    // }
-    // RNToNative.HUD(true)
+function gw_request(url,parmas,success,fail,method='GET',token=null) {
+    url = getUrlStr(url,parmas)
     fetch(url,{
         method:'GET',
+        headers:{
+           'Authorization':token?token:'',
+        }
     }).then((response) => response.json())
         .then((responseJson) => {
             if(parseInt(responseJson.code)==1){
@@ -68,9 +57,9 @@ function getUrlStr(url,parmas) {
 
 function gw_tokenRequest(url,parmas,success,fail,method='POST') {
     storage.gw_getItem('token',function (error,token) {
-        parmas['Authorization'] = token;
+        // parmas['Authorization'] = token;
         console.log('token====='+token)
-        gw_request(url,parmas,success,fail,method);
+        gw_request(url,parmas,success,fail,method,token);
     })
 }
 

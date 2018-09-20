@@ -26,6 +26,17 @@ export default class GWLogon extends Component {
         }
     }
 
+    componentDidMount(){
+        var self = this;
+        storage.gw_getItem('telephone',function (e,ret) {
+            console.log('=========='+JSON.stringify(ret))
+            if (ret){
+                self.setState({
+                    telephone:ret,
+                })
+            }
+        })
+    }
 
     _logon(){
         var self = this;
@@ -43,9 +54,12 @@ export default class GWLogon extends Component {
             storage.gw_saveItem('token',ret,function () {
                 self.props.navigation.navigate('MianTabBar');
             })
+            storage.gw_saveItem('telephone',telephone,function () {
+
+            })
         },function (e) {
             console.log(JSON.stringify(e))
-        },"GET")
+        })
     }
 
     _onTextChange(value,flag){
@@ -66,6 +80,9 @@ export default class GWLogon extends Component {
 
 
     render() {
+        const {
+            telephone,
+        }=this.state
         return (
             <View style={styles.container}>
                 <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:40}}>
@@ -75,6 +92,7 @@ export default class GWLogon extends Component {
                 <View style={{marginTop:96,marginLeft:15,marginRight:15}}>
                     <EditInput ref={a=>this.tel=a}
                                padding={2}
+                               value={telephone}
                                paddingLeft={10}
                                borderRadius={20}
                                backgroundColor="rgba(255,255,255,0.2)"

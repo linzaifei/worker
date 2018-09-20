@@ -32,6 +32,10 @@ export default class GWCenter extends BaseComponent {
         var self = this;
         gwrequest.gw_tokenRequest(urls.queryUserInfo,{},function (ret) {
             console.log(JSON.stringify(ret))
+            self.setState({
+                name:ret.realName,
+                telephone:ret.userName,
+            })
         },function (e) {
             console.log(JSON.stringify(e))
         })
@@ -42,6 +46,7 @@ export default class GWCenter extends BaseComponent {
     }
 
     _out(){
+        var self = this;
         gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
             storage.gw_clear(function () {
                 self.props.navigation.navigate('Auth');
