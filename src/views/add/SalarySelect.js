@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
+import CheckBox from "./CheckBox";
 
 export default class SalarySelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
@@ -34,29 +35,21 @@ export default class SalarySelect extends BaseComponent{
             super(props);
             // 初始状态
             this.state = {
-                salary:''
+                salary:'',
             };
           }
 
           render(){
               let self=this;
+              var datas = self.props.navigation.state.params.datas;
               return(
-                  <View style={styles.container}>
-                      <FlatList
-                          data={self.props.navigation.state.params.datas}
-                          renderItem={({item}) => <GWSelectItem
-                              title={item.key}
-                              hasBack={false}
-                              borderRadius={5}
-                              editable={false}
-                              onClickItem={()=>{
-                                  self.setState({
-                                      salary:item.key
-                                  });
-                              }}
-                          />}
-                      />
-                  </View>
+                  <ScrollView style={styles.container}>
+                      <CheckBox list={datas} marginTop={5}  onClickItem={(index)=>{
+                            self.setState({
+                                salary:datas[index]
+                            })
+                      }} />
+                  </ScrollView>
               );
           }
 
@@ -81,11 +74,7 @@ export default class SalarySelect extends BaseComponent{
 var styles = StyleSheet.create({
     container: {
         padding:5,
-        flex: 1,
-        // paddingTop:5,
-        // paddingLeft:5,
-        // paddingRight:5,
-        // paddingBottom:20,
+
     },
     item: {
         padding: 10,

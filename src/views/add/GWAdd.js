@@ -235,11 +235,11 @@ export default class GWAdd extends BaseComponent {
                     onClickItem={()=>{
                         self.props.navigation.navigate('SelectSalary',{
                             datas:[
-                                {key: '3000～5000'},
-                                {key: '5000～8000'},
-                                {key: '8000～10000'},
-                                {key: '10000～15000'},
-                                {key: '>15000'}
+                                 '3000～5000',
+                                 '5000～8000',
+                                 '8000～10000',
+                                 '10000～15000',
+                                '>15000'
                             ],
                             title:'工资要求',
                             callback: ((info) => { //回调函数
