@@ -1,4 +1,4 @@
-#Tue Sep 18 16:11:42 CST 2018
-base.0=/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Thu Sep 20 22:59:12 CST 2018
+base.0=E\:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.0=E\:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

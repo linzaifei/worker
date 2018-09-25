@@ -14,7 +14,9 @@ export default class GWCenter extends BaseComponent {
         return{
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
             headerTitle:(
+                <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
                 <Text style={{fontSize:16,color:'#fff'}}>个人中心</Text>
+                </View>
             )
         }
     }
@@ -90,7 +92,7 @@ export default class GWCenter extends BaseComponent {
                 <GWSelectItem
                     title="修改密码"
                     borderRadius={5}
-                    editable={false}
+                    editable={false}GWSelectItem
                     onClickItem={()=>{
                         self.props.navigation.navigate('ForgetPwd')
                     }}

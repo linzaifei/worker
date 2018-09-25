@@ -27,7 +27,9 @@ import HomeScreen from './views/home/GWHome'
 
 //添加
 import AddScreen from './views/add/GWAdd'
-
+import SalarySelect from './views/add/SalarySelect'
+import HomePlaceSelect from './views/add/HomePlaceSelect'
+import WorkSelect from './views/add/WorkSelect'
 //个人中心
 import CenterScreen from './views/center/GWCenter'
 import ForgetPwdScreen from './views/center/GWForgetPwd'
@@ -110,6 +112,18 @@ const RootStack = createStackNavigator({
     IndexStack: {screen: IndexStack},
     ForgetPwd:{
         screen:ForgetPwdScreen,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+    SelectSalary:{
+        screen:SalarySelect,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+    SelectHomePlace:{
+        screen:HomePlaceSelect,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+    SelectWork:{
+        screen:WorkSelect,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
     }
 },{

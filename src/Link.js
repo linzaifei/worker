@@ -13,9 +13,9 @@ export default {
     logout: `${host}/account/logout`,// 登出
     changePass: `${host}/account/changePass`,// 修改密码
     queryUserInfo: `${host}/app/user/queryUserInfo`,// 查询用户信息
-    queryAllProvince: `${host}/account/queryAllProvince`,// 查询省份
+    queryAllProvince: `${host}/common/queryAllProvince`,// 查询省份
     queryAreaByParentCode: `${host}/account/queryAreaByParentCode`,// 查询省份地区子集
-    querySelectedJobType: `${host}/account/querySelectedJobType`,// 工种树
+    querySelectedJobType: `${host}/app/worker/querySelectedJobType`,// 工种树
 
 
 }
