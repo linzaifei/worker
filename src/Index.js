@@ -49,11 +49,11 @@ const IndexStack= createBottomTabNavigator({
         },
         Mediate:{
             screen:MediateStack,
-            navigationOptions:()=> TabOptions("调解",'ic_tab_add','ic_tab_add_sel'),
+            navigationOptions:()=> TabOptions("添加用工",'ic_tab_add','ic_tab_add_sel'),
         },
         Mine:{
             screen:MineStack,
-            navigationOptions:()=> TabOptions("我的",'ic_tab_center','ic_tab_center_sel'),
+            navigationOptions:()=> TabOptions("个人中心",'ic_tab_center','ic_tab_center_sel'),
         },
     },{
         tabBarOptions:{
