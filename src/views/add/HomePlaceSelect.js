@@ -10,7 +10,7 @@ import {
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 
-export default class SalarySelect extends BaseComponent{
+export default class HomePlaceSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
         return{
@@ -28,13 +28,15 @@ export default class SalarySelect extends BaseComponent{
     }
     componentWillMount() {
         this.props.navigation.setParams({ submit: this._submit });
+        this._loadData();
     }
         // 构造
           constructor(props) {
             super(props);
             // 初始状态
             this.state = {
-                salary:''
+                selectObject:'',
+                data:[],
             };
           }
 
@@ -43,15 +45,15 @@ export default class SalarySelect extends BaseComponent{
               return(
                   <View style={styles.container}>
                       <FlatList
-                          data={self.props.navigation.state.params.datas}
+                          data={self.state.data}
                           renderItem={({item}) => <GWSelectItem
-                              title={item.key}
+                              title={item.name}
                               hasBack={false}
                               borderRadius={5}
                               editable={false}
                               onClickItem={()=>{
                                   self.setState({
-                                      salary:item.key
+                                      selectObject:item.name
                                   });
                               }}
                           />}
@@ -63,17 +65,30 @@ export default class SalarySelect extends BaseComponent{
     _submit=()=>{
         var self = this;
         const {
-            salary
+            selectObject
         }=self.state
 
-        if (!salary){
+        if (!selectObject){
             return;
         }
-        console.log('======'+salary);
+        console.log('======'+selectObject);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(salary)
+            this.props.navigation.state.params.callback(selectObject)
         }
         this.props.navigation.goBack();
+    }
+
+    _loadData(){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.queryAllProvince,{},function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self.setState({
+                data:ret,
+                // data:this.state.data.concat(ret.value),
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
     }
 
 }

@@ -31,6 +31,10 @@ export default class GWAdd extends BaseComponent {
             sexStr:'',
             idCard:'',
             birthday:'',
+            salary:'',
+            workState:'',
+            homePlace:'',
+            workSelect:'',
 
         }
     }
@@ -71,7 +75,15 @@ export default class GWAdd extends BaseComponent {
 
                 break;
             case 6:
-
+                var options = ['在职','离职','取消'];
+                self.actionSheet.show('工作状态选择',options,2,function (index) {
+                    if(index != 2){
+                        self.setState({
+                            // sex:options[index] == '男' ?'00003-1':'00003-2',
+                            workState:options[index],
+                        })
+                    }
+                })
                 break;
         }
     }
@@ -84,6 +96,10 @@ export default class GWAdd extends BaseComponent {
             sexStr,
             idCard,
             birthday,
+            salary,
+            workState,
+            homePlace,
+            workSelect,
         }=self.state;
         return (
             <ScrollView style={styles.container}
@@ -153,8 +169,15 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_jg"
                     borderRadius={5}
                     editable={false}
-                    onclickitem={()=>{
-                        self._onClickItem(2);
+                    value={homePlace}
+                    onClickItem={()=>{
+                        self.props.navigation.navigate('SelectHomePlace',{
+                            title:'籍贯',
+                            callback: ((info) => { //回调函数
+                                this.setState({
+                                    homePlace: info
+                                })
+                            })})
                     }}
                 />
 
@@ -183,8 +206,15 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_sc"
                     borderRadius={5}
                     editable={false}
+                    value={workSelect}
                     onClickItem={()=>{
-                        self._onClickItem(3);
+                        self.props.navigation.navigate('SelectWork',{
+                            title:'擅长工种',
+                            callback: ((info) => { //回调函数
+                                this.setState({
+                                    workSelect: info
+                                })
+                            })})
                     }}
                 />
                 <GWSelectItem
@@ -201,21 +231,36 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_gz"
                     borderRadius={5}
                     editable={false}
+                    value={salary}
                     onClickItem={()=>{
-                        self.props.navigation.navigate('SelectSalary')
-                        // self._onClickItem(5);
+                        self.props.navigation.navigate('SelectSalary',{
+                            datas:[
+                                {key: '3000～5000'},
+                                {key: '5000～8000'},
+                                {key: '8000～10000'},
+                                {key: '10000～15000'},
+                                {key: '>15000'}
+                            ],
+                            title:'工资要求',
+                            callback: ((info) => { //回调函数
+                                this.setState({
+                                    salary: info
+                                })
+                            })})
                     }}
                 />
                 <GWSelectItem
                     title="工作状态"
                     url="ic_center_state"
                     borderRadius={5}
+                    value={workState}
                     editable={false}
                     mTop={10}
                     onClickItem={()=>{
                         self._onClickItem(6);
                     }}
                 />
+                <View style={{width:10,height:100}}/>
 
                 {self._alertAction()}
                 {self._actionSheet()}
@@ -231,7 +276,7 @@ var styles = StyleSheet.create({
         // paddingTop:5,
         // paddingLeft:5,
         // paddingRight:5,
-        // paddingBottom:20,
+        // paddingBottom:100,
     },
     center:{
         padding:10,

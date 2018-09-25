@@ -4,13 +4,13 @@ import {
     StyleSheet,
     Text,
     View,
-    FlatList,
-    ScrollView, TouchableOpacity,
+    SectionList,
+    TouchableOpacity,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 
-export default class SalarySelect extends BaseComponent{
+export default class WorkSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
         return{
@@ -28,13 +28,15 @@ export default class SalarySelect extends BaseComponent{
     }
     componentWillMount() {
         this.props.navigation.setParams({ submit: this._submit });
+        this._loadData();
     }
         // 构造
           constructor(props) {
             super(props);
             // 初始状态
             this.state = {
-                salary:''
+                selectObject:'',
+                data:[],
             };
           }
 
@@ -42,38 +44,76 @@ export default class SalarySelect extends BaseComponent{
               let self=this;
               return(
                   <View style={styles.container}>
-                      <FlatList
-                          data={self.props.navigation.state.params.datas}
-                          renderItem={({item}) => <GWSelectItem
-                              title={item.key}
-                              hasBack={false}
-                              borderRadius={5}
-                              editable={false}
-                              onClickItem={()=>{
-                                  self.setState({
-                                      salary:item.key
-                                  });
-                              }}
-                          />}
-                      />
+                      <SectionList
+                          renderItem={self._renderItem}
+                          renderSectionHeader={self._renderSectionHeader}
+                      sections={self.state.data}
+                      keyExtractor={(item, index) => item + index}
+
+                      >
+                      </SectionList>
                   </View>
               );
           }
 
+    _renderSectionHeader=(info)=>{
+        return(
+            <GWSelectItem
+                title={info.section.name}
+                hasBack={false}
+                borderRadius={5}
+                editable={false}
+                onClickItem={()=>{
+                    self.setState({
+                        selectObject:item.name
+                    });
+                }}
+            />
+        );
+    }
+    _renderItem=(info)=>{
+        return (
+        <GWSelectItem
+            title={info.item.name}
+            key={info.index}
+            hasBack={false}
+            borderRadius={5}
+            editable={false}
+            onClickItem={()=>{
+                self.setState({
+                    selectObject:info.item.name
+                });
+            }}
+        />);
+    }
+
     _submit=()=>{
         var self = this;
         const {
-            salary
+            selectObject
         }=self.state
 
-        if (!salary){
+        if (!selectObject){
             return;
         }
-        console.log('======'+salary);
+        console.log('======'+selectObject);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(salary)
+            this.props.navigation.state.params.callback(selectObject)
         }
         this.props.navigation.goBack();
+    }
+
+    _loadData(){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.querySelectedJobType,{"workerId":0},function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self.setState({
+                data:ret,
+                // data:this.state.data.concat(ret.value),
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
     }
 
 }

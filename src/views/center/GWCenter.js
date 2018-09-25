@@ -92,7 +92,7 @@ export default class GWCenter extends BaseComponent {
                 <GWSelectItem
                     title="修改密码"
                     borderRadius={5}
-                    editable={false}
+                    editable={false}GWSelectItem
                     onClickItem={()=>{
                         self.props.navigation.navigate('ForgetPwd')
                     }}
