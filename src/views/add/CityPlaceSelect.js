@@ -5,14 +5,12 @@ import {
     Text,
     View,
     FlatList,
-    ScrollView, TouchableOpacity,
+    TouchableOpacity,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
-import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import SingleCheckBox from "./SingleCheckBox";
-import CheckBox from "./CheckBox";
 
-export default class HomePlaceSelect extends BaseComponent{
+export default class CityPlaceSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
         return{
@@ -30,7 +28,7 @@ export default class HomePlaceSelect extends BaseComponent{
     }
     componentWillMount() {
         this.props.navigation.setParams({ submit: this._submit });
-        this._loadData();
+        this._loadData(this.props.navigation.state.params.code);
     }
         // 构造
           constructor(props) {
@@ -45,26 +43,11 @@ export default class HomePlaceSelect extends BaseComponent{
 
           render(){
               let self=this;
-              console.log("selectIndex"+self.state.selectIndex);
               return(
                   <View style={styles.container}>
                       <FlatList
                           data={self.state.data}
-                          renderItem={({item,index}) =>self._renderItemView(item,index)
-
-                  /*        renderItem={({item}) => <GWSelectItem
-                              title={item.name}
-                              hasBack={false}
-                              borderRadius={5}
-                              editable={false}
-                              onClickItem={()=>{
-                                  self.setState({
-                                      selectObject:item.name
-                                  });
-                              }}
-                          />*/
-
-                          }
+                          renderItem={({item,index}) =>self._renderItemView(item,index)}
                       />
                   </View>
               );
@@ -73,8 +56,7 @@ export default class HomePlaceSelect extends BaseComponent{
         var i=0;
         let self=this;
         var j=self.state.selectIndex;
-        console.log(parseInt(index)+"---------"+parseInt(j));
-        if( parseInt(index)== parseInt(j)){
+        if(index==j){
             i=1
             console.log("选中了index===="+index);
         }
@@ -83,26 +65,12 @@ export default class HomePlaceSelect extends BaseComponent{
                 marginTop={5} text={item.name} index={index} isSelect={i} onClickItem={(index)=>{
                 console.log("index===="+index);
                 self.setState({
-                    selectIndex:index
+                    selectIndex:index,
+                    selectObject:item.name,
                 })
-                // self._toCity(item.code,index,item.name);
             }}
             />
         )
-    }
-    _toCity(code,index,prostr){
-        let self=this
-        self.props.navigation.navigate('SelectCity',{
-            code:code,
-            proStr:prostr,
-            title:'籍贯',
-            callback: ((str) => { //回调函数
-                if (self.props.navigation.state.params.callback) {
-                    self.props.navigation.state.params.callback(str,index)
-                }
-                self.props.navigation.goBack();
-            })
-           })
     }
     _submit=()=>{
         var self = this;
@@ -113,16 +81,17 @@ export default class HomePlaceSelect extends BaseComponent{
         if (!selectObject){
             return;
         }
-        console.log('======'+selectObject);
+        var str=this.props.navigation.state.params.proStr+"-"+selectObject;
+        console.log('======'+str);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(selectObject)
+            this.props.navigation.state.params.callback(str)
         }
         this.props.navigation.goBack();
     }
 
-    _loadData(){
+    _loadData(code){
         var self = this;
-        gwrequest.gw_tokenRequest(urls.queryAllProvince,{},function (ret) {
+        gwrequest.gw_tokenRequest(urls.queryAreaByParentCode,{"parentCode":code},function (ret) {
             console.log("success"+JSON.stringify(ret))
             self.setState({
                 data:ret,

@@ -32,6 +32,7 @@ export default class GWAdd extends BaseComponent {
             idCard:'',
             birthday:'',
             salary:'',
+            selectSalaryIndex:0,
             workState:'',
             homePlace:'',
             workSelect:'',
@@ -100,6 +101,7 @@ export default class GWAdd extends BaseComponent {
             workState,
             homePlace,
             workSelect,
+            selectSalaryIndex,
         }=self.state;
         return (
             <ScrollView style={styles.container}
@@ -242,9 +244,11 @@ export default class GWAdd extends BaseComponent {
                                 '>15000'
                             ],
                             title:'工资要求',
-                            callback: ((info) => { //回调函数
+                            index:selectSalaryIndex,
+                            callback: ((info,index) => { //回调函数
                                 this.setState({
-                                    salary: info
+                                    salary: info,
+                                    selectSalaryIndex:index
                                 })
                             })})
                     }}

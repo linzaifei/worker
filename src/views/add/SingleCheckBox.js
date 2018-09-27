@@ -10,26 +10,23 @@ import {
 
 import PropTypes from 'prop-types'
 
-export default class CheckBox extends Component {
+export default class SingleCheckBox extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
-            row:0,
-        }
-
     }
     static propTypes = {
-        list:PropTypes.array,
         img:PropTypes.string,
         selImg:PropTypes.string,
-        selectRow:PropTypes.number,
         marginTop:PropTypes.number,
         onClickItem:PropTypes.func,
+        text:PropTypes.string,
+        index:PropTypes.number,
+        isSelect:PropTypes.number,
     }
     static defaultProps={
         img:'ic_check',
-        selectRow:0,
+        isSelect:0,
     }
 
 
@@ -43,44 +40,38 @@ export default class CheckBox extends Component {
             onClickItem,
         }=this.props;
         onClickItem && onClickItem(index)
-        this.setState({
-            row:index,
-        })
     }
 
-    _seleted(index){
+    _seleted(){
         const {
-            img
+            img,
+            isSelect,
         }=this.props;
-        if(this.state.row == index){
+        if(isSelect === 1){
             return (
                 <Image style={styles.img} source={{uri:img}} />
             )
         }
     }
 
-    _checkList(){
+    _renderCheck(){
         const {
-            list,
             marginTop,
+            text,
+            index,
         }=this.props;
-
-        var arr = [];
-        list.map((item,index)=>{
-            arr.push(
-                <TouchableOpacity key={index} style={[styles.item,{marginTop}]} onPress={()=>{this._selIndex(index)}}>
-                    <Text style={styles.title}>{item}</Text>
-                    {this._seleted(index)}
-                </TouchableOpacity>
-            )
-        })
-        return arr;
+        return (
+            <TouchableOpacity style={[styles.item,{marginTop}]} onPress={()=>{this._selIndex(index)}}>
+                <Text style={styles.title}>{text}</Text>
+                {this._seleted()}
+            </TouchableOpacity>
+        );
     }
 
     render() {
         return (
             <View>
-                {this._checkList()}
+                {this._renderCheck()}
             </View>
         );
     }
