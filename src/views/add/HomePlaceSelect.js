@@ -39,7 +39,7 @@ export default class HomePlaceSelect extends BaseComponent{
             this.state = {
                 selectObject:'',
                 data:[],
-                selectIndex:-1,
+                selectIndex:0,
             };
           }
 
@@ -50,42 +50,29 @@ export default class HomePlaceSelect extends BaseComponent{
                   <View style={styles.container}>
                       <FlatList
                           data={self.state.data}
-                          renderItem={({item,index}) =>self._renderItemView(item,index)
-
-                  /*        renderItem={({item}) => <GWSelectItem
-                              title={item.name}
-                              hasBack={false}
-                              borderRadius={5}
-                              editable={false}
-                              onClickItem={()=>{
-                                  self.setState({
-                                      selectObject:item.name
-                                  });
-                              }}
-                          />*/
-
-                          }
+                          renderItem={({item,index}) =>self._renderItemView(item,index)}
                       />
                   </View>
               );
           }
     _renderItemView(item,index){
-        var i=0;
+
         let self=this;
-        var j=self.state.selectIndex;
-        console.log(parseInt(index)+"---------"+parseInt(j));
-        if( parseInt(index)== parseInt(j)){
-            i=1
-            console.log("选中了index===="+index);
-        }
+        // var j=;
+        // console.log(parseInt(index)+"---------"+parseInt(j));
+        // if( parseInt(index)== parseInt(j)){
+        //     i=1
+        //     console.log("选中了index===="+index);
+        // }
         return(
             <SingleCheckBox
-                marginTop={5} text={item.name} index={index} isSelect={i} onClickItem={(index)=>{
-                console.log("index===="+index);
+                marginTop={5} text={item.name} index={index} isSelect={self.state.selectIndex} onClickItem={(index)=>{
+                // console.log(index+'===='+index);
                 self.setState({
-                    selectIndex:index
+                    selectIndex:index,
+                    data:this.state.data,
                 })
-                // self._toCity(item.code,index,item.name);
+
             }}
             />
         )

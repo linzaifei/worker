@@ -9,9 +9,10 @@ import {
 import Buttom from "../../components/buttom/Buttom";
 import GWTag from "../../components/tag/GWTag";
 import EditInput from "./EditInput";
+import BaseComponent from "../../components/base/BaseComponent";
 
 
-export default class GWLogon extends Component {
+export default class GWLogon extends BaseComponent {
     static navigationOptions=({navigation})=>{
         return {
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
@@ -46,6 +47,11 @@ export default class GWLogon extends Component {
             password,
         }=self.state;
 
+        if(!telephone || !password){
+            self.dropdown.alertWithType('custom','请输入账号密码','')
+            return;
+        }
+
         var parmas = {
             userName:telephone,
             password,
@@ -59,6 +65,9 @@ export default class GWLogon extends Component {
                 console.log('=========成功了')
             })
         },function (e) {
+            if(e.msg){
+                self.dropdown.alertWithType('custom',e.msg,'')
+            }
             console.log(JSON.stringify(e))
         })
     }
@@ -133,7 +142,7 @@ export default class GWLogon extends Component {
                         this._logon()
                     }}
                 />
-
+                {this._Alert()}
 
             </View>
         );

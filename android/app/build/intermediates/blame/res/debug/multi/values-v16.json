@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+        "outputFile": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 116
                 },
                 "from": {
-                    "file": "C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\values-v16\\values-v16.xml",
+                    "file": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\values-v16\\values-v16.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -31,7 +31,52 @@
                     "endOffset": 289
                 },
                 "from": {
-                    "file": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\values-v16\\values-v16.xml",
+                    "file": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\values-v16\\values-v16.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 223
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 65,
+                    "endOffset": 116
+                },
+                "from": {
+                    "file": "/Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/res/values-v16/values-v16.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 65,
+                        "endOffset": 116
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 121,
+                    "endLine": 6,
+                    "endColumn": 12,
+                    "endOffset": 289
+                },
+                "from": {
+                    "file": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/values-v16/values-v16.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

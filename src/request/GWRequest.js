@@ -12,6 +12,7 @@ import {
 
 function gw_request(url,parmas,success,fail,method='GET',token=null) {
     url = getUrlStr(url,parmas)
+    console.log(JSON.stringify(url))
     fetch(url,{
         method:'GET',
         headers:{

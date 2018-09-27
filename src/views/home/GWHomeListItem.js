@@ -17,6 +17,7 @@ export default class GWHomeListItem extends Component {
         name:PropTypes.string,
         job:PropTypes.string,
         state:PropTypes.number,
+        marginTop:PropTypes.number,
         time:PropTypes.string,
     }
 
@@ -27,10 +28,18 @@ export default class GWHomeListItem extends Component {
         }=this.props;
         switch (state){
             case 0:
-                return (<GWTag url='ic_home_not_found' title="找工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />)
+                return (
+                    <View style={{flexDirection:ROW,justifyContent:FLEXEND}}>
+                        <GWTag url='ic_home_not_found' title="找工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />
+                    </View>
+                )
                 break;
             case 1:
-                return (<GWTag url='ic_home_found' title="工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />)
+                return (
+                    <View style={{flexDirection:ROW,justifyContent:FLEXEND}}>
+                        <GWTag url='ic_home_found' title="工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />
+                    </View>
+                )
                 break;
         }
     }
@@ -42,9 +51,10 @@ export default class GWHomeListItem extends Component {
             name,
             job,
             time,
+            marginTop,
         }=this.props;
         return (
-            <TouchableOpacity style={styles.container}>
+            <TouchableOpacity style={[styles.container,{marginTop}]}>
                 <View style={styles.left}>
                     <Text style={styles.title}>{name}</Text>
                     <Text style={styles.job}>{job}</Text>
@@ -77,5 +87,5 @@ var styles = StyleSheet.create({
         fontSize:13,
         color:'#808080',
         marginTop:8,
-    }
+    },
 });

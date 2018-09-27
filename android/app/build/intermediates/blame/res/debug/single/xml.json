@@ -1,6 +1,10 @@
 [
     {
-        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
-        "source": "C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\xml\\preferences.xml"
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/linzaifei/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\041a9e2f2d67b1f89d2f6583d036638922c6592a\\output\\res\\xml\\preferences.xml"
     }
 ]

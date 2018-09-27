@@ -1,6 +1,10 @@
 [
     {
-        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v21\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v21\\abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\\output\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/color-v21/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/res/color-v21/abc_btn_colored_borderless_text_material.xml"
     }
 ]

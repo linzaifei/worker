@@ -27,6 +27,7 @@ export default class SingleCheckBox extends Component {
     static defaultProps={
         img:'ic_check',
         isSelect:0,
+        index:0,
     }
 
 
@@ -46,8 +47,10 @@ export default class SingleCheckBox extends Component {
         const {
             img,
             isSelect,
+            index,
         }=this.props;
-        if(isSelect === 1){
+        console.log('index='+ index +'======'+'isSelect='+isSelect)
+        if(isSelect === index){
             return (
                 <Image style={styles.img} source={{uri:img}} />
             )
