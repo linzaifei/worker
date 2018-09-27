@@ -36,6 +36,7 @@ export default class GWLogon extends Component {
                 })
             }
         })
+        this.pwd._setSecureTextEntry();
     }
 
     _logon(){
@@ -85,11 +86,11 @@ export default class GWLogon extends Component {
         }=this.state
         return (
             <View style={styles.container}>
-                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:40}}>
+                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:30}}>
                     <GWTag size={18} iconWidth={100}iconHeight={100} space={10} color="#fff" url="logo" title="国文人力资源" ps="top"/>
                 </View>
 
-                <View style={{marginTop:96,marginLeft:15,marginRight:15}}>
+                <View style={{marginTop:76,marginLeft:15,marginRight:15}}>
                     <EditInput ref={a=>this.tel=a}
                                padding={2}
                                value={telephone}
@@ -122,7 +123,7 @@ export default class GWLogon extends Component {
                 <Buttom
                     title="登  录"
                     backgroundColor="#fff"
-                    marginTop={90}
+                    marginTop={60}
                     marginLeft={15}
                     marginRight={15}
                     borderRadius={20}

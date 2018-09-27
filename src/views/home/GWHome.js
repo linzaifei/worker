@@ -7,9 +7,9 @@ import {
     DeviceEventEmitter,
 } from 'react-native';
 
-import ScrollableTabView,{DefaultTabBar,ScrollableTabBar} from 'react-native-scrollable-tab-view'
+import ScrollableTabView ,{ScrollableTabBar}from 'react-native-scrollable-tab-view'
 import GWTag from "../../components/tag/GWTag";
-
+import  GWHomeList from './GWHomeList'
 export default class GWHome extends Component {
 
     static navigationOptions=({navigation})=>{
@@ -38,24 +38,30 @@ export default class GWHome extends Component {
         })
     }
 
+    _titles(){
+        var titles = ['全部','今天','最近1月','最近3月','最近半年']
+        var chilens = [];
+        titles.map((item,index)=>{
+            chilens.push(
+                <View key={index} tabLabel={item}style={{padding:5}} >
+                    <GWHomeList page={index} navigation={this.props.navigation} />
+                </View>
+            )
+        })
+        return chilens
+    }
+
     render() {
         return (
-            <View>
-                <ScrollableTabView tabBarUnderlineStyle={{
-                    backgroundColor: '#fff',
-                    height: 2,
-                    marginBottom:10,
-                }} locked={false} tabBarActiveTextColor='#fff' tabBarInactiveTextColor='#fff' tabBarBackgroundColor= {defaultColor}
-                                   renderTabBar={() => <ScrollableTabBar />}
-                >
-                    <View tabLabel='全部' navigation={this.props.navigation} />
-                    <View tabLabel='今天' navigation={this.props.navigation} />
-                    <View tabLabel='最近1月' navigation={this.props.navigation} />
-                    <View tabLabel='最近3月' navigation={this.props.navigation} />
-                    <View tabLabel='最近半年' navigation={this.props.navigation} />
-                </ScrollableTabView>
-
-            </View>
+            <ScrollableTabView tabBarUnderlineStyle={{
+                backgroundColor: '#fff',
+                height: 2,
+                marginBottom:4,
+            }} locked={false}  tabBarActiveTextColor='#fff' tabBarInactiveTextColor='#fff' tabBarBackgroundColor= {defaultColor}
+                               renderTabBar={() => <ScrollableTabBar />}
+            >
+                {this._titles()}
+            </ScrollableTabView>
         );
     }
 
