@@ -36,17 +36,20 @@ export default class SalarySelect extends BaseComponent{
             // 初始状态
             this.state = {
                 salary:'',
+                selectSalaryIndex:0,
             };
           }
 
           render(){
               let self=this;
               var datas = self.props.navigation.state.params.datas;
+              var selectIndex=self.props.navigation.state.params.index;
               return(
                   <ScrollView style={styles.container}>
-                      <CheckBox list={datas} marginTop={5}  onClickItem={(index)=>{
+                      <CheckBox list={datas} marginTop={5} selectRow={selectIndex} onClickItem={(index)=>{
                             self.setState({
-                                salary:datas[index]
+                                salary:datas[index],
+                                selectSalaryIndex:index,
                             })
                       }} />
                   </ScrollView>
@@ -56,15 +59,16 @@ export default class SalarySelect extends BaseComponent{
     _submit=()=>{
         var self = this;
         const {
-            salary
+            salary,
+            selectSalaryIndex
         }=self.state
 
         if (!salary){
             return;
         }
-        console.log('======'+salary);
+        console.log('======'+salary+"==="+selectSalaryIndex);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(salary)
+            this.props.navigation.state.params.callback(salary,selectSalaryIndex)
         }
         this.props.navigation.goBack();
     }
