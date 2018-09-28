@@ -47,6 +47,7 @@ export default class CityPlaceSelect extends BaseComponent{
                   <View style={styles.container}>
                       <FlatList
                           data={self.state.data}
+                          extraData={self.state}
                           renderItem={({item,index}) =>self._renderItemView(item,index)}
                       />
                   </View>

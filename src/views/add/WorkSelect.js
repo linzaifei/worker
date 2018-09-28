@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
+import ExpanableList from 'react-native-expandable-section-flatlist';
+
 
 export default class WorkSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
@@ -44,22 +46,22 @@ export default class WorkSelect extends BaseComponent{
               let self=this;
               return(
                   <View style={styles.container}>
-                      <SectionList
-                          renderItem={self._renderItem}
-                          renderSectionHeader={self._renderSectionHeader}
-                      sections={self.state.data}
-                      keyExtractor={(item, index) => item + index}
-
+                      <ExpanableList
+                          dataSource={self.state.data}
+                          headerKey="name"
+                          memberKey="children"
+                          renderRow={self._renderItem}
+                          renderSectionHeaderX={self._renderSectionHeader}
                       >
-                      </SectionList>
+                      </ExpanableList>
                   </View>
               );
           }
 
-    _renderSectionHeader=(info)=>{
+    _renderSectionHeader=(section, sectionId)=>{
         return(
             <GWSelectItem
-                title={info.section.name}
+                title={section}
                 hasBack={false}
                 borderRadius={5}
                 editable={false}
@@ -71,11 +73,10 @@ export default class WorkSelect extends BaseComponent{
             />
         );
     }
-    _renderItem=(info)=>{
+    _renderItem=(rowItem, rowId, sectionId)=>{
         return (
         <GWSelectItem
-            title={info.item.name}
-            key={info.index}
+            title={rowItem.name}
             hasBack={false}
             borderRadius={5}
             editable={false}
@@ -106,6 +107,9 @@ export default class WorkSelect extends BaseComponent{
     _loadData(){
         var self = this;
         gwrequest.gw_tokenRequest(urls.querySelectedJobType,{"workerId":0},function (ret) {
+            for(let i=0;i<ret.length;i++){
+                ret[i].data= ret[i].children;
+            }
             console.log("success"+JSON.stringify(ret))
             self.setState({
                 data:ret,

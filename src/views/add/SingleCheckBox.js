@@ -46,6 +46,7 @@ export default class SingleCheckBox extends Component {
         const {
             img,
             isSelect,
+            index,
         }=this.props;
         if(isSelect === 1){
             return (

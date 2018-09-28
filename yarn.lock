@@ -4144,6 +4144,12 @@ react-native-dropdownalert@^3.5.0:
   dependencies:
     prop-types "15.5.10"
 
+react-native-expandable-section-flatlist@^1.1.7:
+  version "1.1.7"
+  resolved "http://registry.npm.taobao.org/react-native-expandable-section-flatlist/download/react-native-expandable-section-flatlist-1.1.7.tgz#7db8593925078d3ea24590a07d567cdf0413ffb6"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-native-picker@^4.3.7:
   version "4.3.7"
   resolved "http://registry.npm.taobao.org/react-native-picker/download/react-native-picker-4.3.7.tgz#9842e8c62ff0d8b676e9514d9f9172413c0518a8"
