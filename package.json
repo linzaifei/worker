@@ -11,6 +11,7 @@
     "react-native": "0.57.0",
     "react-native-actionsheet": "^2.4.2",
     "react-native-dropdownalert": "^3.5.0",
+    "react-native-expandable-section-flatlist": "^1.1.7",
     "react-native-picker": "^4.3.7",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-storage": "^0.2.2",

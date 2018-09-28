@@ -29,6 +29,7 @@ export default class SalarySelect extends BaseComponent{
     }
     componentWillMount() {
         this.props.navigation.setParams({ submit: this._submit });
+        this._loadData();
     }
         // 构造
           constructor(props) {
@@ -37,18 +38,18 @@ export default class SalarySelect extends BaseComponent{
             this.state = {
                 salary:'',
                 selectSalaryIndex:0,
+                data:[],
             };
           }
 
           render(){
               let self=this;
-              var datas = self.props.navigation.state.params.datas;
               var selectIndex=self.props.navigation.state.params.index;
               return(
                   <ScrollView style={styles.container}>
-                      <CheckBox list={datas} marginTop={5} selectRow={selectIndex} onClickItem={(index)=>{
+                      <CheckBox list={self.state.data} marginTop={5} selectRow={selectIndex} onClickItem={(index)=>{
                             self.setState({
-                                salary:datas[index],
+                                salary:self.state.data[index].name,
                                 selectSalaryIndex:index,
                             })
                       }} />
@@ -73,6 +74,17 @@ export default class SalarySelect extends BaseComponent{
         this.props.navigation.goBack();
     }
 
+    _loadData(){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.queryDicByType,{"type":"expect_salary"},function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self.setState({
+                data:ret,
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
 }
 
 var styles = StyleSheet.create({

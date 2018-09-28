@@ -69,7 +69,7 @@ export default class CheckBox extends Component {
         list.map((item,index)=>{
             arr.push(
                 <TouchableOpacity key={index} style={[styles.item,{marginTop}]} onPress={()=>{this._selIndex(index)}}>
-                    <Text style={styles.title}>{item}</Text>
+                    <Text style={styles.title}>{item.name}</Text>
                     {this._seleted(index)}
                 </TouchableOpacity>
             )

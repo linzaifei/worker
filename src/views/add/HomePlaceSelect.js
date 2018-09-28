@@ -21,58 +21,51 @@ export default class HomePlaceSelect extends BaseComponent{
                     <Text style={{fontSize:16,color:'#fff'}}>{params.title}</Text>
                 </View>
             ),
-            headerRight:(
-                <TouchableOpacity onPress={params.submit}>
-                    <Text style={{fontSize:15,color:'#fff',marginRight:15}}>完成</Text>
-                </TouchableOpacity>
-            )
         }
     }
     componentWillMount() {
-        this.props.navigation.setParams({ submit: this._submit });
         this._loadData();
     }
-        // 构造
-          constructor(props) {
-            super(props);
-            // 初始状态
-            this.state = {
-                selectObject:'',
-                data:[],
-                selectIndex:0,
-            };
-          }
+    // 构造
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            selectObject:'',
+            data:[],
+            lastSelectIndex:-1,
+        };
+    }
 
-          render(){
-              let self=this;
-              console.log("selectIndex"+self.state.selectIndex);
-              return(
-                  <View style={styles.container}>
-                      <FlatList
-                          data={self.state.data}
-                          renderItem={({item,index}) =>self._renderItemView(item,index)}
-                      />
-                  </View>
-              );
-          }
-    _renderItemView(item,index){
-
+    render(){
         let self=this;
-        // var j=;
-        // console.log(parseInt(index)+"---------"+parseInt(j));
-        // if( parseInt(index)== parseInt(j)){
-        //     i=1
-        //     console.log("选中了index===="+index);
-        // }
+        return(
+            <View style={styles.container}>
+                <FlatList
+                    data={self.state.data}
+                    extraData={self.state}
+                    renderItem={({item,index}) =>self._renderItemView(item,index)
+                    }
+                />
+            </View>
+        );
+    }
+    _renderItemView(item,index){
+        let self=this;
         return(
             <SingleCheckBox
-                marginTop={5} text={item.name} index={index} isSelect={self.state.selectIndex} onClickItem={(index)=>{
-                // console.log(index+'===='+index);
+                marginTop={5} text={item.name} index={index} isSelect={item.isselect} onClickItem={(index)=>{
+                self._toCity(item.code,index,item.name);
+                var lastIndex=self.state.lastSelectIndex;
+                const tempdata=self.state.data;
+                if(lastIndex!=-1){
+                    tempdata[lastIndex].isselect=-1;
+                }
+                tempdata[index].isselect=1;
                 self.setState({
-                    selectIndex:index,
-                    data:this.state.data,
+                    lastSelectIndex:index,
+                    data:tempdata
                 })
-
             }}
             />
         )
@@ -89,31 +82,16 @@ export default class HomePlaceSelect extends BaseComponent{
                 }
                 self.props.navigation.goBack();
             })
-           })
+        })
     }
-    _submit=()=>{
-        var self = this;
-        const {
-            selectObject
-        }=self.state
-
-        if (!selectObject){
-            return;
-        }
-        console.log('======'+selectObject);
-        if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(selectObject)
-        }
-        this.props.navigation.goBack();
-    }
-
     _loadData(){
         var self = this;
         gwrequest.gw_tokenRequest(urls.queryAllProvince,{},function (ret) {
-            console.log("success"+JSON.stringify(ret))
+            for(var i=0;i<ret.length;i++){
+                ret[i].isselect=-1;
+            }
             self.setState({
                 data:ret,
-                // data:this.state.data.concat(ret.value),
             })
         },function (e) {
             console.log(JSON.stringify(e))

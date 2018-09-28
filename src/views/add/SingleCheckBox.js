@@ -47,10 +47,8 @@ export default class SingleCheckBox extends Component {
         const {
             img,
             isSelect,
-            index,
         }=this.props;
-        console.log('index='+ index +'======'+'isSelect='+isSelect)
-        if(isSelect === index){
+        if(isSelect === 1){
             return (
                 <Image style={styles.img} source={{uri:img}} />
             )

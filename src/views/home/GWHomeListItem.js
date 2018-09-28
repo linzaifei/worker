@@ -19,6 +19,7 @@ export default class GWHomeListItem extends Component {
         state:PropTypes.number,
         marginTop:PropTypes.number,
         time:PropTypes.string,
+        onClickItem:PropTypes.func,
     }
 
 
@@ -52,9 +53,12 @@ export default class GWHomeListItem extends Component {
             job,
             time,
             marginTop,
+            onClickItem,
         }=this.props;
         return (
-            <TouchableOpacity style={[styles.container,{marginTop}]}>
+            <TouchableOpacity style={[styles.container,{marginTop}]} onPress={()=>{
+                onClickItem && onClickItem()
+            }}>
                 <View style={styles.left}>
                     <Text style={styles.title}>{name}</Text>
                     <Text style={styles.job}>{job}</Text>
