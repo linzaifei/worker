@@ -26,46 +26,46 @@ export default class HomePlaceSelect extends BaseComponent{
     componentWillMount() {
         this._loadData();
     }
-        // 构造
-          constructor(props) {
-            super(props);
-            // 初始状态
-            this.state = {
-                selectObject:'',
-                data:[],
-                lastSelectIndex:-1,
-            };
-          }
+    // 构造
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            selectObject:'',
+            data:[],
+            lastSelectIndex:-1,
+        };
+    }
 
-          render(){
-              let self=this;
-              return(
-                  <View style={styles.container}>
-                      <FlatList
-                          data={self.state.data}
-                          extraData={self.state}
-                          renderItem={({item,index}) =>self._renderItemView(item,index)
-                          }
-                      />
-                  </View>
-              );
-          }
+    render(){
+        let self=this;
+        return(
+            <View style={styles.container}>
+                <FlatList
+                    data={self.state.data}
+                    extraData={self.state}
+                    renderItem={({item,index}) =>self._renderItemView(item,index)
+                    }
+                />
+            </View>
+        );
+    }
     _renderItemView(item,index){
         let self=this;
         return(
             <SingleCheckBox
                 marginTop={5} text={item.name} index={index} isSelect={item.isselect} onClickItem={(index)=>{
-                    self._toCity(item.code,index,item.name);
-                    var lastIndex=self.state.lastSelectIndex
-                    const tempdata=self.state.data;
-                    if(lastIndex!=-1){
-                        tempdata[lastIndex].isselect=-1;
-                    }
-                    tempdata[index].isselect=1;
-                    self.setState({
-                        lastSelectIndex:index,
-                        data:tempdata
-                    })
+                self._toCity(item.code,index,item.name);
+                var lastIndex=self.state.lastSelectIndex
+                const tempdata=self.state.data;
+                if(lastIndex!=-1){
+                    tempdata[lastIndex].isselect=-1;
+                }
+                tempdata[index].isselect=1;
+                self.setState({
+                    lastSelectIndex:index,
+                    data:tempdata
+                })
             }}
             />
         )
@@ -82,7 +82,7 @@ export default class HomePlaceSelect extends BaseComponent{
                 }
                 self.props.navigation.goBack();
             })
-           })
+        })
     }
     _loadData(){
         var self = this;

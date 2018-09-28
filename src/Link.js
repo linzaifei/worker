@@ -16,6 +16,8 @@ export default {
     queryAllProvince: `${host}/common/queryAllProvince`,// 查询省份
     queryAreaByParentCode: `${host}/common/queryAreaByParentCode`,// 查询省份地区子集
     querySelectedJobType: `${host}/app/worker/querySelectedJobType`,// 工种树
+    list: `${host}/app/worker/list`,// 人才信息列表
+
 
 
 }

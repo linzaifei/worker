@@ -73,14 +73,6 @@ export default class EditInput extends Component {
     }
 
 
-
-
-
-    _chengeImg(img){
-        this.setState({
-            img,
-        })
-    }
     _onChange(e){
         const {
             onTextChange,
@@ -89,6 +81,11 @@ export default class EditInput extends Component {
     }
 
 
+    _setSecureTextEntry(){
+        this.setState({
+            secureTextEntry:true,
+        })
+    }
 
     _leftView(){
         const {

@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 
 import ZFBaseComponent from './BaseComponent'
-import ZFButton from "../Button/ZFButton";
 
-export default class ZFBaseListComponent extends ZFBaseComponent {
+
+export default class BaseListComponent extends ZFBaseComponent {
     constructor(props) {
         super(props);
         this.state={
@@ -43,9 +43,11 @@ export default class ZFBaseListComponent extends ZFBaseComponent {
 
     //正在刷新
      _onRefresh(){
-
         var self = this;
-        if (self.state.haveRefresh){
+         const {
+             haveRefresh,
+         }=this.state;
+        if (haveRefresh){
             self.setState({
                 isRefreshing:true,
                 pageNumber:1
@@ -58,9 +60,14 @@ export default class ZFBaseListComponent extends ZFBaseComponent {
     //上拉加载
      _endReflash(){
         var self = this;
-       if (self.state.hasData && self.state.haveRefresh){
+         const {
+             hasData,
+             haveRefresh,
+             pageNumber,
+         }=this.state;
+       if (hasData && haveRefresh){
            self.setState({
-               pageNumber: this.state.pageNumber +1,
+               pageNumber: pageNumber +1,
            },()=>{
                 self._loadData();
             })
@@ -77,8 +84,6 @@ export default class ZFBaseListComponent extends ZFBaseComponent {
 
     }
 
-
-
     //更多试图
     _moreInfo(){
 
@@ -86,7 +91,10 @@ export default class ZFBaseListComponent extends ZFBaseComponent {
 
     //尾试图
     _listFoot(){
-        if(!this.state.hasData){
+        const {
+            hasData,
+        }=this.state;
+        if(!hasData){
             return(
                 <View style={{height:30,alignItems:CENTER,justifyContent:FLEXSTART,}}>
                     <Text style={{color:smColor,fontSize:14,marginTop:5,marginBottom:5,}}>
@@ -99,29 +107,32 @@ export default class ZFBaseListComponent extends ZFBaseComponent {
     _keyExtractor = (item, index) => String(index);
 
     render() {
-        if(this.state.dataArr.length == 0){
+        const {
+            dataArr,
+            isRefreshing,
+        }=this.state;
+
+        if(dataArr.length == 0){
             return (
                 <View style={{height:SCREEN_HEIGHT-250,alignItems:CENTER,justifyContent:CENTER}}>
                     {this._nullView()}
-                    {this._HUD()}
                 </View>
             )
         }else {
             return (
                 <View>
                     <FlatList
-                        data = {this.state.dataArr}
+                        data = {dataArr}
                         keyExtractor={this._keyExtractor}
                         renderItem = {({item,index})=> this._itemCell(item,index)}
                         onRefresh = {this._reflashView.bind(this)}
-                        refreshing = {this.state.isRefreshing}
+                        refreshing = {isRefreshing}
                         onEndReachedThreshold={0.5}
                         initialNumToRender={4}
                         ListHeaderComponent={this._listHeader()}
                         ListFooterComponent={this._listFoot()}
                         onEndReached={this._endReflash.bind(this)}
                     />
-                    {this._HUD()}
                     {this._moreInfo()}
                 </View>
             );
