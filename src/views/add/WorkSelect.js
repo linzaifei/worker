@@ -5,11 +5,12 @@ import {
     Text,
     View,
     SectionList,
-    TouchableOpacity,
+    TouchableOpacity, FlatList,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import ExpanableList from 'react-native-expandable-section-flatlist';
+import SingleCheckBox from "./SingleCheckBox";
 
 
 export default class WorkSelect extends BaseComponent{
@@ -47,6 +48,7 @@ export default class WorkSelect extends BaseComponent{
               return(
                   <View style={styles.container}>
                       <ExpanableList
+                          ref={ref => self.expanlist = ref}
                           dataSource={self.state.data}
                           headerKey="name"
                           memberKey="children"
@@ -59,6 +61,7 @@ export default class WorkSelect extends BaseComponent{
           }
 
     _renderSectionHeader=(section, sectionId)=>{
+        let self=this;
         return(
             <GWSelectItem
                 title={section}
@@ -66,26 +69,35 @@ export default class WorkSelect extends BaseComponent{
                 borderRadius={5}
                 editable={false}
                 onClickItem={()=>{
-                    self.setState({
-                        selectObject:item.name
-                    });
+                    self.expanlist.setSectionState(sectionId,!self.expanlist.state.memberOpened.get(sectionId));
+                    // self.setState({
+                    //     selectObject:item.name
+                    // });
                 }}
             />
         );
     }
     _renderItem=(rowItem, rowId, sectionId)=>{
-        return (
-        <GWSelectItem
-            title={rowItem.name}
-            hasBack={false}
-            borderRadius={5}
-            editable={false}
-            onClickItem={()=>{
+        let self=this;
+        return(
+            <SingleCheckBox
+                marginTop={5} text={rowItem.name} index={rowId} isSelect={rowItem.selected} onClickItem={()=>{
+                if( rowItem.selected==1){
+                    rowItem.selected=0;
+                }else{
+                    rowItem.selected=1;
+                }
+                const tempdata=self.state.data;
+                console.log("2222"+JSON.stringify(tempdata));
+                console.log("rowId"+rowId+"sectionId"+sectionId);
+                tempdata[sectionId].children[rowId]=rowItem;
+                console.log("111"+JSON.stringify(tempdata));
                 self.setState({
-                    selectObject:info.item.name
-                });
+                    data:tempdata
+                })
             }}
-        />);
+            />
+        )
     }
 
     _submit=()=>{
@@ -107,9 +119,6 @@ export default class WorkSelect extends BaseComponent{
     _loadData(){
         var self = this;
         gwrequest.gw_tokenRequest(urls.querySelectedJobType,{"workerId":0},function (ret) {
-            for(let i=0;i<ret.length;i++){
-                ret[i].data= ret[i].children;
-            }
             console.log("success"+JSON.stringify(ret))
             self.setState({
                 data:ret,

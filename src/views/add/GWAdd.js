@@ -29,14 +29,64 @@ export default class GWAdd extends BaseComponent {
         this.state = {
             name:'',
             sexStr:'',
+            sexCode:-1,
             idCard:'',
             birthday:'',
             salary:'',
             selectSalaryIndex:0,
             workState:'',
+            workStatusCode:-1,
             homePlace:'',
             workSelect:'',
 
+        }
+    }
+
+    _loadChooiceData(selectIndex,type){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.queryDicByType,{"type":type},function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self._showOptions(selectIndex,ret);
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
+
+    _showOptions(selectIndex,ret){
+        var  self = this;
+        switch (selectIndex){
+            case 0:
+                var options = [];
+                for(let i=0;i<ret.length;i++){
+                    options.push(ret[i].name);
+                }
+                options.push('取消');
+                self.actionSheet.show('性别选择',options,ret.length,function (index) {
+                    if(index != ret.length){
+                        self.setState({
+                            // sex:options[index] == '男' ?'00003-1':'00003-2',
+                            sexCode:ret[index].code,
+                            sexStr:options[index]+'性',
+                        })
+                    }
+                })
+                break;
+            case 6:
+                var options = [];
+                for(let i=0;i<ret.length;i++){
+                    options.push(ret[i].name);
+                }
+                options.push('取消');
+                self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
+                    if(index != 2){
+                        self.setState({
+                            // sex:options[index] == '男' ?'00003-1':'00003-2',
+                            workState:options[index],
+                            workStatusCode:ret[index].code,
+                        })
+                    }
+                })
+                break;
         }
     }
 
@@ -44,15 +94,7 @@ export default class GWAdd extends BaseComponent {
         var  self = this;
         switch (index){
             case 0://性别
-                var options = ['男','女','取消'];
-                self.actionSheet.show('性别选择',options,2,function (index) {
-                    if(index != 2){
-                        self.setState({
-                            // sex:options[index] == '男' ?'00003-1':'00003-2',
-                            sexStr:options[index]+'性',
-                        })
-                    }
-                })
+                self._loadChooiceData(index,'gender');
                 break;
             case 1://出生日期
                 Picker.showDatePicker('出生日期',true,function (value,index) {
@@ -76,15 +118,7 @@ export default class GWAdd extends BaseComponent {
 
                 break;
             case 6:
-                var options = ['在职','离职','取消'];
-                self.actionSheet.show('工作状态选择',options,2,function (index) {
-                    if(index != 2){
-                        self.setState({
-                            // sex:options[index] == '男' ?'00003-1':'00003-2',
-                            workState:options[index],
-                        })
-                    }
-                })
+                self._loadChooiceData(index,'work_status');
                 break;
         }
     }
@@ -271,7 +305,6 @@ export default class GWAdd extends BaseComponent {
             </ScrollView>
         );
     }
-
 }
 
 var styles = StyleSheet.create({

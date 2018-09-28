@@ -56,7 +56,7 @@ export default class HomePlaceSelect extends BaseComponent{
             <SingleCheckBox
                 marginTop={5} text={item.name} index={index} isSelect={item.isselect} onClickItem={(index)=>{
                 self._toCity(item.code,index,item.name);
-                var lastIndex=self.state.lastSelectIndex
+                var lastIndex=self.state.lastSelectIndex;
                 const tempdata=self.state.data;
                 if(lastIndex!=-1){
                     tempdata[lastIndex].isselect=-1;
