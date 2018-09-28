@@ -4,7 +4,7 @@ import {
     StyleSheet,
     Text,
     View,
-    ScrollView,
+    ScrollView, TouchableOpacity,
 } from 'react-native';
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import GWTag from "../../components/tag/GWTag";
@@ -14,12 +14,18 @@ import BaseComponent from "../../components/base/BaseComponent";
 
 export default class GWAdd extends BaseComponent {
     static navigationOptions=({navigation})=>{
+        const params = navigation.state.params || {};
         return{
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
             headerTitle:(
                 <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
                 <Text style={{fontSize:16,color:'#fff'}}>添加</Text>
                 </View>
+            ),
+            headerRight:(
+                <TouchableOpacity onPress={params.submit}>
+                    <Text style={{fontSize:15,color:'#fff',marginRight:15}}>完成</Text>
+                </TouchableOpacity>
             )
         }
     }
@@ -30,16 +36,90 @@ export default class GWAdd extends BaseComponent {
             name:'',
             sexStr:'',
             sexCode:-1,
+            tel:'',
             idCard:'',
             birthday:'',
+            homePlace:'',
+            homeCode:-1,
+            workYear:'',
+            workWill:'',
             salary:'',
-            selectSalaryIndex:0,
+            salaryCode:-1,
+            selectSalaryIndex:-1,
+
             workState:'',
             workStatusCode:-1,
-            homePlace:'',
             workSelect:'',
 
         }
+    }
+
+    componentWillMount() {
+        this.props.navigation.setParams({ submit: this._submit });
+    }
+
+    _submit=()=>{
+        var self = this;
+        const {
+            name,
+            sexStr,
+            sexCode,
+            tel,
+            idCard,
+            birthday,
+            homePlace,
+            homeCode,
+            workYear,
+            workWill,
+            salary,
+            salaryCode,
+
+            workState,
+            workSelect,
+            selectSalaryIndex,
+        }=self.state;
+        if(!name){
+            self._showWarnAler('请输入姓名');
+            return;
+        }
+        if(!sexStr || sexCode==-1){
+            self._showWarnAler('请选择性别');
+            return;
+        }
+        if(!tel || tel.length!=11){
+            self._showWarnAler('请输入合法电话号码');
+            return;
+        }
+        if(!idCard){
+            self._showWarnAler('请输入身份证号码');
+            return;
+        }
+        if(!birthday){
+            self._showWarnAler('请选择出生日期');
+            return;
+        }
+        if(!homePlace || homeCode==-1){
+            self._showWarnAler('请选择籍贯');
+            return;
+        }
+        if(!workYear){
+            self._showWarnAler('请输入工作年限');
+            return;
+        }
+        if(!workWill){
+            self._showWarnAler('请输入工作意志');
+            return;
+        }
+        if(!salary || salaryCode==-1){
+            self._showWarnAler('请选择工资要求');
+            return;
+        }
+
+    }
+
+    _showWarnAler(title){
+        let self=this;
+        self.dropdown.alertWithType('custom',title,'');
     }
 
     _loadChooiceData(selectIndex,type){
@@ -127,9 +207,7 @@ export default class GWAdd extends BaseComponent {
     render() {
         var self = this;
         const {
-            name,
             sexStr,
-            idCard,
             birthday,
             salary,
             workState,
@@ -175,7 +253,9 @@ export default class GWAdd extends BaseComponent {
                     max={11}
                     borderRadius={5}
                     onTextChange={(text)=>{
-
+                        self.setState({
+                            tel:text
+                        })
                     }}
                 />
                 <GWSelectItem
@@ -187,7 +267,9 @@ export default class GWAdd extends BaseComponent {
                     max={18}
                     borderRadius={5}
                     onTextChange={(text)=>{
-
+                        self.setState({
+                            idCard:text
+                        })
                     }}
                 />
                 <GWSelectItem
@@ -209,9 +291,10 @@ export default class GWAdd extends BaseComponent {
                     onClickItem={()=>{
                         self.props.navigation.navigate('SelectHomePlace',{
                             title:'籍贯',
-                            callback: ((info) => { //回调函数
+                            callback: ((info,code) => { //回调函数
                                 this.setState({
-                                    homePlace: info
+                                    homePlace: info,
+                                    homeCode:code,
                                 })
                             })})
                     }}
@@ -228,13 +311,21 @@ export default class GWAdd extends BaseComponent {
                     mTop={10}
                     borderRadius={5}
                     onTextChange={(text)=>{
-
+                        self.setState({
+                            workYear:text
+                        })
                     }}
                 />
 
                 <View style={styles.center}>
                     <GWTag url='ic_center_yx' title="工作意志" iconWidth={20} space={5}size={15}iconHeight={20} />
-                    <InputView placeholder="请填写你的工作意志(500字以内)" max={500} height={100}/>
+                    <InputView placeholder="请填写你的工作意志(500字以内)" max={500} height={100}
+                               onChange={(text)=>{
+                                   self.setState({
+                                       workWill:text
+                                   })
+                               }}
+                    />
                 </View>
 
                 <GWSelectItem
@@ -270,19 +361,13 @@ export default class GWAdd extends BaseComponent {
                     value={salary}
                     onClickItem={()=>{
                         self.props.navigation.navigate('SelectSalary',{
-                            datas:[
-                                 '3000～5000',
-                                 '5000～8000',
-                                 '8000～10000',
-                                 '10000～15000',
-                                '>15000'
-                            ],
                             title:'工资要求',
                             index:selectSalaryIndex,
-                            callback: ((info,index) => { //回调函数
+                            callback: ((info,index,code) => { //回调函数
                                 this.setState({
                                     salary: info,
-                                    selectSalaryIndex:index
+                                    selectSalaryIndex:index,
+                                    salaryCode:code
                                 })
                             })})
                     }}
@@ -302,6 +387,7 @@ export default class GWAdd extends BaseComponent {
 
                 {self._alertAction()}
                 {self._actionSheet()}
+                {this._Alert()}
             </ScrollView>
         );
     }

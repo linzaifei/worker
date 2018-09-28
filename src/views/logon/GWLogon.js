@@ -142,7 +142,7 @@ export default class GWLogon extends BaseComponent {
                         this._logon()
                     }}
                 />
-                {this._Alert()}
+                {this._Alert('#ffffff')}
 
             </View>
         );

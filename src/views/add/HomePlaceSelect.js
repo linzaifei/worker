@@ -76,9 +76,9 @@ export default class HomePlaceSelect extends BaseComponent{
             code:code,
             proStr:prostr,
             title:'籍贯',
-            callback: ((str) => { //回调函数
+            callback: ((str,code) => { //回调函数
                 if (self.props.navigation.state.params.callback) {
-                    self.props.navigation.state.params.callback(str,index)
+                    self.props.navigation.state.params.callback(str,index,code)
                 }
                 self.props.navigation.goBack();
             })
