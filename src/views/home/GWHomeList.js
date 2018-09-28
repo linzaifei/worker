@@ -41,7 +41,7 @@ export default class GWHomeList extends BaseListComponent {
         var  year = date.getFullYear();
         var  month = date.getMonth() >9?date.getMonth() :'0'+date.getMonth();
         var  day = date.getDay()>9?date.getDay():'0'+date.getDay();
-        
+
         var  hours = date.getHours()>9?date.getHours():'0'+date.getHours();
         var  minutes = date.getMinutes()>9?date.getMinutes():'0'+date.getMinutes();
         var  seconds = date.getSeconds()>9?date.getSeconds():'0'+date.getSeconds();
