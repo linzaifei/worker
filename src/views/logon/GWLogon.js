@@ -48,7 +48,7 @@ export default class GWLogon extends BaseComponent {
         }=self.state;
 
         if(!telephone || !password){
-            self.dropdown.alertWithType('custom','请输入账号密码','')
+            self.dropdown.alertWithType('info','请输入账号密码','')
             return;
         }
 
@@ -66,7 +66,7 @@ export default class GWLogon extends BaseComponent {
             })
         },function (e) {
             if(e.msg){
-                self.dropdown.alertWithType('custom',e.msg,'')
+                self.dropdown.alertWithType('success',e.msg,'')
             }
             console.log(JSON.stringify(e))
         })
@@ -142,7 +142,7 @@ export default class GWLogon extends BaseComponent {
                         this._logon()
                     }}
                 />
-                {this._Alert()}
+                {this._Alert('red')}
 
             </View>
         );
