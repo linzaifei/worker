@@ -18,7 +18,9 @@ export default {
     querySelectedJobType: `${host}/app/worker/querySelectedJobType`,// 工种树
     queryDicByType: `${host}/common/queryDicByType`,// 查询字典【根据传入的type】
     addWorker: `${host}/app/worker/addWorker`,// 新增人才信息
+    updateWorker: `${host}/app/worker/updateWorker`,//更新人才信息
     list: `${host}/app/worker/list`,// 人才信息列表
+    queryDetail: `${host}/app/worker/queryDetail`,//查询人才信息详情
 
 
 
