@@ -101,7 +101,9 @@ export default class GWForgetPwd extends BaseComponent {
                     placeholder="请输入密码"
                     hasBack={false}
                     hasText={true}
+                    secureTextEntry={true}
                     borderRadius={5}
+                    keyboard={'email-address'}
                     onTextChange={(text)=>{
                         self.setState({
                             newPwd:text,
@@ -113,7 +115,9 @@ export default class GWForgetPwd extends BaseComponent {
                     placeholder="请输入密吗"
                     hasBack={false}
                     hasText={true}
+                    secureTextEntry={true}
                     borderRadius={5}
+                    keyboard={'email-address'}
                     onTextChange={(text)=>{
                         self.setState({
                             reNewPwd:text,

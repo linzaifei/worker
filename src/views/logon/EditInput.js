@@ -47,7 +47,6 @@ export default class EditInput extends Component {
         borderBottomWidth:PropTypes.number,
         borderRadius:PropTypes.number,
 
-
         value:PropTypes.string,
         borderBottomColor:PropTypes.string,
 
@@ -113,19 +112,32 @@ export default class EditInput extends Component {
         return (
             <View style={[styles.container,]} {...this.props}>
                 {this._leftView()}
-                <TextInput ref="_input" onFocus={()=>{
-                    this.setState({
-                        img:imgNameSel ?imgNameSel:imgName,
-                        borderColor:borderBottomColor,
-                        focus:true,
-                    })
-                }} onEndEditing={()=> {
-                    this.setState({
-                        img:imgName,
-                        borderColor:"#E6E6E6",
-                        focus:false,
-                    })
-                }} maxLength={max} selectionColor="#fff" defaultValue={value} keyboardType={keyboardType} placeholderTextColor='#fff' underlineColorAndroid={'transparent'} secureTextEntry={this.state.secureTextEntry} onChange={(e)=>{this._onChange(e.nativeEvent.text)}} placeholder={placeholder} style={styles.textInputStyle} />
+                <TextInput ref="_input"
+                           maxLength={max}
+                           selectionColor="#fff"
+                           defaultValue={value}
+                           keyboardType={keyboardType}
+                           placeholderTextColor='#fff'
+                           underlineColorAndroid={'transparent'}
+                           secureTextEntry={this.state.secureTextEntry}
+                           onChange={(e)=>{this._onChange(e.nativeEvent.text)}}
+                           placeholder={placeholder}
+                           style={styles.textInputStyle}
+                           onFocus={()=>{
+                               this.setState({
+                                   img:imgNameSel ?imgNameSel:imgName,
+                                   borderColor:borderBottomColor,
+                                   focus:true,
+                               })
+                           }}
+                           onEndEditing={()=> {
+                               this.setState({
+                                   img:imgName,
+                                   borderColor:"#E6E6E6",
+                                   focus:false,
+                               })
+                           }}
+                />
 
             </View>
         );

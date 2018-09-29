@@ -29,6 +29,7 @@ export default class GWSelectItem extends Component {
         title:PropTypes.string,
 
         content:PropTypes.string,
+        backgroundColor:PropTypes.string,
 
         placeholder:PropTypes.string,
         editable:PropTypes.bool,
@@ -37,11 +38,12 @@ export default class GWSelectItem extends Component {
         textColor:PropTypes.string,
         space:PropTypes.number,
         max:PropTypes.number,
-        keyboard:PropTypes.oneOf(['default','phone-pad']),
+        keyboard:PropTypes.oneOf(['default','phone-pad','email-address','numeric']),
         mTop:PropTypes.number,
         borderRadius:PropTypes.number,
         hasBack:PropTypes.bool,
         hasText:PropTypes.bool,
+        secureTextEntry:PropTypes.bool,
         children: PropTypes.node,
         onClickItem:PropTypes.func,
 
@@ -52,12 +54,14 @@ export default class GWSelectItem extends Component {
         hasBack:true,
         editable:true,
         hasText:false,
+        secureTextEntry:false,
         keyboard:'default',
         iconHeight:20,
         iconWidth:20,
         space:5,
         mTop:5,
         textColor:dpColor,
+        backgroundColor:'#fff'
     }
 
     getBack(){
@@ -81,17 +85,26 @@ export default class GWSelectItem extends Component {
             keyboard,
             value,
             editable,
-            hasText,
             children,
             textColor,
+            secureTextEntry,
         }=this.props;
 
         if(!children){
             if(editable){
                 return (
-                    <TextInput style={styles.textInput} defaultValue={value} onChange={(e)=>
-                        onTextChange && onTextChange(e.nativeEvent.text)
-                    } underlineColorAndroid={'transparent'} keyboardType={keyboard} maxLength={max} placeholder={placeholder} editable={editable}/>
+                    <TextInput style={styles.textInput}
+                               defaultValue={value}
+                                underlineColorAndroid={'transparent'}
+                               secureTextEntry={secureTextEntry}
+                               keyboardType={keyboard}
+                               maxLength={max}
+                               placeholder={placeholder}
+                               editable={editable}
+                               onChange={(e)=>
+                                   onTextChange && onTextChange(e.nativeEvent.text)
+                               }
+                    />
                 )
             }else {
                 if(value){
@@ -113,10 +126,11 @@ export default class GWSelectItem extends Component {
           onClickItem,
           borderRadius,
           mTop,
+          backgroundColor,
       } = this.props
 
         return (
-            <TouchableOpacity  style={[styles.container,{borderRadius,marginTop:mTop}]} onPress={()=>{
+            <TouchableOpacity  style={[styles.container,{backgroundColor,borderRadius,marginTop:mTop}]} onPress={()=>{
                 onClickItem && onClickItem()
             }}>
                 <GWTag {...this.props} />
@@ -138,7 +152,6 @@ var styles = StyleSheet.create({
         alignItems:CENTER,
         justifyContent:SPACEBETWEEN,
         padding:12,
-        backgroundColor:'#fff',
     },
     right:{
         flexDirection:ROW,
