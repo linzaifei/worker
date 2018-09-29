@@ -37,6 +37,7 @@ export default class SalarySelect extends BaseComponent{
             // 初始状态
             this.state = {
                 salary:'',
+                salaryCode:-1,
                 selectSalaryIndex:0,
                 data:[],
             };
@@ -49,10 +50,12 @@ export default class SalarySelect extends BaseComponent{
                   <ScrollView style={styles.container}>
                       <CheckBox list={self.state.data} marginTop={5} selectRow={selectIndex} onClickItem={(index)=>{
                             self.setState({
+                                salaryCode:self.state.data[index].code,
                                 salary:self.state.data[index].name,
                                 selectSalaryIndex:index,
                             })
                       }} />
+                      {this._Alert()}
                   </ScrollView>
               );
           }
@@ -61,15 +64,16 @@ export default class SalarySelect extends BaseComponent{
         var self = this;
         const {
             salary,
-            selectSalaryIndex
+            selectSalaryIndex,
+            salaryCode
         }=self.state
 
-        if (!salary){
+        if (!salary || salaryCode==-1){
+            self.dropdown.alertWithType('custom','请选择期望工资','');
             return;
         }
-        console.log('======'+salary+"==="+selectSalaryIndex);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(salary,selectSalaryIndex)
+            this.props.navigation.state.params.callback(salary,selectSalaryIndex,salaryCode)
         }
         this.props.navigation.goBack();
     }

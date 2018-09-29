@@ -5,7 +5,7 @@ import {
     Text,
     View,
     FlatList,
-    TouchableOpacity,
+    TouchableOpacity, ScrollView,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import SingleCheckBox from "./SingleCheckBox";
@@ -36,6 +36,7 @@ export default class CityPlaceSelect extends BaseComponent{
             // 初始状态
             this.state = {
                 selectObject:'',
+                selectCode:-1,
                 data:[],
                 selectIndex:-1,
             };
@@ -50,6 +51,7 @@ export default class CityPlaceSelect extends BaseComponent{
                           extraData={self.state}
                           renderItem={({item,index}) =>self._renderItemView(item,index)}
                       />
+                      {this._Alert()}
                   </View>
               );
           }
@@ -68,6 +70,7 @@ export default class CityPlaceSelect extends BaseComponent{
                 self.setState({
                     selectIndex:index,
                     selectObject:item.name,
+                    selectCode:item.code,
                 })
             }}
             />
@@ -76,16 +79,16 @@ export default class CityPlaceSelect extends BaseComponent{
     _submit=()=>{
         var self = this;
         const {
-            selectObject
+            selectObject,
+            selectCode,
         }=self.state
 
-        if (!selectObject){
+        if (!selectObject || selectCode==-1){
+            self.dropdown.alertWithType('custom','请选择市','');
             return;
         }
-        var str=this.props.navigation.state.params.proStr+"-"+selectObject;
-        console.log('======'+str);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(str)
+            this.props.navigation.state.params.callback(selectObject,selectCode)
         }
         this.props.navigation.goBack();
     }

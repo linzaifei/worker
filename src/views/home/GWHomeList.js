@@ -94,6 +94,7 @@ export default class GWHomeList extends BaseListComponent {
                 state={parseInt(item.workStatus?item.workStatus:0)}
                 time={item.createTime}
                 onClickItem={()=>{
+                    console.log("success"+JSON.stringify(item));
                     self.props.navigation.navigate('Detail',{
                         title:'编辑',
                         item,
