@@ -11,7 +11,7 @@ export default {
     login: `${host}/account/login`,
 
     logout: `${host}/account/logout`,// 登出
-    changePass: `${host}/account/changePass`,// 修改密码
+    changePass: `${host}/account/app/changePass`,// 修改密码
     queryUserInfo: `${host}/app/user/queryUserInfo`,// 查询用户信息
     queryAllProvince: `${host}/common/queryAllProvince`,// 查询省份
     queryAreaByParentCode: `${host}/common/queryAreaByParentCode`,// 查询省份地区子集

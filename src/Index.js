@@ -23,6 +23,7 @@ import LogonScreen from './views/logon/GWLogon'
 
 //首页
 import HomeScreen from './views/home/GWHome'
+import DetailScreen from './views/home/GWDetail'
 
 
 //添加
@@ -130,11 +131,15 @@ const RootStack = createStackNavigator({
     SelectCity:{
         screen:CityPlaceSelect,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
-    }
+    },
+    Detail:{
+        screen:DetailScreen,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+
+
 },{
-    transitionConfig:()=>({
-        // screenInterpolator:CardStackStyleInterpolator.forHorizontal,
-    })
+
 })
 
 const navigationOption = ({navigation}) => {

@@ -45,7 +45,6 @@ export default class SalarySelect extends BaseComponent{
 
           render(){
               let self=this;
-              // var datas = self.props.navigation.state.params.datas;
               var selectIndex=self.props.navigation.state.params.index;
               return(
                   <ScrollView style={styles.container}>

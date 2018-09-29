@@ -39,7 +39,7 @@ export default class GWHome extends Component {
     }
 
     _titles(){
-        var titles = ['全部','今天','最近1月','最近3月','最近半年']
+        var titles = ['全部','今天','最近1周','最近1月','最近3月','最近半年']
         var chilens = [];
         titles.map((item,index)=>{
             chilens.push(

@@ -19,7 +19,7 @@ export default class GWAdd extends BaseComponent {
             headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
             headerTitle:(
                 <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
-                <Text style={{fontSize:16,color:'#fff'}}>添加</Text>
+                    <Text style={{fontSize:16,color:'#fff'}}>{navigation.getParam('title','添加')}</Text>
                 </View>
             ),
             headerRight:(
@@ -33,24 +33,25 @@ export default class GWAdd extends BaseComponent {
     constructor(props) {
         super(props);
         this.state = {
+            item:{},
             name:'',
             sexStr:'',
-            sexCode:-1,
-            tel:'',
-            idCard:'',
-            birthday:'',
-            homePlace:'',
-            homeCode:-1,
-            workYear:'',
-            workWill:'',
-            salary:'',
-            salaryCode:-1,
-            selectSalaryIndex:-1,
-
-            workState:'',
-            workStatusCode:-1,
-            workSelect:'',
-
+            sex:-1,
+            telephone:"",
+            idcard:'',//身份证
+            birthday:'',//出生日期
+            expectSalary:-1,//期望薪资code
+            selectSalaryIndex:-1,//工资选择index
+            expectSalaryName:'',//期望薪资
+            workStatus:'',//工作状态 0 找工作 1 已工作
+            workStatusStr:'',
+            workplaceCode:'',//工作地点Code
+            workplaceCodeStr:'',//工作地点
+            birthplaceCode:-1,//籍贯code
+            birthplaceCodeStr:'',//籍贯
+            workSelect:'',//擅长工种
+            workYear:'',//工作年限
+            workExpect:'',//工作意志
         }
     }
 
@@ -63,34 +64,36 @@ export default class GWAdd extends BaseComponent {
         const {
             name,
             sexStr,
-            sexCode,
-            tel,
-            idCard,
-            birthday,
-            homePlace,
-            homeCode,
-            workYear,
-            workWill,
-            salary,
-            salaryCode,
-
-            workState,
-            workSelect,
+            sex,
+            telephone,
+            idcard,//身份证
+            birthday,//出生日期
+            expectSalary,//期望薪资code
             selectSalaryIndex,
+            expectSalaryName,//期望薪资
+            workStatus,//工作状态 0 找工作 1 已工作
+            workStatusStr,
+            workplaceCode,//工作地点Code
+            workplaceCodeStr,//工作地点
+            birthplaceCode,//籍贯code
+            birthplaceCodeStr,//籍贯
+            workSelect,//擅长工种
+            workYear,//工作年限
+            workExpect,//工作意志
         }=self.state;
         if(!name){
             self._showWarnAler('请输入姓名');
             return;
         }
-        if(!sexStr || sexCode==-1){
+        if(!sexStr || sex==-1){
             self._showWarnAler('请选择性别');
             return;
         }
-        if(!tel || tel.length!=11){
+        if(!telephone || telephone.length!=11){
             self._showWarnAler('请输入合法电话号码');
             return;
         }
-        if(!idCard){
+        if(!idcard){
             self._showWarnAler('请输入身份证号码');
             return;
         }
@@ -98,7 +101,7 @@ export default class GWAdd extends BaseComponent {
             self._showWarnAler('请选择出生日期');
             return;
         }
-        if(!homePlace || homeCode==-1){
+        if(!birthplaceCodeStr || birthplaceCode==-1){
             self._showWarnAler('请选择籍贯');
             return;
         }
@@ -106,14 +109,16 @@ export default class GWAdd extends BaseComponent {
             self._showWarnAler('请输入工作年限');
             return;
         }
-        if(!workWill){
+        if(!workExpect){
             self._showWarnAler('请输入工作意志');
             return;
         }
-        if(!salary || salaryCode==-1){
+        if(!expectSalaryName || expectSalary==-1){
             self._showWarnAler('请选择工资要求');
             return;
         }
+
+
 
     }
 
@@ -145,7 +150,7 @@ export default class GWAdd extends BaseComponent {
                     if(index != ret.length){
                         self.setState({
                             // sex:options[index] == '男' ?'00003-1':'00003-2',
-                            sexCode:ret[index].code,
+                            sex:ret[index].code,
                             sexStr:options[index]+'性',
                         })
                     }
@@ -160,9 +165,8 @@ export default class GWAdd extends BaseComponent {
                 self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
                     if(index != 2){
                         self.setState({
-                            // sex:options[index] == '男' ?'00003-1':'00003-2',
-                            workState:options[index],
-                            workStatusCode:ret[index].code,
+                            workStatusStr:options[index],
+                            workStatus:ret[index].code,
                         })
                     }
                 })
@@ -172,6 +176,10 @@ export default class GWAdd extends BaseComponent {
 
     _onClickItem(index){
         var  self = this;
+        const {
+            selectSalaryIndex,
+        }=self.state;
+
         switch (index){
             case 0://性别
                 self._loadChooiceData(index,'gender');
@@ -185,17 +193,47 @@ export default class GWAdd extends BaseComponent {
                 })
 
                 break;
-            case 2:
-
+            case 2://籍贯
+                self.props.navigation.navigate('SelectHomePlace',{
+                    title:'籍贯',
+                    callback: ((info,code) => { //回调函数
+                        this.setState({
+                            birthplaceCodeStr: info,
+                            birthplaceCode:code,
+                        })
+                    })})
                 break;
-            case 3:
-
+            case 3://擅长工种
+                self.props.navigation.navigate('SelectWork',{
+                    title:'擅长工种',
+                    callback: ((info) => { //回调函数
+                        this.setState({
+                            workSelect: info
+                        })
+                    })
+                })
                 break;
-            case 4:
-
+            case 4://工作地点
+                self.props.navigation.navigate('SelectHomePlace',{
+                    title:'工作地点',
+                    callback: ((info,code) => { //回调函数
+                        this.setState({
+                            workplaceCodeStr: info,
+                            workplaceCode:code,
+                        })
+                    })})
                 break;
-            case 5:
-
+            case 5://工资要求
+                self.props.navigation.navigate('SelectSalary',{
+                    title:'工资要求',
+                    index:selectSalaryIndex,
+                    callback: ((info,index,code) => { //回调函数
+                        this.setState({
+                            expectSalaryName: info,
+                            selectSalaryIndex:index,
+                            expectSalary:code
+                        })
+                    })})
                 break;
             case 6:
                 self._loadChooiceData(index,'work_status');
@@ -207,15 +245,21 @@ export default class GWAdd extends BaseComponent {
     render() {
         var self = this;
         const {
+            name,
             sexStr,
-            birthday,
-            salary,
-            workState,
-            homePlace,
-            workSelect,
-            selectSalaryIndex,
+            telephone,
+            idcard,//身份证
+            birthday,//出生日期
+            expectSalaryName,//期望薪资
+            workStatusStr,
+            workplaceCodeStr,//工作地点
+            birthplaceCodeStr,//籍贯
+            workSelect,//擅长工种
+            workYear,//工作年限
+            workExpect,//工作意志
         }=self.state;
         return (
+            <View>
             <ScrollView style={styles.container}
                         keyboardDismissMode="on-drag"
                         showsVerticalScrollIndicator={false}
@@ -225,6 +269,7 @@ export default class GWAdd extends BaseComponent {
                     title="姓名"
                     url="ic_center_name"
                     hasBack={false}
+                    value={name}
                     max={10}
                     borderRadius={5}
                     onTextChange={(text)=>{
@@ -249,12 +294,13 @@ export default class GWAdd extends BaseComponent {
                     hasBack={false}
                     hasText={true}
                     url="ic_center_tel"
+                    value={telephone}
                     keyboard='phone-pad'
                     max={11}
                     borderRadius={5}
                     onTextChange={(text)=>{
                         self.setState({
-                            tel:text
+                            telephone:text
                         })
                     }}
                 />
@@ -264,11 +310,12 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_idcard"
                     hasBack={false}
                     hasText={true}
+                    value={idcard}
                     max={18}
                     borderRadius={5}
                     onTextChange={(text)=>{
                         self.setState({
-                            idCard:text
+                            idcard:text
                         })
                     }}
                 />
@@ -287,19 +334,11 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_jg"
                     borderRadius={5}
                     editable={false}
-                    value={homePlace}
+                    value={birthplaceCodeStr}
                     onClickItem={()=>{
-                        self.props.navigation.navigate('SelectHomePlace',{
-                            title:'籍贯',
-                            callback: ((info,code) => { //回调函数
-                                this.setState({
-                                    homePlace: info,
-                                    homeCode:code,
-                                })
-                            })})
+                        self._onClickItem(2)
                     }}
                 />
-
                 <GWSelectItem
                     placeholder="请输入工作年限"
                     title="工作年限"
@@ -309,6 +348,7 @@ export default class GWAdd extends BaseComponent {
                     hasText={true}
                     max={2}
                     mTop={10}
+                    value={workYear}
                     borderRadius={5}
                     onTextChange={(text)=>{
                         self.setState({
@@ -316,18 +356,14 @@ export default class GWAdd extends BaseComponent {
                         })
                     }}
                 />
-
                 <View style={styles.center}>
                     <GWTag url='ic_center_yx' title="工作意志" iconWidth={20} space={5}size={15}iconHeight={20} />
-                    <InputView placeholder="请填写你的工作意志(500字以内)" max={500} height={100}
-                               onChange={(text)=>{
-                                   self.setState({
-                                       workWill:text
-                                   })
-                               }}
-                    />
+                    <InputView placeholder="请填写你的工作意志(500字以内)" value={workExpect} max={500} height={100} onChange={(text)=>{
+                        self.setState({
+                            workExpect:text
+                        })
+                    }}/>
                 </View>
-
                 <GWSelectItem
                     title="擅长工种"
                     url="ic_center_sc"
@@ -335,13 +371,7 @@ export default class GWAdd extends BaseComponent {
                     editable={false}
                     value={workSelect}
                     onClickItem={()=>{
-                        self.props.navigation.navigate('SelectWork',{
-                            title:'擅长工种',
-                            callback: ((info) => { //回调函数
-                                this.setState({
-                                    workSelect: info
-                                })
-                            })})
+                        self._onClickItem(3)
                     }}
                 />
                 <GWSelectItem
@@ -349,6 +379,7 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_address"
                     borderRadius={5}
                     editable={false}
+                    value={workplaceCodeStr}
                     onClickItem={()=>{
                         self._onClickItem(4);
                     }}
@@ -358,25 +389,16 @@ export default class GWAdd extends BaseComponent {
                     url="ic_center_gz"
                     borderRadius={5}
                     editable={false}
-                    value={salary}
+                    value={expectSalaryName}
                     onClickItem={()=>{
-                        self.props.navigation.navigate('SelectSalary',{
-                            title:'工资要求',
-                            index:selectSalaryIndex,
-                            callback: ((info,index,code) => { //回调函数
-                                this.setState({
-                                    salary: info,
-                                    selectSalaryIndex:index,
-                                    salaryCode:code
-                                })
-                            })})
+                        self._onClickItem(5)
                     }}
                 />
                 <GWSelectItem
                     title="工作状态"
                     url="ic_center_state"
                     borderRadius={5}
-                    value={workState}
+                    value={workStatusStr}
                     editable={false}
                     mTop={10}
                     onClickItem={()=>{
@@ -387,19 +409,20 @@ export default class GWAdd extends BaseComponent {
 
                 {self._alertAction()}
                 {self._actionSheet()}
-                {this._Alert()}
+
             </ScrollView>
+                {this._Alert()}
+            </View>
         );
     }
 }
 
 var styles = StyleSheet.create({
     container: {
-        padding:5,
-        // paddingTop:5,
-        // paddingLeft:5,
-        // paddingRight:5,
-        // paddingBottom:100,
+        paddingLeft:5,
+        paddingRight:5,
+        paddingTop:5,
+        // padding:5,
     },
     center:{
         padding:10,

@@ -35,23 +35,44 @@ export default class GWForgetPwd extends BaseComponent {
 
         var self = this;
         const {
-            oldPwd,
             newPwd,
             reNewPwd,
         }=self.state
-
-        if (!oldPwd && !newPwd && !reNewPwd && newPwd !=reNewPwd){
+        console.log(newPwd+"====="+reNewPwd);
+        if(!newPwd){
+            self.dropdown.alertWithType('custom','请输入新的密码','');
             return;
         }
+        if(!reNewPwd){
+            self.dropdown.alertWithType('custom','请输入确认密码','');
+            return;
+        }
+        if (String(newPwd) !=String(reNewPwd)){
+            self.dropdown.alertWithType('custom','两次密码不一致','');
+            return;
+        }
+        gwrequest.gw_tokenRequest(urls.changePass,{'newPass':newPwd},function (ret) {
+            self.dropdown.alertWithType('custom','修改密码成功','');
+            self._out()
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
 
-        gwrequest.gw_tokenRequest(urls.changePass,)
-
+    _out(){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
+            storage.gw_removeItem('token',function () {
+                self.props.navigation.navigate('Auth');
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
     }
 
     constructor(props) {
         super(props);
         this.state={
-            oldPwd:'',
             newPwd:'',
             reNewPwd:'',
             userId:'',
@@ -76,24 +97,12 @@ export default class GWForgetPwd extends BaseComponent {
         return (
             <View style={styles.container}>
                 <GWSelectItem
-                    title="旧的密码"
-                    placeholder="请输入旧密码"
-                    hasBack={false}
-                    hasText={true}
-                    borderRadius={5}
-                    ontextchange={(text)=>{
-                        self.setState({
-                            oldPwd:text,
-                        })
-                    }}
-                     />
-                <GWSelectItem
                     title="新的密码"
                     placeholder="请输入密码"
                     hasBack={false}
                     hasText={true}
                     borderRadius={5}
-                    ontextchange={(text)=>{
+                    onTextChange={(text)=>{
                         self.setState({
                             newPwd:text,
                         })
@@ -105,12 +114,13 @@ export default class GWForgetPwd extends BaseComponent {
                     hasBack={false}
                     hasText={true}
                     borderRadius={5}
-                    ontextchange={(text)=>{
+                    onTextChange={(text)=>{
                         self.setState({
                             reNewPwd:text,
                         })
                     }}
                 />
+                {this._Alert()}
             </View>
         );
     }

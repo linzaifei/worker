@@ -36,30 +36,24 @@ export default class GWHomeList extends BaseListComponent {
             dataArr,
         }=self.state
 
-        var date = new Date()
-
-        var  year = date.getFullYear();
-        var  month = date.getMonth()+1;
-        month=month>9?month :'0'+month;
-        var  day = date.getDate()>9?date.getDate():'0'+date.getDate();
-        
-        var  hours = date.getHours()>9?date.getHours():'0'+date.getHours();
-        var  minutes = date.getMinutes()>9?date.getMinutes():'0'+date.getMinutes();
-        var  seconds = date.getSeconds()>9?date.getSeconds():'0'+date.getSeconds();
-
-        var  beginTime = year +'-'+month +'-'+day +' '+hours+':'+minutes+':'+seconds
-
-        alert(beginTime)
+        var flag= '';
         switch (this.props.page){
             case 0:
                 break;
             case 1:
+                flag='today';
                 break;
             case 2:
+                flag='week';
                 break;
             case 3:
+                flag='oneMonth';
                 break;
             case 4:
+                flag='threeMonth';
+                break;
+            case 5:
+                flag='halfYear';
                 break;
         }
 
@@ -67,6 +61,7 @@ export default class GWHomeList extends BaseListComponent {
         var parmas = {
             pageNumber,
             pageSize:'8',
+            flag,
         }
         gwrequest.gw_tokenRequest(urls.list,parmas,function (ret) {
             console.log('+++++++++'+JSON.stringify(ret))
@@ -88,7 +83,9 @@ export default class GWHomeList extends BaseListComponent {
 
     }
 
+
    _itemCell(item,index){
+        var self = this;
         return(
             <GWHomeListItem
                 marginTop={5}
@@ -96,6 +93,13 @@ export default class GWHomeList extends BaseListComponent {
                 job= {item.jobtypeName}
                 state={parseInt(item.workStatus?item.workStatus:0)}
                 time={item.createTime}
+                onClickItem={()=>{
+                    console.log("success"+JSON.stringify(item));
+                    self.props.navigation.navigate('Detail',{
+                        title:'编辑',
+                        item,
+                    })
+                }}
             />
         )
    }

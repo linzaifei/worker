@@ -5,7 +5,8 @@ import {
     Text,
     View,
     SectionList,
-    TouchableOpacity, FlatList,
+    TouchableOpacity,
+    FlatList,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
