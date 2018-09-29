@@ -84,7 +84,7 @@ export default class CityPlaceSelect extends BaseComponent{
         }=self.state
 
         if (!selectObject || selectCode==-1){
-            self.dropdown.alertWithType('custom','请选择市','');
+            self.dropdown.alertWithType('info','请选择市','');
             return;
         }
         if (this.props.navigation.state.params.callback) {

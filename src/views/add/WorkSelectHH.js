@@ -9,7 +9,6 @@ import {
     FlatList,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
-import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import ExpanableList from 'react-native-expandable-section-flatlist';
 import SingleCheckBox from "./SingleCheckBox";
 
@@ -39,7 +38,6 @@ export default class WorkSelectHH extends BaseComponent{
             super(props);
             // 初始状态
             this.state = {
-                selectObject:'',
                 data:[],
             };
           }
@@ -57,23 +55,31 @@ export default class WorkSelectHH extends BaseComponent{
                           renderSectionHeaderX={self._renderSectionHeader}
                       >
                       </ExpanableList>
+                      {this._Alert()}
                   </View>
               );
           }
 
     _renderSectionHeader=(section, sectionId)=>{
         let self=this;
+        let headerItem=self.state.data[sectionId];
         return(
-            <GWSelectItem
-                title={section}
-                hasBack={false}
-                borderRadius={5}
-                editable={false}
-                onClickItem={()=>{
-                    self.expanlist.setSectionState(sectionId,!self.expanlist.state.memberOpened.get(sectionId));
-                    // self.setState({
-                    //     selectObject:item.name
-                    // });
+            <SingleCheckBox
+                marginTop={5} text={section} backgroundColor={'#e8eef6'} index={sectionId} isSelect={headerItem.selected} onClickItem={()=>{
+                self.expanlist.setSectionState(sectionId,!self.expanlist.state.memberOpened.get(sectionId));
+            }}
+                onCLickImgItem={()=>{
+                    if( headerItem.selected==1){
+                        headerItem.selected=0;
+                    }else{
+                        headerItem.selected=1;
+                    }
+                    const tempdata=self.state.data;
+                    tempdata[sectionId]=headerItem;
+                    for(let i=0;i< tempdata[sectionId].children.length;i++){
+                        tempdata[sectionId].children[i].selected=headerItem.selected;
+                    }
+                    self.expanlist.setSectionState(sectionId,self.expanlist.state.memberOpened.get(sectionId));
                 }}
             />
         );
@@ -90,8 +96,42 @@ export default class WorkSelectHH extends BaseComponent{
                 }
                 const tempdata=self.state.data;
                 tempdata[sectionId].children[rowId]=rowItem;
+                var childerSelect=0;
+                for(let i=0;i<tempdata[sectionId].children.length;i++){
+                    if(tempdata[sectionId].children[i].selected==1){
+                        childerSelect=1;
+                        break;
+                    }
+                }
+                if(childerSelect==0){
+                    tempdata[sectionId].selected=0;
+                }else{
+                    tempdata[sectionId].selected=1;
+                }
                 self.expanlist.setSectionState(sectionId,self.expanlist.state.memberOpened.get(sectionId));
             }}
+                onCLickImgItem={()=>{
+                    if( rowItem.selected==1){
+                        rowItem.selected=0;
+                    }else{
+                        rowItem.selected=1;
+                    }
+                    const tempdata=self.state.data;
+                    tempdata[sectionId].children[rowId]=rowItem;
+                    var childerSelect=0;
+                    for(let i=0;i<tempdata[sectionId].children.length;i++){
+                        if(tempdata[sectionId].children[i].selected==1){
+                            childerSelect=1;
+                            break;
+                        }
+                    }
+                    if(childerSelect==0){
+                        tempdata[sectionId].selected=0;
+                    }else{
+                        tempdata[sectionId].selected=1;
+                    }
+                    self.expanlist.setSectionState(sectionId,self.expanlist.state.memberOpened.get(sectionId));
+                }}
             />
         )
     }
@@ -99,15 +139,37 @@ export default class WorkSelectHH extends BaseComponent{
     _submit=()=>{
         var self = this;
         const {
-            selectObject
-        }=self.state
-
-        if (!selectObject){
+            data
+        }=self.state;
+        var selectItem=[];
+        var tempData=JSON.parse( JSON.stringify(data));
+        for(let i=0;i<tempData.length;i++){
+            let headerItem=tempData[i];
+            if(headerItem.selected==1){
+                selectItem.push(headerItem);
+            }
+            for(let j=0;j<headerItem.children.length;j++){
+                if(headerItem.children[j].selected==1){
+                    selectItem.push(headerItem.children[j]);
+                }
+            }
+        }
+        if(selectItem.length<2){
+            self.dropdown.alertWithType('info','请选择工种','');
             return;
         }
-        console.log('======'+selectObject);
+        var workstr='';
+        for(let i=0;i<selectItem.length;i++){
+            selectItem[i].children=null;//去掉大类中的子类
+            if(i==selectItem.length-1){
+                workstr=workstr+selectItem[i].name;
+            }else{
+                workstr=workstr+selectItem[i].name+",";
+            }
+        }
+        console.log('======'+workstr);
         if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(selectObject)
+            this.props.navigation.state.params.callback(selectItem,workstr)
         }
         this.props.navigation.goBack();
     }

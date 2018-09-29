@@ -23,7 +23,6 @@ export default class SingleCheckBox extends Component {
         index:PropTypes.number,
         isSelect:PropTypes.number,
         backgroundColor:PropTypes.string,
-        onCLickImgItem:PropTypes.func,
         onClickItem:PropTypes.func,
 
     }
@@ -71,7 +70,11 @@ export default class SingleCheckBox extends Component {
             <TouchableOpacity style={[styles.item,{marginTop,backgroundColor}]} onPress={()=>{this._selIndex(index)}}>
                 <Text style={styles.title}>{text}</Text>
                 <TouchableOpacity style={styles.rightItem} onPress={()=>{
-                    onCLickImgItem && onCLickImgItem()
+                    if(!onCLickImgItem){
+                        this._selIndex(index)
+                    }else{
+                        onCLickImgItem()
+                    }
                 }}>
                     {this._seleted()}
                 </TouchableOpacity>

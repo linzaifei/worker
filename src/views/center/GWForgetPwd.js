@@ -40,19 +40,19 @@ export default class GWForgetPwd extends BaseComponent {
         }=self.state
         console.log(newPwd+"====="+reNewPwd);
         if(!newPwd){
-            self.dropdown.alertWithType('custom','请输入新的密码','');
+            self.dropdown.alertWithType('info','请输入新的密码','');
             return;
         }
         if(!reNewPwd){
-            self.dropdown.alertWithType('custom','请输入确认密码','');
+            self.dropdown.alertWithType('info','请输入确认密码','');
             return;
         }
         if (String(newPwd) !=String(reNewPwd)){
-            self.dropdown.alertWithType('custom','两次密码不一致','');
+            self.dropdown.alertWithType('info','两次密码不一致','');
             return;
         }
         gwrequest.gw_tokenRequest(urls.changePass,{'newPass':newPwd},function (ret) {
-            self.dropdown.alertWithType('custom','修改密码成功','');
+            self.dropdown.alertWithType('info','修改密码成功','');
             self._out()
         },function (e) {
             console.log(JSON.stringify(e))

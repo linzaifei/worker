@@ -66,7 +66,7 @@ export default class GWLogon extends BaseComponent {
             })
         },function (e) {
             if(e.msg){
-                self.dropdown.alertWithType('success',e.msg,'')
+                self.dropdown.alertWithType('info',e.msg,'')
             }
             console.log(JSON.stringify(e))
         })

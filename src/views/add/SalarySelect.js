@@ -69,7 +69,7 @@ export default class SalarySelect extends BaseComponent{
         }=self.state
 
         if (!salary || salaryCode==-1){
-            self.dropdown.alertWithType('custom','请选择期望工资','');
+            self.dropdown.alertWithType('info','请选择期望工资','');
             return;
         }
         if (this.props.navigation.state.params.callback) {
