@@ -19,15 +19,19 @@ export default class SingleCheckBox extends Component {
         img:PropTypes.string,
         selImg:PropTypes.string,
         marginTop:PropTypes.number,
-        onClickItem:PropTypes.func,
         text:PropTypes.string,
         index:PropTypes.number,
         isSelect:PropTypes.number,
+        backgroundColor:PropTypes.string,
+        onCLickImgItem:PropTypes.func,
+        onClickItem:PropTypes.func,
+
     }
     static defaultProps={
         img:'ic_check',
         isSelect:0,
         index:0,
+        backgroundColor:'#fff',
     }
 
 
@@ -48,7 +52,7 @@ export default class SingleCheckBox extends Component {
             img,
             isSelect,
         }=this.props;
-        if(isSelect === 1){
+        if(parseInt(isSelect) === 1){
             return (
                 <Image style={styles.img} source={{uri:img}} />
             )
@@ -60,11 +64,17 @@ export default class SingleCheckBox extends Component {
             marginTop,
             text,
             index,
+            backgroundColor,
+            onCLickImgItem,
         }=this.props;
         return (
-            <TouchableOpacity style={[styles.item,{marginTop}]} onPress={()=>{this._selIndex(index)}}>
+            <TouchableOpacity style={[styles.item,{marginTop,backgroundColor}]} onPress={()=>{this._selIndex(index)}}>
                 <Text style={styles.title}>{text}</Text>
-                {this._seleted()}
+                <TouchableOpacity style={styles.rightItem} onPress={()=>{
+                    onCLickImgItem && onCLickImgItem()
+                }}>
+                    {this._seleted()}
+                </TouchableOpacity>
             </TouchableOpacity>
         );
     }
@@ -85,15 +95,21 @@ var styles = StyleSheet.create({
         flexDirection:ROW,
         alignItems:CENTER,
         justifyContent:SPACEBETWEEN,
-        padding:15,
-        backgroundColor:'#fff',
+        padding:13,
         borderColor:lineColor,
         borderBottomWidth:1,
         borderRadius:5,
     },
+    rightItem:{
+        flex:1,
+        flexDirection:ROW,
+        justifyContent:FLEXEND,
+        height:20,
+    },
     title:{
         fontSize:15,
-        color:dpColor,
+        color:swColor,
+        flex:5,
     },
     img:{
         width:20,

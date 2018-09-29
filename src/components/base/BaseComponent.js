@@ -39,12 +39,11 @@ export default class BaseComponent extends Component {
             </TouchableOpacity>
         )
     }
-    _Alert(backgroundColor=defaultColor){
+
+    _Alert(){
         var self = this;
         return (
-            <DropdownAlert  containerStyle={{
-                backgroundColor,
-            }}  imageSrc="ic_navi_notif" closeInterval={2000} ref={ref => self.dropdown = ref} onClose={data => {
+            <DropdownAlert closeInterval={2000} ref={ref => self.dropdown = ref} onClose={data => {
                 self.dropdown.close();
             }} />
         )

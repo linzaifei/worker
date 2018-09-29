@@ -13,7 +13,6 @@ import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import ExpanableList from 'react-native-expandable-section-flatlist';
 import SingleCheckBox from "./SingleCheckBox";
 
-
 export default class WorkSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
@@ -64,16 +63,17 @@ export default class WorkSelect extends BaseComponent{
     _renderSectionHeader=(section, sectionId)=>{
         let self=this;
         return(
-            <GWSelectItem
-                title={section}
-                hasBack={false}
+            <SingleCheckBox
+                text={section}
+                backgroundColor="#e8eef6"
                 borderRadius={5}
-                editable={false}
+                isSelect={0}
+                marginTop={5}
                 onClickItem={()=>{
-                    self.expanlist.setSectionState(sectionId,!self.expanlist.state.memberOpened.get(sectionId));
-                    // self.setState({
-                    //     selectObject:item.name
-                    // });
+                    alert('item')
+                }}
+                onCLickImgItem={()=>{
+                    alert('img')
                 }}
             />
         );
