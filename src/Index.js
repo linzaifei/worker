@@ -32,6 +32,7 @@ import SalarySelect from './views/add/SalarySelect'
 import HomePlaceSelect from './views/add/HomePlaceSelect'
 import WorkSelect from './views/add/WorkSelect'
 import CityPlaceSelect from './views/add/CityPlaceSelect'
+import WorkSelectHH from './views/add/WorkSelectHH'
 //个人中心
 import CenterScreen from './views/center/GWCenter'
 import ForgetPwdScreen from './views/center/GWForgetPwd'
@@ -136,7 +137,10 @@ const RootStack = createStackNavigator({
         screen:DetailScreen,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
     },
-
+    SelectWorkHH:{
+        screen:WorkSelectHH,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
 
 },{
 

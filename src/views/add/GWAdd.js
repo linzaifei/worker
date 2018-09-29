@@ -204,7 +204,7 @@ export default class GWAdd extends BaseComponent {
                     })})
                 break;
             case 3://擅长工种
-                self.props.navigation.navigate('SelectWork',{
+                self.props.navigation.navigate('SelectWorkHH',{
                     title:'擅长工种',
                     callback: ((info) => { //回调函数
                         this.setState({
