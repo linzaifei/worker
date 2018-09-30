@@ -10,13 +10,12 @@ import {
 // var RNToNative = NativeModules.RNToNative;
 
 
-function gw_request(url,parmas,success,fail,method,token=null) {
+function gw_request(url,parmas,success,fail,method='GET',token=null) {
     if(method=='GET'){
         get_request(url,parmas,success,fail,method,token);
     }else{
         postRequest(url,getPostParms(parmas),success,fail,method,token);
     }
-
 }
 
 function postRequest(url,formData,success,fail,method,token) {
@@ -59,6 +58,7 @@ function get_request(url,parmas,success,fail,method,token=null) {
     fetch(url,{
         method:method,
         headers:{
+            'Content-Type': 'application/json',
             'Authorization':token?token:'',
         }
     }).then((response) => response.json())

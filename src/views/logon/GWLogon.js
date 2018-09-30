@@ -56,6 +56,7 @@ export default class GWLogon extends BaseComponent {
             userName:telephone,
             password,
         }
+        console.log(JSON.stringify(parmas))
         gwrequest.gw_request(urls.login,parmas,function (ret) {
             console.log('========='+JSON.stringify(ret))
             storage.gw_saveItem('token',ret,function () {
