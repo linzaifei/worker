@@ -31,7 +31,7 @@ export default class WorkSelectHH extends BaseComponent{
     }
     componentWillMount() {
         this.props.navigation.setParams({ submit: this._submit });
-        this._loadData();
+        this._loadData(this.props.navigation.state.params.workId);
     }
         // 构造
           constructor(props) {
@@ -145,22 +145,19 @@ export default class WorkSelectHH extends BaseComponent{
         var tempData=JSON.parse( JSON.stringify(data));
         for(let i=0;i<tempData.length;i++){
             let headerItem=tempData[i];
-            if(headerItem.selected==1){
-                selectItem.push(headerItem);
-            }
             for(let j=0;j<headerItem.children.length;j++){
                 if(headerItem.children[j].selected==1){
                     selectItem.push(headerItem.children[j]);
                 }
             }
         }
-        if(selectItem.length<2){
+        if(selectItem.length<=0){
             self.dropdown.alertWithType('info','请选择工种','');
             return;
         }
         var workstr='';
         for(let i=0;i<selectItem.length;i++){
-            selectItem[i].children=null;//去掉大类中的子类
+            // selectItem[i].children=null;//去掉大类中的子类
             if(i==selectItem.length-1){
                 workstr=workstr+selectItem[i].name;
             }else{
@@ -174,9 +171,9 @@ export default class WorkSelectHH extends BaseComponent{
         this.props.navigation.goBack();
     }
 
-    _loadData(){
+    _loadData(workerId){
         var self = this;
-        gwrequest.gw_tokenRequest(urls.querySelectedJobType,{"workerId":0},function (ret) {
+        gwrequest.gw_tokenRequest(urls.querySelectedJobType,{"workerId":workerId},function (ret) {
             console.log("success"+JSON.stringify(ret))
             self.setState({
                 data:ret,

@@ -94,16 +94,23 @@ export default class GWHomeList extends BaseListComponent {
                 state={parseInt(item.workStatus?item.workStatus:0)}
                 time={item.createTime}
                 onClickItem={()=>{
-                    console.log("success"+JSON.stringify(item));
-                    self.props.navigation.navigate('Detail',{
-                        title:'编辑',
-                        item,
-                    })
+                    self._queryDetail(item.id);
                 }}
             />
         )
    }
-
+    _queryDetail(workid){
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.queryDetail,{"workerId":workid},function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self.props.navigation.navigate('Detail',{
+                title:'编辑',
+                item:ret,
+            })
+        },function (e) {
+            console.log(JSON.stringify(e))
+        })
+    }
 
 }
 

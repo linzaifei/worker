@@ -14,18 +14,18 @@ function gw_request(url,parmas,success,fail,method='GET',token=null) {
     if(method=='GET'){
         get_request(url,parmas,success,fail,method,token);
     }else{
-        postRequest(url,getPostParms(parmas),success,fail,method,token);
+        postRequest(url,parmas,success,fail,method,token);
     }
 }
 
-function postRequest(url,formData,success,fail,method,token) {
+function postRequest(url,parmas,success,fail,method,token) {
     fetch(url,{
         method:'POST',
         headers:{
             'Content-Type': 'application/json',
             'Authorization':token?token:'',
         },
-        body:formData,
+        body:JSON.stringify(parmas),
     }).then((response) => response.json())
         .then((responseJson) => {
             if(parseInt(responseJson.code)==1){
@@ -90,6 +90,7 @@ function get_request(url,parmas,success,fail,method,token=null) {
 function getPostParms(parmas) {
     var formData = new FormData();
     for (var key in parmas){
+        console.log("key:"+key+"==value:"+parmas[key])
         formData.append(key,parmas[key]);
     }
     return formData;

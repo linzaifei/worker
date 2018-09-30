@@ -34,6 +34,7 @@ export default class GWAdd extends BaseComponent {
         super(props);
         this.state = {
             item:{},
+            workId:-1,
             name:'',
             sexStr:'',
             sex:-1,
@@ -63,6 +64,7 @@ export default class GWAdd extends BaseComponent {
     _submit=()=>{
         var self = this;
         const {
+            workId,
             name,
             sexStr,
             sex,
@@ -70,12 +72,9 @@ export default class GWAdd extends BaseComponent {
             idcard,//身份证
             birthday,//出生日期
             expectSalary,//期望薪资code
-            selectSalaryIndex,
             expectSalaryName,//期望薪资
             workStatus,//工作状态 0 找工作 1 已工作
-            workStatusStr,
             workplaceCode,//工作地点Code
-            workplaceCodeStr,//工作地点
             birthplaceCode,//籍贯code
             birthplaceCodeStr,//籍贯
             workSelect,//擅长工种
@@ -83,8 +82,7 @@ export default class GWAdd extends BaseComponent {
             workYear,//工作年限
             workExpect,//工作意志
         }=self.state;
-        var s='{"name":"哈哈哈","sex":0,"telephone":"12345678911","idcard":"123456789123456789","birthday":"2018-9-1","birthplaceCode":2,"workYear":"3","workplaceCode":4,"expectSalary":3,"workStatus":1,"workExpect":"工作一直","jobTypeList":[{"id":1,"name":"互联网","level":1,"parentId":0,"createTime":"2018-08-30 11:46:19","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":2,"name":"java开发","level":2,"parentId":1,"createTime":"2018-08-30 11:46:47","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":3,"name":"C语言开发","level":2,"parentId":1,"createTime":"2018-08-30 11:47:11","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null}]}';
-        self._postData(JSON.parse(s));
+        // var s='{"name":"哈哈哈","sex":0,"telephone":"15051857509","idcard":"123456789123456789","birthday":"2018-9-1","birthplaceCode":2,"workYear":"3","workplaceCode":4,"expectSalary":3,"workStatus":1,"workExpect":"工作一直","jobTypeList":[{"id":1,"name":"互联网","level":1,"parentId":0,"createTime":"2018-08-30 11:46:19","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":2,"name":"java开发","level":2,"parentId":1,"createTime":"2018-08-30 11:46:47","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":3,"name":"C语言开发","level":2,"parentId":1,"createTime":"2018-08-30 11:47:11","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null}]}';
         if(!name){
             self._showWarnAler('请输入姓名');
             return;
@@ -137,21 +135,78 @@ export default class GWAdd extends BaseComponent {
         work.expectSalary=expectSalary;
         work.workStatus=workStatus;
         work.workExpect=workExpect;
-        work.jobTypeList=workSelect;
-        console.log("success"+JSON.stringify(work));
+        work.jobtypeName=workstr;
+        var jobTypeList=[];
+        for(let i=0;i<workSelect.length;i++){
+            let jobtype=new Object();
+            jobtype.firstId=workSelect[i].parentId;
+            jobtype.secondId=workSelect[i].id;
+            if(workId>0){
+                jobtype.workerId=workId;
+            }
+            jobTypeList.push(jobtype);
+        }
+        work.jobTypeList=jobTypeList;
+        if(workId>0){
+            work.id=workId;
+            self._postEditData(work);
+        }else{
+            self._postAddData(work)
+        }
         // var s='{"name":"哈哈哈","sex":0,"telephone":"12345678911","idcard":"123456789123456789","birthday":"2018-9-1","birthplaceCode":2,"workYear":"3","workplaceCode":4,"expectSalary":3,"workStatus":1,"workExpect":"工作一直","jobTypeList":[{"id":1,"name":"互联网","level":1,"parentId":0,"createTime":"2018-08-30 11:46:19","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":2,"name":"java开发","level":2,"parentId":1,"createTime":"2018-08-30 11:46:47","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":3,"name":"C语言开发","level":2,"parentId":1,"createTime":"2018-08-30 11:47:11","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null}]}';
         // self._postData(s)
     }
 
-    _postData(worker){
+    _postEditData(worker){
+        console.log("_postEditData"+JSON.stringify(worker));
         var self = this;
-        gwrequest.gw_tokenRequest(urls.addWorker,worker,function (ret) {
+        gwrequest.gw_tokenRequest(urls.updateWorker,worker,function (ret) {
             console.log("success"+JSON.stringify(ret))
+            self._showWarnAler('编辑成功');
+            this.props.navigation.goBack();
         },function (e) {
             console.log(e)
         },'POST')
     }
 
+    _postAddData(worker){
+        console.log("add"+JSON.stringify(worker));
+        var self = this;
+        gwrequest.gw_tokenRequest(urls.addWorker,worker,function (ret) {
+            console.log("success"+JSON.stringify(ret))
+            self._showWarnAler('新增成功');
+            self._clearInput();
+        },function (e) {
+            console.log(e)
+        },'POST')
+    }
+
+    _clearInput(){
+        var self=this;
+        self.setState({
+            item:{},
+            workId:-1,
+            name:'',
+            sexStr:'',
+            sex:-1,
+            telephone:"",
+            idcard:'',//身份证
+            birthday:'',//出生日期
+            expectSalary:-1,//期望薪资code
+            selectSalaryIndex:-1,//工资选择index
+            expectSalaryName:'',//期望薪资
+            workStatus:'',//工作状态 0 找工作 1 已工作
+            workStatusStr:'',
+            workplaceCode:'',//工作地点Code
+            workplaceCodeStr:'',//工作地点
+            birthplaceCode:-1,//籍贯code
+            birthplaceCodeStr:'',//籍贯
+            workSelect:[],//擅长工种
+            workstr:'',
+            workYear:'',//工作年限
+            workExpect:'',//工作意志
+        })
+    }
     _showWarnAler(title){
         let self=this;
         self.dropdown.alertWithType('info',title,'');
@@ -208,6 +263,7 @@ export default class GWAdd extends BaseComponent {
         var  self = this;
         const {
             selectSalaryIndex,
+            workId,
         }=self.state;
 
         switch (index){
@@ -226,7 +282,7 @@ export default class GWAdd extends BaseComponent {
             case 2://籍贯
                 self.props.navigation.navigate('SelectHomePlace',{
                     title:'籍贯',
-                    callback: ((info,code) => { //回调函数
+                    callback: ((info,index,code) => { //回调函数
                         this.setState({
                             birthplaceCodeStr: info,
                             birthplaceCode:code,
@@ -236,10 +292,11 @@ export default class GWAdd extends BaseComponent {
             case 3://擅长工种
                 self.props.navigation.navigate('SelectWorkHH',{
                     title:'擅长工种',
+                    workId:workId>0?workId:0,
                     callback: ((selectItem,workstr) => { //回调函数
                         this.setState({
                             workSelect: selectItem,
-                            workstr:workstr
+                            workstr:workstr,
                         })
                     })
                 })
@@ -247,7 +304,8 @@ export default class GWAdd extends BaseComponent {
             case 4://工作地点
                 self.props.navigation.navigate('SelectHomePlace',{
                     title:'工作地点',
-                    callback: ((info,code) => { //回调函数
+                    callback: ((info,index,code) => { //回调函数
+                        alert(code);
                         this.setState({
                             workplaceCodeStr: info,
                             workplaceCode:code,
