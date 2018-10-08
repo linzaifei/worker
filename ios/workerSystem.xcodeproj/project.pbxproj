@@ -40,6 +40,7 @@
 		97373AA00C5B259CC653B70A /* Pods_workerSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D698E90BC3421E368602DA23 /* Pods_workerSystem.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CB29F5E02153D43B00B22569 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB29F5BD2153D40700B22569 /* libRCTBEEPickerManager.a */; };
+		CBFAE0DB216AE44500CA34A2 /* RNToNative.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFAE0D7216AE44500CA34A2 /* RNToNative.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,6 +356,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CB29F5B52153D40700B22569 /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
+		CBFAE0D7216AE44500CA34A2 /* RNToNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNToNative.m; sourceTree = "<group>"; };
+		CBFAE0D9216AE44500CA34A2 /* RNToNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNToNative.h; sourceTree = "<group>"; };
 		D698E90BC3421E368602DA23 /* Pods_workerSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workerSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -496,6 +499,7 @@
 		13B07FAE1A68108700A75B9A /* workerSystem */ = {
 			isa = PBXGroup;
 			children = (
+				CBFAE0D5216AE44500CA34A2 /* manager */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -636,6 +640,15 @@
 				CB29F5BD2153D40700B22569 /* libRCTBEEPickerManager.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CBFAE0D5216AE44500CA34A2 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				CBFAE0D9216AE44500CA34A2 /* RNToNative.h */,
+				CBFAE0D7216AE44500CA34A2 /* RNToNative.m */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1221,6 +1234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				CBFAE0DB216AE44500CA34A2 /* RNToNative.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

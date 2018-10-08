@@ -71,6 +71,8 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
+    <color name="z_dialog_bg_color">#FFFFFF</color>
+    <color name="z_transparent">#00000000</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode">
             
             <enum name="normal" value="0"/>
@@ -385,6 +387,28 @@
             <enum name="add" value="16"/>
         </attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <declare-styleable name="ZLoadingTextView"><attr format="string" name="z_text"/></declare-styleable>
+    <declare-styleable name="ZLoadingView"><attr name="z_type">
+            <enum name="CircleBuilder" value="0"/>
+            <enum name="ClockBuilder" value="1"/>
+            <enum name="StarBuilder" value="2"/>
+            <enum name="LeafBuilder" value="3"/>
+            <enum name="DoubleCircleBuilder" value="4"/>
+            <enum name="PacManBuilder" value="5"/>
+            <enum name="ElasticBallBuilder" value="6"/>
+            <enum name="InfectionBallBuilder" value="7"/>
+            <enum name="IntertwineBuilder" value="8"/>
+            <enum name="TextBuilder" value="9"/>
+            <enum name="SearchPathBuilder" value="10"/>
+            <enum name="RotateCircleBuilder" value="11"/>
+            <enum name="SingleCircleBuilder" value="12"/>
+
+            <enum name="SnakeCircleBuilder" value="13"/>
+            <enum name="StairsPathBuilder" value="14"/>
+            <enum name="MusicPathBuilder" value="15"/>
+            <enum name="StairsRectBuilder" value="16"/>
+            <enum name="ChartRectBuilder" value="17"/>
+        </attr><attr format="color" name="z_color"/><attr format="float" name="z_duration_percent"/></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -459,6 +483,7 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="alert_width">200dp</dimen>
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -2120,6 +2145,16 @@
     <style name="Widget.Compat.NotificationActionText" parent=""/>
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
+    </style>
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/z_transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
     </style>
     <style name="redboxButton">
     <item name="android:layout_width">0dp</item>

@@ -134,6 +134,7 @@ export default class BaseListComponent extends ZFBaseComponent {
                         onEndReached={this._endReflash.bind(this)}
                     />
                     {this._moreInfo()}
+                    {this._Alert()}
                 </View>
             );
 

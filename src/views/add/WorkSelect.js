@@ -43,6 +43,7 @@ export default class WorkSelect extends BaseComponent{
             };
           }
 
+    _keyExtractor = (item, index) => String(index);
           render(){
               let self=this;
               return(
@@ -50,6 +51,7 @@ export default class WorkSelect extends BaseComponent{
                       <ExpanableList
                           ref={ref => self.expanlist = ref}
                           dataSource={self.state.data}
+                          keyExtractor={this._keyExtractor}
                           headerKey="name"
                           memberKey="children"
                           renderRow={self._renderItem}

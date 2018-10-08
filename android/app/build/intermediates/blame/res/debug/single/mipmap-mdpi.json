@@ -1,26 +1,10 @@
 [
     {
-        "merged": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
-        "source": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher_round.png",
-        "source": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher_round.png",
-        "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
-        "source": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher_round.png",
-        "source": "E:\\Users\\linzaifei\\Desktop\\linzaifei\\RN\\project\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
-        "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher_round.png",
+        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     }
 ]

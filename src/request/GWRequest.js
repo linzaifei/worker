@@ -7,7 +7,7 @@ import {
     NativeModules,
 } from 'react-native';
 
-// var RNToNative = NativeModules.RNToNative;
+var RNToNative = NativeModules.RNToNative;
 
 
 function gw_request(url,parmas,success,fail,method='GET',token=null) {
@@ -19,6 +19,7 @@ function gw_request(url,parmas,success,fail,method='GET',token=null) {
 }
 
 function postRequest(url,parmas,success,fail,method,token) {
+    RNToNative.HUD(true)
     fetch(url,{
         method:'POST',
         headers:{
@@ -44,10 +45,10 @@ function postRequest(url,parmas,success,fail,method,token) {
             }else {
                 fail(responseJson);
             }
-            // RNToNative.HUD(false)
+            RNToNative.HUD(false)
         })
         .catch((error) => {
-            // RNToNative.HUD(false)
+            RNToNative.HUD(false)
             fail(error);
         });
 }
@@ -55,6 +56,7 @@ function postRequest(url,parmas,success,fail,method,token) {
 function get_request(url,parmas,success,fail,method,token=null) {
     url = getUrlStr(url,parmas)
     console.log(JSON.stringify(url))
+    RNToNative.HUD(true)
     fetch(url,{
         method:method,
         headers:{
@@ -79,10 +81,10 @@ function get_request(url,parmas,success,fail,method,token=null) {
             }else {
                 fail(responseJson);
             }
-            // RNToNative.HUD(false)
+            RNToNative.HUD(false)
         })
         .catch((error) => {
-            // RNToNative.HUD(false)
+            RNToNative.HUD(false)
             fail(error);
         });
 }

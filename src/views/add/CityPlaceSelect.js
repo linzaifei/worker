@@ -42,11 +42,13 @@ export default class CityPlaceSelect extends BaseComponent{
             };
           }
 
+    _keyExtractor = (item, index) => String(index);
           render(){
               let self=this;
               return(
                   <View style={styles.container}>
                       <FlatList
+                          keyExtractor={this._keyExtractor}
                           data={self.state.data}
                           extraData={self.state}
                           renderItem={({item,index}) =>self._renderItemView(item,index)}

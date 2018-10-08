@@ -102,10 +102,13 @@ export default class GWHomeList extends BaseListComponent {
     _queryDetail(workid){
         var self = this;
         gwrequest.gw_tokenRequest(urls.queryDetail,{"workerId":workid},function (ret) {
-            console.log("success"+JSON.stringify(ret))
+            console.log("success======"+JSON.stringify(ret))
             self.props.navigation.navigate('Detail',{
                 title:'编辑',
                 item:ret,
+                callback:()=>{
+                    self.dropdown.alertWithType('info','修改成功','')
+                }
             })
         },function (e) {
             console.log(JSON.stringify(e))

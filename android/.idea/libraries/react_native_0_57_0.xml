@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="react-native-0.57.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/8644000c1fd144c956b4598b2d3061a07f3d21e3/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
