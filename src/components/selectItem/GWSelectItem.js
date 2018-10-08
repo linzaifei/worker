@@ -20,6 +20,12 @@ function _hasBack() {
 }
 
 export default class GWSelectItem extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            secureTextEntry:false,
+        }
+    }
     static propTypes = {
         iconWidth:PropTypes.number,
         iconHeight:PropTypes.number,
@@ -43,7 +49,6 @@ export default class GWSelectItem extends Component {
         borderRadius:PropTypes.number,
         hasBack:PropTypes.bool,
         hasText:PropTypes.bool,
-        secureTextEntry:PropTypes.bool,
         children: PropTypes.node,
         onClickItem:PropTypes.func,
 
@@ -54,7 +59,6 @@ export default class GWSelectItem extends Component {
         hasBack:true,
         editable:true,
         hasText:false,
-        secureTextEntry:false,
         keyboard:'default',
         iconHeight:20,
         iconWidth:20,
@@ -62,6 +66,13 @@ export default class GWSelectItem extends Component {
         mTop:5,
         textColor:dpColor,
         backgroundColor:'#fff'
+    }
+
+
+    _setSecureTextEntry(){
+        this.setState({
+            secureTextEntry:true,
+        })
     }
 
     getBack(){
@@ -87,7 +98,6 @@ export default class GWSelectItem extends Component {
             editable,
             children,
             textColor,
-            secureTextEntry,
         }=this.props;
 
         if(!children){
@@ -96,7 +106,7 @@ export default class GWSelectItem extends Component {
                     <TextInput style={styles.textInput}
                                defaultValue={value}
                                 underlineColorAndroid={'transparent'}
-                               secureTextEntry={secureTextEntry}
+                               secureTextEntry={true}
                                keyboardType={keyboard}
                                maxLength={max}
                                placeholder={placeholder}

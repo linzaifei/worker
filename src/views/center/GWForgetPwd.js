@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import BaseComponent from "../../components/base/BaseComponent";
+import EditInput from "../logon/EditInput";
 
 
 export default class GWForgetPwd extends BaseComponent {
@@ -90,40 +91,47 @@ export default class GWForgetPwd extends BaseComponent {
         },function (e) {
 
         })
+        this.tel._setSecureTextEntry();
+        this.pwd._setSecureTextEntry();
     }
 
     render() {
         var self = this;
         return (
             <View style={styles.container}>
-                <GWSelectItem
-                    title="新的密码"
-                    placeholder="请输入密码"
-                    hasBack={false}
-                    hasText={true}
-                    secureTextEntry={true}
-                    borderRadius={5}
-                    keyboard={'email-address'}
-                    onTextChange={(text)=>{
-                        self.setState({
-                            newPwd:text,
-                        })
-                    }}
+                <EditInput ref={a=>this.tel=a}
+                           padding={2}
+                           title="新的密码"
+                           textAlign='right'
+                           placeholder="请输入账号"
+                           borderRadius={5}
+                           color={swColor}
+                           backgroundColor="#fff"
+                           marginLeft={5}
+                           marginRight={5}
+                           onTextChange={(text)=>{
+                               self.setState({
+                                   newPwd:text,
+                               })
+                           }}
                 />
-                <GWSelectItem
-                    title="确认密码"
-                    placeholder="请输入密吗"
-                    hasBack={false}
-                    hasText={true}
-                    secureTextEntry={true}
-                    borderRadius={5}
-                    keyboard={'email-address'}
-                    onTextChange={(text)=>{
-                        self.setState({
-                            reNewPwd:text,
-                        })
-                    }}
+                <EditInput ref={a=>this.pwd=a}
+                           title="确认密码"
+                           marginTop={8}
+                           textAlign='right'
+                           borderRadius={5}
+                           color={swColor}
+                           placeholder="请输入密码"
+                           backgroundColor="#fff"
+                           marginLeft={5}
+                           marginRight={5}
+                           onTextChange={(text)=>{
+                               self.setState({
+                                   reNewPwd:text,
+                               })
+                           }}
                 />
+
                 {this._Alert()}
             </View>
         );

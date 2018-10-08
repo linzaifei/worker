@@ -108,6 +108,8 @@ export default class GWLogon extends BaseComponent {
                                borderRadius={20}
                                backgroundColor="rgba(255,255,255,0.2)"
                                max={11}
+                               placeholderTextColor="#fff"
+                               selectionColor="#fff"
                                imgName="ic_logon_user"
                                placeholder="请输入账号"
                                onTextChange={(e)=>{this._onTextChange(e,0)}}
@@ -119,6 +121,8 @@ export default class GWLogon extends BaseComponent {
                                backgroundColor="rgba(255,255,255,0.2)"
                                marginTop={8}
                                max={11}
+                               placeholderTextColor="#fff"
+                               selectionColor="#fff"
                                imgName="ic_logon_lock"
                                placeholder="请输入密码"
                                onTextChange={(e)=>{this._onTextChange(e,1)}}
