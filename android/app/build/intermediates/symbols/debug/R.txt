@@ -896,6 +896,7 @@ int layout support_simple_spinner_dropdown_item 0x7f04002c
 int layout z_loading_dialog 0x7f04002d
 int mipmap ic_launcher 0x7f030000
 int mipmap ic_launcher_round 0x7f030001
+int mipmap logo 0x7f030002
 int string abc_action_bar_home_description 0x7f070000
 int string abc_action_bar_up_description 0x7f070001
 int string abc_action_menu_overflow_description 0x7f070002

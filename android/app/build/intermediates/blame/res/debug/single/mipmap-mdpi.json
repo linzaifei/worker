@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/logo.png",
+        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/res/mipmap-mdpi/logo.png"
+    },
+    {
         "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
         "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },

@@ -40,7 +40,7 @@ MERGED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:12:7-34
 		REJECTED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:11:7-41
+		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:11:7-34
 	android:theme
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:14:7-38
 	tools:replace
