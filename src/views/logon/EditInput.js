@@ -35,6 +35,7 @@ export default class EditInput extends Component {
         hasEye:PropTypes.bool,
         max:PropTypes.number,
         textAlign:PropTypes.oneOf(['left','right']),
+        returnKeyType:PropTypes.oneOf(['done','send','search']),
         color:PropTypes.string,
         placeholderTextColor:PropTypes.string,
         selectionColor:PropTypes.string,
@@ -52,14 +53,14 @@ export default class EditInput extends Component {
         iconWidth:PropTypes.number,
         iconHeight:PropTypes.number,
         onTextChange:PropTypes.func,
-        onClickItem:PropTypes.func,
+        onEndEditing:PropTypes.func,
     }
+
 
     static defaultProps={
         iconWidth:23,
         iconHeight:23,
         marginTop:0,
-
         hasEye:false,
         max:1000,
         padding:5,
@@ -67,7 +68,8 @@ export default class EditInput extends Component {
         rightType:0,
         keyboardType:'default',
         textAlign:'left',
-        color:'#fff'
+        color:'#fff',
+        returnKeyType:'done'
     }
 
 
@@ -110,12 +112,14 @@ export default class EditInput extends Component {
             color,
             placeholderTextColor,
             selectionColor,
+            returnKeyType,
+            onEndEditing,
         }=this.props
 
         return (
             <View style={[styles.container,]} {...this.props}>
                 {this._leftView()}
-                <TextInput ref="_input"
+                <TextInput ref={a=>this._input=a}
                            maxLength={max}
                            selectionColor={selectionColor}
                            defaultValue={value}
@@ -125,6 +129,7 @@ export default class EditInput extends Component {
                            secureTextEntry={this.state.secureTextEntry}
                            onChange={(e)=>{this._onChange(e.nativeEvent.text)}}
                            placeholder={placeholder}
+                           returnKeyType={returnKeyType}
                            style={[styles.textInputStyle,{textAlign,color}]}
                            onFocus={()=>{
                                this.setState({
@@ -134,6 +139,7 @@ export default class EditInput extends Component {
                                })
                            }}
                            onEndEditing={()=> {
+                               onEndEditing && onEndEditing()
                                this.setState({
                                    img:imgName,
                                    borderColor:"#E6E6E6",

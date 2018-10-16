@@ -106,7 +106,7 @@ export default class GWSelectItem extends Component {
                     <TextInput style={styles.textInput}
                                defaultValue={value}
                                 underlineColorAndroid={'transparent'}
-                               secureTextEntry={true}
+                               secureTextEntry={false}
                                keyboardType={keyboard}
                                maxLength={max}
                                placeholder={placeholder}

@@ -5,11 +5,15 @@ import {
     Text,
     View,
     DeviceEventEmitter,
+    TextInput,
+    TouchableOpacity,
+    Image,
 } from 'react-native';
 
 import ScrollableTabView ,{ScrollableTabBar}from 'react-native-scrollable-tab-view'
 import GWTag from "../../components/tag/GWTag";
 import  GWHomeList from './GWHomeList'
+import EditInput from "../logon/EditInput";
 export default class GWHome extends Component {
 
     static navigationOptions=({navigation})=>{
@@ -25,6 +29,11 @@ export default class GWHome extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            keyWords:'',
+            page:0,
+            // value:'',
+        }
         this._addLiner()
 
     }
@@ -44,29 +53,84 @@ export default class GWHome extends Component {
         titles.map((item,index)=>{
             chilens.push(
                 <View key={index} tabLabel={item}style={{padding:5}} >
-                    <GWHomeList page={index} navigation={this.props.navigation} />
+                    <GWHomeList ref={a=>this.homeList=a} page={index} navigation={this.props.navigation} />
                 </View>
             )
         })
         return chilens
     }
 
+    _onTextChange(text){
+        this.setState({
+            keyWords:text,
+            // value:text
+        })
+    }
+
     render() {
+        var self = this;
+        const {
+            page,
+            keyWords,
+            value,
+        }=self.state;
         return (
-            <ScrollableTabView tabBarUnderlineStyle={{
-                backgroundColor: '#fff',
-                height: 2,
-                marginBottom:4,
-            }} locked={false}  tabBarActiveTextColor='#fff' tabBarInactiveTextColor='#fff' tabBarBackgroundColor= {defaultColor}
-                               renderTabBar={() => <ScrollableTabBar />}
-            >
-                {this._titles()}
-            </ScrollableTabView>
+           <View style={styles.container}>
+               <View style={styles.item}>
+                   <View style={{flex:1}}>
+                       <EditInput
+                                  padding={1}
+                                  borderRadius={4}
+                                  paddingLeft={10}
+                                  backgroundColor='#fff'
+                                  color={swColor}
+                                  // value={value}
+                                  returnKeyType={'search'}
+                                  imgName="ic_home_search"
+                                  placeholder="搜索姓名和手机号码"
+                                  onTextChange={(e)=>{this._onTextChange(e)}}
+                                  onEndEditing={()=>{
+                                      self.setState({
+                                          page:0,
+                                      },()=>{
+                                          self.homeList._setkeyWord(keyWords)
+                                      })
+                                  }}
+                       />
+                   </View>
+                   <TouchableOpacity style={{marginLeft:10}}>
+                       <Image source={{uri:'ic_home_calendar'}} style={{width:27,height:27}}/>
+                   </TouchableOpacity>
+               </View>
+               <ScrollableTabView tabBarUnderlineStyle={{
+                   backgroundColor: '#fff',
+                   height: 2,
+                   marginBottom:4,
+               }} locked={false} page={page} onChangeTab={(obj)=>{
+                   self.setState({
+                       page:obj.i
+                   })
+               }}  tabBarActiveTextColor='#fff' tabBarInactiveTextColor='#fff' tabBarBackgroundColor= {defaultColor}
+                                  renderTabBar={() => <ScrollableTabBar />}
+               >
+                   {this._titles()}
+               </ScrollableTabView>
+           </View>
         );
     }
 
 }
 
 var styles = StyleSheet.create({
-    container: {}
+    container: {
+        flex:1
+    },
+    item:{
+        backgroundColor:defaultColor,
+        flexDirection:ROW,
+        alignItems:CENTER,
+        paddingLeft:10,
+        paddingRight:10,
+    },
+
 });

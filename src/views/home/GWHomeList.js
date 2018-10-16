@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import BaseListComponent from "../../components/base/BaseListComponent";
 import GWHomeListItem from "./GWHomeListItem";
+import GWTag from "../../components/tag/GWTag";
 
 
 export default class GWHomeList extends BaseListComponent {
@@ -23,6 +24,7 @@ export default class GWHomeList extends BaseListComponent {
             keyWord:'',
             beginTime:'',
             endTime:'',
+
         }
 
     }
@@ -34,11 +36,18 @@ export default class GWHomeList extends BaseListComponent {
             pageNumber,
             isRefreshing,
             dataArr,
-        }=self.state
+            keyWord,
+        }= self.state
+
+        const {
+            page,
+        }=self.props;
 
         var flag= '';
-        switch (this.props.page){
+        var parmas = {};
+        switch (page){
             case 0:
+                parmas['keyWord'] = keyWord;
                 break;
             case 1:
                 flag='today';
@@ -57,12 +66,10 @@ export default class GWHomeList extends BaseListComponent {
                 break;
         }
 
+        parmas['pageNumber'] = pageNumber;
+        parmas['pageSize'] = '10';
+        parmas['flag'] = flag;
 
-        var parmas = {
-            pageNumber,
-            pageSize:'8',
-            flag,
-        }
         gwrequest.gw_tokenRequest(urls.list,parmas,function (ret) {
             console.log('+++++++++'+JSON.stringify(ret))
             isRefreshing && self.setState({isRefreshing:false})
@@ -83,6 +90,17 @@ export default class GWHomeList extends BaseListComponent {
 
     }
 
+    _setkeyWord(key){
+        this.setState({
+            keyWord:key,
+        },()=>{
+            this._loadData()
+        })
+    }
+
+    _listHeader(){
+        return  <GWTag title={this.state.dataArr.length + '人'} padding={5} space={10}iconWidth={19} iconHeight={19}  url="ic_home_more"  />
+    }
 
    _itemCell(item,index){
         var self = this;
