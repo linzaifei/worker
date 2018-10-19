@@ -114,6 +114,7 @@ var styles = StyleSheet.create({
     container: {
         padding:5,
         flex: 1,
+        backgroundColor:'#fafafa'
         // paddingTop:5,
         // paddingLeft:5,
         // paddingRight:5,

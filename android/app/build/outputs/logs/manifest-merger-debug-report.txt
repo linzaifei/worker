@@ -1,108 +1,108 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-28:12
 	package
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:3:5-31
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:3:5-31
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:2:5-51
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:2:5-51
 	xmlns:android
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:11-69
 	android:versionCode
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:5:5-67
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:5:22-64
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:6:5-77
-MERGED from [workerSystem:react-native-picker:unspecified] /Users/linzaifei/Desktop/linzaifei/RN/project/worker/node_modules/react-native-picker/android/build/intermediates/bundles/default/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.57.0] /Users/linzaifei/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/AndroidManifest.xml:11:5-78
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:6:5-77
+MERGED from [workerSystem:react-native-picker:unspecified] E:\rncode\gitcode\worker\node_modules\react-native-picker\android\build\intermediates\bundles\default\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.0] C:\Users\admin\.android\build-cache\041a9e2f2d67b1f89d2f6583d036638922c6592a\output\AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:6:22-75
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:6:22-75
 application
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:8:5-26:19
-MERGED from [com.facebook.react:react-native:0.57.0] /Users/linzaifei/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/linzaifei/.android/build-cache/032595f3062893f7dfbcb0627162f093bef7ff38/output/AndroidManifest.xml:11:5-20
-MERGED from [org.webkit:android-jsc:r174650] /Users/linzaifei/.android/build-cache/4d761d1876afe2a45d5c59a565d07b96956985e5/output/AndroidManifest.xml:2:3-17
-MERGED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:11:5-15:19
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:8:5-26:19
+MERGED from [com.facebook.react:react-native:0.57.0] C:\Users\admin\.android\build-cache\041a9e2f2d67b1f89d2f6583d036638922c6592a\output\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\admin\.android\build-cache\6e6ba452f5dcd36a41d25bd613c121362cdff541\output\AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\admin\.android\build-cache\e728aaeb110f984910ba67aaba22a438d7dd6495\output\AndroidManifest.xml:2:3-17
+MERGED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:11:5-15:19
 	android:label
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:10:7-39
-		REJECTED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:13:9-41
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:10:7-39
+		REJECTED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:13:9-41
 	android:supportsRtl
-		ADDED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:14:9-35
+		ADDED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:14:9-35
 	android:allowBackup
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:12:7-34
-		REJECTED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:12:9-35
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:12:7-34
+		REJECTED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:11:7-34
 	android:theme
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:14:7-38
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:14:7-38
 	tools:replace
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:13:9-58
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:13:9-58
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:9:7-38
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:9:7-38
 activity#com.workersystem.MainActivity
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:15:7-24:18
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:15:7-24:18
 	android:label
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:17:9-41
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:17:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:19:9-51
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:19:9-51
 	android:configChanges
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:18:9-79
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:18:9-79
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:16:9-37
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:16:9-37
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:20:9-23:25
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:20:9-23:25
 action#android.intent.action.MAIN
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:21:13-65
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:21:13-65
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:21:21-62
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:21:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:22:13-73
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:22:13-73
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:22:23-70
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:22:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:25:7-84
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:25:7-84
 	android:name
-		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:25:17-81
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:25:17-81
 uses-sdk
-INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [workerSystem:react-native-picker:unspecified] /Users/linzaifei/Desktop/linzaifei/RN/project/worker/node_modules/react-native-picker/android/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.57.0] /Users/linzaifei/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/linzaifei/.android/build-cache/8d99bbf8d1df022ad955568a484386075331b41d/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /Users/linzaifei/.android/build-cache/d7827eebe73738e7d123bcd5073cb8b2e087a4d7/output/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/linzaifei/.android/build-cache/9d6d7bad34a1ffe2b0c0d55b63e129cea96709d3/output/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /Users/linzaifei/.android/build-cache/3773836671a9347ad554700f00979998036044b4/output/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/linzaifei/.android/build-cache/d63b5115e6163180a020be08af4a99e437ddb5ce/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/linzaifei/.android/build-cache/198c70d779d65496833b9cef93ea83a3e10eabbc/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/linzaifei/.android/build-cache/9481f9c5dddc1c9a55cc740bdd4cad8cdb46922a/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /Users/linzaifei/.android/build-cache/87a8dd3b94a17fd5cbe939745b9e43369a4e44c8/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /Users/linzaifei/.android/build-cache/ae14d5a593a97d17bcb3b78e1c5796c4c6d48422/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/linzaifei/.android/build-cache/5e66eb5ffbc7de5aa52f9baad42b8cf4b2f5fe6e/output/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/linzaifei/.android/build-cache/a639ac5edc0a29699168b7ee1c5c88eacfbd09e6/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/linzaifei/.android/build-cache/d93943675287143bdac81d215d8bf9652a3e7bff/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/linzaifei/.android/build-cache/91b483344e002f5924b5ffc9433f8c599d676f47/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/linzaifei/.android/build-cache/a2106cba159586eabcb091af51b3b26644540e53/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/linzaifei/.android/build-cache/d07f16db7a1031b8625fecbe7e542652a4508af2/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/linzaifei/.android/build-cache/64461d11de4ad880d9765e1304cc7c26405a7380/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/linzaifei/.android/build-cache/032595f3062893f7dfbcb0627162f093bef7ff38/output/AndroidManifest.xml:7:5-9:41
-MERGED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:7:5-9:41
+INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [workerSystem:react-native-picker:unspecified] E:\rncode\gitcode\worker\node_modules\react-native-picker\android\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.0] C:\Users\admin\.android\build-cache\041a9e2f2d67b1f89d2f6583d036638922c6592a\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\admin\.android\build-cache\c1579e58ba47d7a973a8d1ee5279e3928d8485ec\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\admin\.android\build-cache\8cd1c5d0bb0bfbc73fb54842acc6710a48929e34\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\admin\.android\build-cache\be36acfbb04eb2573eec6b80a4132acf66d3295a\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\admin\.android\build-cache\1a4b264c1bdc6e5267f5d8375728489b53fa1eef\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\admin\.android\build-cache\9b4f3f6d740f67d3b8878c23495551ed303af445\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\admin\.android\build-cache\0c239aa8fe34feb35ee6dea630808b8d6e53a8ae\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\admin\.android\build-cache\8e75054fc335a0d74eb92ba7ad73e50a69b42e57\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\admin\.android\build-cache\1a384c87d6d14e0d3f596fbee29801f30516bfeb\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\admin\.android\build-cache\aca46b0c2eebbe836d6187a1cec75304f680285c\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\admin\.android\build-cache\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\admin\.android\build-cache\ec2af1d000504d292e04d3d110569397cc7d80ee\output\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\admin\.android\build-cache\e2a9c0e6d005f336228b52056dd26c9ca31ebfe6\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\admin\.android\build-cache\6fefcb2531a2c9c5f95a39d72022f607ffe49d46\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\admin\.android\build-cache\4cf12444a80d95b0ae46bc2fbb2a25ca1d568903\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\admin\.android\build-cache\e52f28e13231bf149950891a143c8f9c4df9c1ce\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\admin\.android\build-cache\515e21c7e621a1e7ef0bd2063de7e829d651e7d9\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\admin\.android\build-cache\f00c9d5cf7dffe9b8fcf985346eeb380cab8983d\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\admin\.android\build-cache\6e6ba452f5dcd36a41d25bd613c121362cdff541\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:7:5-9:41
 	android:targetSdkVersion
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

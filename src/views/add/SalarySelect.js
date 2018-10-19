@@ -94,7 +94,7 @@ export default class SalarySelect extends BaseComponent{
 var styles = StyleSheet.create({
     container: {
         padding:5,
-
+        backgroundColor:'#fafafa'
     },
     item: {
         padding: 10,

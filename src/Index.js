@@ -124,7 +124,7 @@ const RootStack = createStackNavigator({
     },
     SelectHomePlace:{
         screen:HomePlaceSelect,
-        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+        navigationOptions: ({navigation}) => navigationOption({navigation})
     },
     SelectWork:{
         screen:WorkSelect,

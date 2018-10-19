@@ -119,7 +119,7 @@ export default class GWSelectItem extends Component {
             }else {
                 if(value){
                     return (
-                        <Text numberOfLines={3}  style={{fontSize:15,marginLeft:15,color:textColor,textAlign:'right',flex:1}}>{value}</Text>
+                        <Text numberOfLines={1}  style={{fontSize:15,marginLeft:15,color:textColor,textAlign:'right',flex:1}}>{value}</Text>
                     )
                 }else {
                     return (

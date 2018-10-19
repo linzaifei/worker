@@ -120,6 +120,7 @@ export default class GWCenter extends BaseComponent {
 var styles = StyleSheet.create({
     container: {
         padding:5,
+        backgroundColor:'#fafafa'
     },
     content:{
         fontSize:15,

@@ -113,6 +113,8 @@ export default class GWForgetPwd extends BaseComponent {
                            textAlign='right'
                            placeholder="请输入密码"
                            borderRadius={5}
+                           paddingRight={10}
+                           paddingLeft={10}
                            color={swColor}
                            backgroundColor="#fff"
                            marginLeft={5}
@@ -126,6 +128,8 @@ export default class GWForgetPwd extends BaseComponent {
                 <EditInput ref={a=>this.pwd=a}
                            title="确认密码"
                            marginTop={8}
+                           paddingRight={10}
+                           paddingLeft={10}
                            textAlign='right'
                            borderRadius={5}
                            color={swColor}
@@ -151,5 +155,7 @@ export default class GWForgetPwd extends BaseComponent {
 var styles = StyleSheet.create({
     container: {
         padding:5,
+        flex:1,
+        backgroundColor:'#fafafa'
     }
 });

@@ -67,7 +67,7 @@ export default class GWHomeList extends BaseListComponent {
         }
 
         parmas['pageNumber'] = pageNumber;
-        parmas['pageSize'] = '10';
+        parmas['pageSize'] = '20';
         parmas['flag'] = flag;
 
         gwrequest.gw_tokenRequest(urls.list,parmas,function (ret) {

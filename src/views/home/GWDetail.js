@@ -40,7 +40,8 @@ export default class GWDetail extends GWAdd {
             jobtypeName:item.jobtypeName,//擅长工种字符串
             workYear:String(item.workYear),//工作年限
             workExpect:item.workExpect,//工作意志
-
+            degree:item.degree,//学历
+            degreeStr:item.degreeName,//学历名称
         })
     }
 
