@@ -5,13 +5,14 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-"bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js  --platform ios --dev false --bundle-output ./ios/bundle/index.ios.jsbundle --assets-dest ./ios/bundle",
+    "bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js  --platform ios --dev false --bundle-output ./ios/bundle/index.ios.jsbundle --assets-dest ./ios/bundle",
     "bundle-and": "react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res/"
   },
   "dependencies": {
     "react": "16.5.0",
     "react-native": "0.57.0",
     "react-native-actionsheet": "^2.4.2",
+    "react-native-calendars": "^1.21.0",
     "react-native-dropdownalert": "^3.5.0",
     "react-native-expandable-section-flatlist": "^1.1.7",
     "react-native-picker": "^4.3.7",

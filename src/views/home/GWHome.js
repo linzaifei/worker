@@ -98,7 +98,9 @@ export default class GWHome extends Component {
                                   }}
                        />
                    </View>
-                   <TouchableOpacity style={{marginLeft:10}}>
+                   <TouchableOpacity onPress={()=>{
+                       self.props.navigation.navigate('Calendars')
+                   }} style={{marginLeft:10}}>
                        <Image source={{uri:'ic_home_calendar'}} style={{width:27,height:27}}/>
                    </TouchableOpacity>
                </View>

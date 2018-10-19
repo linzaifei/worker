@@ -24,6 +24,7 @@ import LogonScreen from './views/logon/GWLogon'
 //首页
 import HomeScreen from './views/home/GWHome'
 import DetailScreen from './views/home/GWDetail'
+import CalendarsScreen from './views/home/GWCalendars'
 
 
 //添加
@@ -141,6 +142,11 @@ const RootStack = createStackNavigator({
         screen:WorkSelectHH,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
     },
+    Calendars:{
+        screen:CalendarsScreen,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
+
 
 },{
 

@@ -56,18 +56,26 @@ export default class GWForgetPwd extends BaseComponent {
             self.dropdown.alertWithType('info','修改密码成功','');
             self._out()
         },function (e) {
-            console.log(JSON.stringify(e))
+            if(e.msg){
+                self.dropdown.alertWithType('info',e.msg?e.msg:'请求错误','');
+            }
         })
     }
 
     _out(){
         var self = this;
-        gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
-            storage.gw_removeItem('token',function () {
-                self.props.navigation.navigate('Auth');
+
+        self.alertView.show('密码修改成功后需要重新登录',['重新登录'],function () {
+            gwrequest.gw_tokenRequest(urls.logout,{},function (ret) {
+                storage.gw_removeItem('token',function () {
+                    self.props.navigation.navigate('Auth');
+                })
+            },function (e) {
+                console.log(JSON.stringify(e))
+                if(e.msg){
+                    self.dropdown.alertWithType('info',e.msg?e.msg:'请求错误','');
+                }
             })
-        },function (e) {
-            console.log(JSON.stringify(e))
         })
     }
 
@@ -103,7 +111,7 @@ export default class GWForgetPwd extends BaseComponent {
                            padding={2}
                            title="新的密码"
                            textAlign='right'
-                           placeholder="请输入账号"
+                           placeholder="请输入密码"
                            borderRadius={5}
                            color={swColor}
                            backgroundColor="#fff"
@@ -133,6 +141,7 @@ export default class GWForgetPwd extends BaseComponent {
                 />
 
                 {this._Alert()}
+                {this._alertAction()}
             </View>
         );
     }

@@ -54,6 +54,8 @@ export default class GWAdd extends BaseComponent {
             jobtypeName:'',
             workYear:'',//工作年限
             workExpect:'',//工作意志
+            degree:'',//学历
+            degreeStr:'',
         }
     }
 
@@ -81,6 +83,8 @@ export default class GWAdd extends BaseComponent {
             jobtypeName,
             workYear,//工作年限
             workExpect,//工作意志
+            degree,//
+            degreeStr,
         }=self.state;
         // var s='{"name":"哈哈哈","sex":0,"telephone":"15051857509","idcard":"123456789123456789","birthday":"2018-9-1","birthplaceCode":2,"workYear":"3","workplaceCode":4,"expectSalary":3,"workStatus":1,"workExpect":"工作一直","jobTypeList":[{"id":1,"name":"互联网","level":1,"parentId":0,"createTime":"2018-08-30 11:46:19","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":2,"name":"java开发","level":2,"parentId":1,"createTime":"2018-08-30 11:46:47","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":3,"name":"C语言开发","level":2,"parentId":1,"createTime":"2018-08-30 11:47:11","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null}]}';
         if(!name){
@@ -99,30 +103,30 @@ export default class GWAdd extends BaseComponent {
             self._showWarnAler('请输入身份证号码');
             return;
         }
-        if(!birthday){
-            self._showWarnAler('请选择出生日期');
-            return;
-        }
-        if(!birthplaceName || birthplaceCode==-1){
-            self._showWarnAler('请选择籍贯');
-            return;
-        }
-        if(!workYear){
-            self._showWarnAler('请输入工作年限');
-            return;
-        }
-        if(!workExpect){
-            self._showWarnAler('请输入工作意志');
-            return;
-        }
-        if(!expectSalaryName || expectSalary==-1){
-            self._showWarnAler('请选择工资要求');
-            return;
-        }
-        if(!jobtypeName || jobTypeList.length==0){
-            self._showWarnAler('请选择工种');
-            return;
-        }
+        // if(!birthday){
+        //     self._showWarnAler('请选择出生日期');
+        //     return;
+        // }
+        // if(!birthplaceName || birthplaceCode==-1){
+        //     self._showWarnAler('请选择籍贯');
+        //     return;
+        // }
+        // if(!workYear){
+        //     self._showWarnAler('请输入工作年限');
+        //     return;
+        // }
+        // if(!workExpect){
+        //     self._showWarnAler('请输入工作意志');
+        //     return;
+        // }
+        // if(!expectSalaryName || expectSalary==-1){
+        //     self._showWarnAler('请选择工资要求');
+        //     return;
+        // }
+        // if(!jobtypeName || jobTypeList.length==0){
+        //     self._showWarnAler('请选择工种');
+        //     return;
+        // }
         var work=new Object();
         work.name=name;
         work.sex=sex;
@@ -136,6 +140,7 @@ export default class GWAdd extends BaseComponent {
         work.workStatus=workStatus;
         work.workExpect=workExpect;
         work.jobtypeName=jobtypeName;
+        work.degree=degree;
 
         var joList=[];
         for(let i=0;i<jobTypeList.length;i++){
@@ -212,6 +217,7 @@ export default class GWAdd extends BaseComponent {
             jobtypeName:'',
             workYear:'',//工作年限
             workExpect:'',//工作意志
+            degree:'',
         })
         self.props.navigate('HomeS')
     }
@@ -220,51 +226,17 @@ export default class GWAdd extends BaseComponent {
         self.dropdown.alertWithType('info',title,'');
     }
 
-    _loadChooiceData(selectIndex,type){
+
+
+
+    _loadChooiceData(type,success){
         var self = this;
         gwrequest.gw_tokenRequest(urls.queryDicByType,{"type":type},function (ret) {
             console.log("success"+JSON.stringify(ret))
-            self._showOptions(selectIndex,ret);
+            success(ret)
         },function (e) {
             console.log(JSON.stringify(e))
         })
-    }
-
-    _showOptions(selectIndex,ret){
-        var  self = this;
-        switch (selectIndex){
-            case 0:
-                var options = [];
-                for(let i=0;i<ret.length;i++){
-                    options.push(ret[i].name);
-                }
-                options.push('取消');
-                self.actionSheet.show('性别选择',options,ret.length,function (index) {
-                    if(index != ret.length){
-                        self.setState({
-                            // sex:options[index] == '男' ?'00003-1':'00003-2',
-                            sex:ret[index].code,
-                            sexStr:options[index]+'性',
-                        })
-                    }
-                })
-                break;
-            case 6:
-                var options = [];
-                for(let i=0;i<ret.length;i++){
-                    options.push(ret[i].name);
-                }
-                options.push('取消');
-                self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
-                    if(index != 2){
-                        self.setState({
-                            workStatusName:options[index],
-                            workStatus:ret[index].code,
-                        })
-                    }
-                })
-                break;
-        }
     }
 
     _onClickItem(index){
@@ -276,7 +248,21 @@ export default class GWAdd extends BaseComponent {
 
         switch (index){
             case 0://性别
-                self._loadChooiceData(index,'gender');
+                self._loadChooiceData('gender',function (ret) {
+                    var options = [];
+                    for(let i=0;i<ret.length;i++){
+                        options.push(ret[i].name);
+                    }
+                    options.push('取消');
+                    self.actionSheet.show('性别选择',options,ret.length,function (index) {
+                        if(index != ret.length){
+                            self.setState({
+                                sex:ret[index].code,
+                                sexStr:options[index]+'性',
+                            })
+                        }
+                    })
+                });
                 break;
             case 1://出生日期
                 Picker.showDatePicker('出生日期',true,function (value,index) {
@@ -334,7 +320,40 @@ export default class GWAdd extends BaseComponent {
                     })})
                 break;
             case 6:
-                self._loadChooiceData(index,'work_status');
+                self._loadChooiceData('work_status',function (ret) {
+                    var options = [];
+                    for(let i=0;i<ret.length;i++){
+                        options.push(ret[i].name);
+                    }
+                    options.push('取消');
+
+                    self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
+                        if(index !=  ret.length){
+                            self.setState({
+                                workStatusName:options[index],
+                                workStatus:ret[index].code,
+                            })
+                        }
+                    })
+                });
+                break;
+            case 7:
+                self._loadChooiceData('degree',function (ret) {
+                    var options = [];
+                    for(let i=0;i<ret.length;i++){
+                        options.push(ret[i].name);
+                    }
+                    options.push('取消');
+
+                    self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
+                        if(index !=  ret.length){
+                            self.setState({
+                                degreeStr:options[index],
+                                degree:ret[index].code,
+                            })
+                        }
+                    })
+                });
                 break;
         }
     }
@@ -355,6 +374,7 @@ export default class GWAdd extends BaseComponent {
             jobtypeName,
             workYear,//工作年限
             workExpect,//工作意志
+            degreeStr,
         }=self.state;
         return (
             <View>
@@ -456,7 +476,7 @@ export default class GWAdd extends BaseComponent {
                 />
                 <View style={styles.center}>
                     <GWTag url='ic_center_yx' title="工作意志" iconWidth={20} space={5}size={15}iconHeight={20} />
-                    <InputView placeholder="请填写你的工作意志(500字以内)" value={workExpect} max={500} height={100} onChange={(text)=>{
+                    <InputView placeholder="请填写你的工作意志(100字以内)" value={workExpect} max={100} height={100} onChange={(text)=>{
                         self.setState({
                             workExpect:text
                         })
@@ -501,6 +521,17 @@ export default class GWAdd extends BaseComponent {
                     mTop={10}
                     onClickItem={()=>{
                         self._onClickItem(6);
+                    }}
+                />
+                <GWSelectItem
+                    title="学历"
+                    url="ic_center_state"
+                    borderRadius={5}
+                    value={degreeStr}
+                    editable={false}
+                    // mTop={10}
+                    onClickItem={()=>{
+                        self._onClickItem(7);
                     }}
                 />
                 <View style={{width:10,height:100}}/>
