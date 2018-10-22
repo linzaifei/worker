@@ -28,6 +28,10 @@
         "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_center_year.png"
     },
     {
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\node_modules_reactnativecalendars_src_calendar_img_next.png",
+        "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\node_modules_reactnativecalendars_src_calendar_img_next.png"
+    },
+    {
         "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\node_modules_reactnativedropdownalert_assets_warn.png",
         "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\node_modules_reactnativedropdownalert_assets_warn.png"
     },
@@ -102,6 +106,10 @@
     {
         "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\bg.png",
         "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\bg.png"
+    },
+    {
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\node_modules_reactnativecalendars_src_calendar_img_previous.png",
+        "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\node_modules_reactnativecalendars_src_calendar_img_previous.png"
     },
     {
         "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_center_sc.png",

@@ -8,7 +8,7 @@
         optimize="true"
         revision="27.0.3"
         sha1="3d120a8e3de59190c1bdf30887dda13db7827a61">
-        <dex dex="E:\rncode\gitcode\worker\android\app\build\intermediates\pre-dexed\debug\classes_89bece6ce68c35afefe5729ac39626f9679c67e0.jar" />
+        <dex dex="E:\rncode\gitcode\worker\android\app\build\intermediates\pre-dexed\release\classes_89bece6ce68c35afefe5729ac39626f9679c67e0.jar" />
     </item>
 
 </items>
