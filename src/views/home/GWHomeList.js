@@ -38,6 +38,8 @@ export default class GWHomeList extends BaseListComponent {
             isRefreshing,
             dataArr,
             keyWord,
+            beginTime,
+            endTime,
         }= self.state
 
         const {
@@ -49,6 +51,13 @@ export default class GWHomeList extends BaseListComponent {
         switch (page){
             case 0:
                 parmas['keyWord'] = keyWord;
+
+                if(endTime){
+                    parmas['endTime'] = endTime;
+                }
+                if(beginTime){
+                    parmas['beginTime'] = beginTime;
+                }
                 break;
             case 1:
                 flag='today';
@@ -71,8 +80,9 @@ export default class GWHomeList extends BaseListComponent {
         parmas['pageSize'] = '20';
         parmas['flag'] = flag;
 
+        console.log(JSON.stringify(parmas))
         gwrequest.gw_tokenRequest(urls.list,parmas,function (ret) {
-            console.log('+++++++++'+JSON.stringify(ret))
+            // console.log('+++++++++'+JSON.stringify(ret))
             isRefreshing && self.setState({isRefreshing:false})
             self.setState({
                 dataArr: pageNumber > 1 ?dataArr.concat(ret.data) :ret.data,
@@ -83,13 +93,22 @@ export default class GWHomeList extends BaseListComponent {
             }
         },function (e) {
             isRefreshing && self.setState({isRefreshing:false})
-            console.log('============='+JSON.stringify(e))
+            // console.log('============='+JSON.stringify(e))
         })
     }
 
     componentDidMount(){
         this._loadData()
+    }
 
+    _setTimer(beginTime,endTime){
+        console.log(beginTime +'======'+endTime)
+        this.setState({
+            beginTime,
+            endTime,
+        },()=>{
+            this._loadData()
+        })
     }
 
     _setkeyWord(key){

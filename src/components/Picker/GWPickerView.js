@@ -6,6 +6,7 @@ import {
     View,
     Modal,
     TouchableOpacity,
+    Image,
 } from 'react-native';
 
 export default class GWPickerView extends Component {
@@ -26,14 +27,6 @@ export default class GWPickerView extends Component {
 
     componentDidMount(){
 
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getUTCMonth();
-        var day = date.getDay();
-        this.setState({
-            nowData:year+'-'+month+'-'+day,
-            nextData:year+'-'+month+'-'+day,
-        })
     }
 
 
@@ -76,6 +69,13 @@ export default class GWPickerView extends Component {
         })
     }
 
+    _setData(nowData,nextData){
+        this.setState({
+            nowData,
+            nextData,
+        })
+    }
+
     showDataTimerPicker(title,day,success){
 
         var self  = this;
@@ -87,20 +87,22 @@ export default class GWPickerView extends Component {
             success,
         },()=>{
             Picker.showDatePicker(title,day,function (value,index) {
-
                 value = String(value).replace(/,/g,'-')
                 switch (self.state.index){
                     case 0:
                         self.setState({
                             nowData:value
+                        },()=>{
+                            self.showDatePicker(title,day,success)
                         })
-                        self.showDatePicker(title,day,success)
+
                         break;
                     case 1:
                         self.setState({
                             nextData:value
+                        },()=>{
+                            self.showDatePicker(title,day,success)
                         })
-                        self.showDatePicker(title,day,success)
                         break;
                 }
 
@@ -117,12 +119,12 @@ export default class GWPickerView extends Component {
 
     _onClickItem(index){
         var self = this;
-
         const {
             title,
             day,
             success,
-            nowData,nextData,
+            nowData,
+            nextData,
         }=self.state;
         switch (index){
             case 0:
@@ -141,7 +143,7 @@ export default class GWPickerView extends Component {
                 })
                 break;
             case 2:
-                // alert('ds')
+
                 self.setState({
                     time:false,
                     isAlert:false,
@@ -151,7 +153,22 @@ export default class GWPickerView extends Component {
                 Picker.hidden()
                 break;
         }
+    }
 
+
+    _onClose(index){
+        switch (index){
+            case 0:
+                this.setState({
+                    nowData:''
+                })
+                break;
+            case 1:
+                this.setState({
+                    nextData:''
+                })
+                break;
+        }
     }
 
     _getTimerView(){
@@ -174,24 +191,33 @@ export default class GWPickerView extends Component {
                     alignItems:CENTER,
                     justifyContent:SPACEAROUND
                 }}>
-                    <TouchableOpacity style={{flex:3}} onPress={()=>{
+                    <TouchableOpacity style={styles.item} onPress={()=>{
                         this._onClickItem(0)
                     }}>
-                        <Text style={{borderRadius:3,borderWidth:1,borderColor:'#666',padding:6,color:'#666',textAlign:CENTER}}>{nowData}</Text>
+                        <Text style={styles.text}>{nowData}</Text>
+                        <TouchableOpacity onPress = {()=>{
+                            this._onClose(0)
+                        }}>
+                            <Image source={{uri:'ic_close'}} style={{width:20,height:20}} />
+                        </TouchableOpacity>
                     </TouchableOpacity>
 
                     <Text style={{color:'#333'}} > 至 </Text>
-                    <TouchableOpacity style={{flex:3}} onPress={()=>{
+                    <TouchableOpacity style={styles.item} onPress={()=>{
                         this._onClickItem(1)
                     }}>
-                        <Text style={{borderRadius:3,borderWidth:1,borderColor:'#666',padding:6,color:'#666',textAlign:CENTER}}>{nextData}</Text>
+                        <Text style={styles.text}>{nextData}</Text>
+                        <TouchableOpacity   onPress = {()=>{
+                            this._onClose(1)
+                        }}>
+                            <Image source={{uri:'ic_close'}} style={{width:20,height:20}} />
+                        </TouchableOpacity>
                     </TouchableOpacity>
                     <TouchableOpacity style={{flex:1}}  onPress={()=>{
                         this._onClickItem(2)
                     }}>
                         <Text style={{color:defaultColor,fontSize:13,padding:3,textAlign:CENTER}}>确认</Text>
                     </TouchableOpacity>
-
                 </View>
             )
 
@@ -215,5 +241,22 @@ export default class GWPickerView extends Component {
 }
 
 var styles = StyleSheet.create({
-    container: {}
+    container: {},
+    item:{
+        flex:3,
+        flexDirection:ROW,
+        alignItems:CENTER,
+        borderRadius:3,
+        borderWidth:1,
+        borderColor:'#666',
+        justifyContent:SPACEBETWEEN,
+
+    },
+    text:{
+        flex:1,
+        // backgroundColor:'red',
+        padding:6,
+        color:'#666',
+        textAlign:CENTER,
+    }
 });

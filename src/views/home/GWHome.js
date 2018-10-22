@@ -65,17 +65,30 @@ export default class GWHome extends BaseComponent {
     _onTextChange(text){
         this.setState({
             keyWords:text,
-            // value:text
         })
     }
 
     _showDataTimerPicker() {
         var self = this;
-        console.log('======dadsadsdad=====')
-        self.pickerView.showDataTimerPicker('选择日期', true, function (now,next) {
+        const {
+            beginTime,
+            endTime,
+        }=self.state;
+        self.pickerView._setData(beginTime,endTime);
+        self.pickerView.showDataTimerPicker('选择日期',true, function (now,next) {
             console.log(now+'-'+next)
-            self.setState()
-
+            self.setState({
+                beginTime:now,
+                endTime:next,
+            },()=>{
+                // if(self.state.beginTime && self.state.endTime){
+                    self.setState({
+                        page:0,
+                    },()=>{
+                        self.homeList._setTimer(self.state.beginTime ,self.state.endTime)
+                    })
+                // }
+            })
         })
     }
 
@@ -112,7 +125,6 @@ export default class GWHome extends BaseComponent {
                        />
                    </View>
                    <TouchableOpacity onPress={()=>{
-                       // self.props.navigation.navigate('Calendars')
                        {self._showDataTimerPicker()}
                    }} style={{marginLeft:10}}>
                        <Image source={{uri:'ic_home_calendar'}} style={{width:27,height:27}}/>
