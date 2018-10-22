@@ -100,6 +100,10 @@
         "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_center_tel.png"
     },
     {
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\bg.png",
+        "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\bg.png"
+    },
+    {
         "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_center_sc.png",
         "source": "E:\\rncode\\gitcode\\worker\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_center_sc.png"
     },

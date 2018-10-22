@@ -19,20 +19,23 @@
         android:allowBackup="false"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.workersystem.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize" >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity
+            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

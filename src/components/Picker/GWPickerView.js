@@ -186,7 +186,7 @@ export default class GWPickerView extends Component {
                     padding:10,
                     left:0,
                     right:0,
-                    bottom:250,
+                    bottom:200,
                     flexDirection:ROW,
                     alignItems:CENTER,
                     justifyContent:SPACEAROUND
@@ -256,6 +256,7 @@ var styles = StyleSheet.create({
         flex:1,
         // backgroundColor:'red',
         padding:6,
+        height:30,
         color:'#666',
         textAlign:CENTER,
     }
