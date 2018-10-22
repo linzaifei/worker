@@ -19,30 +19,22 @@ export default class GWHomeListItem extends Component {
         state:PropTypes.number,
         marginTop:PropTypes.number,
         time:PropTypes.string,
+        age:PropTypes.number,
+        workStatusName:PropTypes.string,
         onClickItem:PropTypes.func,
     }
 
 
     _getState(){
         const {
-            state
+            state,
+            workStatusName,
         }=this.props;
-        switch (state){
-            case 0:
-                return (
-                    <View style={{flexDirection:ROW,justifyContent:FLEXEND}}>
-                        <GWTag url='ic_home_not_found' title="找工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />
-                    </View>
-                )
-                break;
-            case 1:
-                return (
-                    <View style={{flexDirection:ROW,justifyContent:FLEXEND}}>
-                        <GWTag url='ic_home_found' title="工作中" size={12} color="#808080" iconWidth={13} iconHeight={13} />
-                    </View>
-                )
-                break;
-        }
+        return (
+            <View style={{flexDirection:ROW,justifyContent:FLEXEND}}>
+                <GWTag url='' title={workStatusName} size={12} color="#808080" iconWidth={13} iconHeight={13} />
+            </View>
+        )
     }
 
 
@@ -53,6 +45,7 @@ export default class GWHomeListItem extends Component {
             job,
             time,
             marginTop,
+            age,
             onClickItem,
         }=this.props;
         return (
@@ -60,7 +53,10 @@ export default class GWHomeListItem extends Component {
                 onClickItem && onClickItem()
             }}>
                 <View style={styles.left}>
-                    <Text style={styles.title}>{name}</Text>
+                    <View style={{flexDirection:ROW,alignItems:CENTER,}}>
+                        <Text style={styles.title}>{name}</Text>
+                        {age !=0? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}</Text>:null}
+                    </View>
                     <Text style={styles.job}>{job}</Text>
                 </View>
                 <View style={styles.right}>

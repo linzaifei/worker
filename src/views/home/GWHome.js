@@ -14,7 +14,8 @@ import ScrollableTabView ,{ScrollableTabBar}from 'react-native-scrollable-tab-vi
 import GWTag from "../../components/tag/GWTag";
 import  GWHomeList from './GWHomeList'
 import EditInput from "../logon/EditInput";
-export default class GWHome extends Component {
+import BaseComponent from "../../components/base/BaseComponent";
+export default class GWHome extends BaseComponent {
 
     static navigationOptions=({navigation})=>{
         return{
@@ -32,7 +33,8 @@ export default class GWHome extends Component {
         this.state={
             keyWords:'',
             page:0,
-            // value:'',
+            beginTime:'',
+            endTime:'',
         }
         this._addLiner()
 
@@ -67,6 +69,17 @@ export default class GWHome extends Component {
         })
     }
 
+    _showDataTimerPicker() {
+        var self = this;
+        console.log('======dadsadsdad=====')
+        self.pickerView.showDataTimerPicker('选择日期', true, function (now,next) {
+            console.log(now+'-'+next)
+            self.setState()
+
+        })
+    }
+
+
     render() {
         var self = this;
         const {
@@ -99,7 +112,8 @@ export default class GWHome extends Component {
                        />
                    </View>
                    <TouchableOpacity onPress={()=>{
-                       self.props.navigation.navigate('Calendars')
+                       // self.props.navigation.navigate('Calendars')
+                       {self._showDataTimerPicker()}
                    }} style={{marginLeft:10}}>
                        <Image source={{uri:'ic_home_calendar'}} style={{width:27,height:27}}/>
                    </TouchableOpacity>
@@ -117,6 +131,7 @@ export default class GWHome extends Component {
                >
                    {this._titles()}
                </ScrollableTabView>
+               {this._GWPickerView()}
            </View>
         );
     }

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import BaseComponent from "../../components/base/BaseComponent";
+import Buttom from "../../components/buttom/Buttom";
 
 export default class GWCenter extends BaseComponent {
     static navigationOptions =({navigation})=>{
@@ -97,19 +98,24 @@ export default class GWCenter extends BaseComponent {
                         self.props.navigation.navigate('ForgetPwd')
                     }}
                 />
-                <GWSelectItem
-                    title="退出登录"
-                    hasBack={false}
-                    borderRadius={5}
-                    editable={false}
-                    onClickItem={()=>{
-                        self.alertView.show('退出退出账号？',['取消','确定'],function (index) {
-                            if(index==1){
-                                self._out()
-                            }
-                        })
-                    }}
-                />
+                {/*<GWSelectItem*/}
+                    {/*title="退出登录"*/}
+                    {/*hasBack={false}*/}
+                    {/*borderRadius={5}*/}
+                    {/*editable={false}*/}
+                    {/*onClickItem={()=>{*/}
+                       {/**/}
+                    {/*}}*/}
+                {/*/>*/}
+
+                <Buttom title="退出登录" marginLeft={20}marginRight={20} borderRadius={5} marginTop={30} backgroundColor={defaultColor} color="#fff" onClickItem={()=>{
+                    self.alertView.show('退出退出账号？',['取消','确定'],function (index) {
+                        if(index==1){
+                            self._out()
+                        }
+                    })
+                }} />
+
                 {this._alertAction()}
             </ScrollView>
         );

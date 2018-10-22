@@ -273,7 +273,7 @@ export default class GWAdd extends BaseComponent {
                 });
                 break;
             case 1://出生日期
-                Picker.showDatePicker('出生日期',true,function (value,index) {
+                self.pickerView.showDatePicker('学历选择',true,function (value,index) {
                     value = String(value).replace(/,/g,'-')
                     self.setState({
                         birthday:value,
@@ -349,26 +349,17 @@ export default class GWAdd extends BaseComponent {
             case 7:
                 self._loadChooiceData('degree',function (ret) {
                     var options = [];
+
                     for(let i=0;i<ret.length;i++){
                         options.push(ret[i].name);
                     }
-                    options.push('取消');
-                    Picker.showPicker(options,'学历选择',function (value,index) {
-                        if(index !=  ret.length){
-                            self.setState({
-                                degreeStr:options[index],
-                                degree:ret[index].code,
-                            })
-                        }
+
+                    self.pickerView.showPicker('学历选择',options,function (value,index) {
+                        self.setState({
+                            degreeStr:options[index],
+                            degree:ret[index].code,
+                        })
                     })
-                    // self.actionSheet.show('工作状态选择',options,ret.length,function (index) {
-                    //     if(index !=  ret.length){
-                    //         self.setState({
-                    //             degreeStr:options[index],
-                    //             degree:ret[index].code,
-                    //         })
-                    //     }
-                    // })
                 });
                 break;
         }
@@ -554,6 +545,7 @@ export default class GWAdd extends BaseComponent {
 
                 {self._alertAction()}
                 {self._actionSheet()}
+                {self._GWPickerView()}
 
             </ScrollView>
                 {this._Alert()}

@@ -24,6 +24,7 @@ export default class GWHomeList extends BaseListComponent {
             keyWord:'',
             beginTime:'',
             endTime:'',
+            totalCount:0,//总人数
 
         }
 
@@ -75,6 +76,7 @@ export default class GWHomeList extends BaseListComponent {
             isRefreshing && self.setState({isRefreshing:false})
             self.setState({
                 dataArr: pageNumber > 1 ?dataArr.concat(ret.data) :ret.data,
+                totalCount:ret.totalCount,
             })
             if (ret.data.length <10){
                 self.setState({hasData:false})
@@ -99,7 +101,7 @@ export default class GWHomeList extends BaseListComponent {
     }
 
     _listHeader(){
-        return  <GWTag title={this.state.dataArr.length + '人'} padding={5} space={10}iconWidth={19} iconHeight={19}  url="ic_home_more"  />
+        return  <GWTag title={this.state.totalCount + '人'} padding={5} space={10}iconWidth={19} iconHeight={19}  url="ic_home_more"  />
     }
 
    _itemCell(item,index){
@@ -111,6 +113,8 @@ export default class GWHomeList extends BaseListComponent {
                 job= {item.jobtypeName}
                 state={parseInt(item.workStatus?item.workStatus:0)}
                 time={item.createTime}
+                age={item.age}
+                workStatusName={item.workStatusName}
                 onClickItem={()=>{
                     self._queryDetail(item.id);
                 }}

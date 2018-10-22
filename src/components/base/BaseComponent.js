@@ -12,6 +12,7 @@ import {
 import GWAlertView from "../alert/GWAlertView";
 import DropdownAlert from 'react-native-dropdownalert';
 import GWActionSheet from "../ActionSheet/GWActionSheet";
+import  GWPickerView from '../Picker/GWPickerView'
 
 export default class BaseComponent extends Component {
 
@@ -22,6 +23,13 @@ export default class BaseComponent extends Component {
             images:[],
         }
     }
+
+    _GWPickerView(){
+        return (
+            <GWPickerView ref={a=>this.pickerView=a} />
+        )
+    }
+
     _alertAction(){
         return (
             <GWAlertView ref={a => this.alertView = a} />

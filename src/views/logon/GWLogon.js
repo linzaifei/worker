@@ -5,19 +5,17 @@ import {
     Text,
     View,
     Image,
+    ImageBackground,
 } from 'react-native';
 import Buttom from "../../components/buttom/Buttom";
 import GWTag from "../../components/tag/GWTag";
 import EditInput from "./EditInput";
 import BaseComponent from "../../components/base/BaseComponent";
 
-
 export default class GWLogon extends BaseComponent {
-    static navigationOptions=({navigation})=>{
-        return {
-            headerStyle:{backgroundColor:defaultColor,borderBottomWidth: 0,shadowOpacity: 0,elevation: 0,},
-        }
-    }
+    static navigationOptions = {
+        header: null
+    };
 
     constructor(props) {
         super(props);
@@ -41,6 +39,7 @@ export default class GWLogon extends BaseComponent {
     }
 
     _logon(){
+
         var self = this;
         const {
             telephone,
@@ -95,8 +94,10 @@ export default class GWLogon extends BaseComponent {
             telephone,
         }=this.state
         return (
-            <View style={styles.container}>
-                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:30}}>
+
+            <ImageBackground style={styles.container} source={{uri:'bg'}}>
+
+                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:120}}>
                     <GWTag size={18} iconWidth={100}iconHeight={100} space={10} color="#fff" url="logo" title="国文人力资源" ps="top"/>
                 </View>
 
@@ -148,9 +149,7 @@ export default class GWLogon extends BaseComponent {
                     }}
                 />
                 {this._Alert()}
-
-
-            </View>
+            </ImageBackground>
         );
     }
 
@@ -159,7 +158,8 @@ export default class GWLogon extends BaseComponent {
 var styles = StyleSheet.create({
     container: {
         flex:1,
-        backgroundColor:defaultColor,
+        height:'100%',
+        width:'100%',
     },
     bottom:{
         flexDirection:ROW,

@@ -99,7 +99,7 @@ function showTimePicker(title,select) {
         pickerCancelBtnText:'取消',
         pickerConfirmBtnColor:[51,51,51,1],
         pickerCancelBtnColor:[51,51,51,1],
-        pickerToolBarBg:[220,220,220,1],
+        pickerToolBarBg:[238,238,238,1],
         pickerBg:[255,255,255,1],
         wheelFlex: [2, 1, 1, 1, 1],
         onPickerConfirm: (pickedValue, pickedIndex) => {
@@ -141,7 +141,7 @@ function showTimePicker(title,select) {
 
 
 //普通选择
-function showPicker(data,title,select) {
+function showPicker(data,title,select,cancel) {
     Picker.init({
         pickerTitleText:title,
         pickerConfirmBtnText:'确定',
@@ -156,6 +156,7 @@ function showPicker(data,title,select) {
         },
         onPickerCancel: data => {
             console.log(data);
+            cancel()
         },
         onPickerSelect: data => {
         }
@@ -163,7 +164,7 @@ function showPicker(data,title,select) {
     Picker.show();
 }
 
-function showDatePicker(title,day,select) {
+function showDatePicker(title,day,select,cancel) {
     let date = new Date();
 
     let selectedValue = [
@@ -176,7 +177,7 @@ function showDatePicker(title,day,select) {
         pickerCancelBtnText:'取消',
         pickerConfirmBtnColor:[51,51,51,1],
         pickerCancelBtnColor:[51,51,51,1],
-        pickerToolBarBg:[220,220,220,1],
+        pickerToolBarBg:[238,238,238,1],
         pickerBg:[255,255,255,1],
         pickerData:day? _createDateData():_createDate(),
         pickerFontColor: [51,51,51,1],
@@ -186,6 +187,7 @@ function showDatePicker(title,day,select) {
         },
         onPickerCancel: (pickedValue, pickedIndex) => {
             console.log('date', pickedValue, pickedIndex);
+            cancel();
         },
         onPickerSelect: (pickedValue, pickedIndex) => {
             console.log('date', pickedValue, pickedIndex);
@@ -194,7 +196,14 @@ function showDatePicker(title,day,select) {
     Picker.show();
 }
 
+function hidden() {
+    Picker.hide();
+}
+function showView() {
+    Picker.show()
+}
+
 
 export default {
-    showPicker,showDatePicker,showTimePicker
+    showPicker,showDatePicker,showTimePicker,hidden,showView,
 }
