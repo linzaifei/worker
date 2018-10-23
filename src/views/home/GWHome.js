@@ -15,6 +15,7 @@ import GWTag from "../../components/tag/GWTag";
 import  GWHomeList from './GWHomeList'
 import EditInput from "../logon/EditInput";
 import BaseComponent from "../../components/base/BaseComponent";
+
 export default class GWHome extends BaseComponent {
 
     static navigationOptions=({navigation})=>{
@@ -81,13 +82,11 @@ export default class GWHome extends BaseComponent {
                 beginTime:now,
                 endTime:next,
             },()=>{
-                // if(self.state.beginTime && self.state.endTime){
-                    self.setState({
-                        page:0,
-                    },()=>{
-                        self.homeList._setTimer(self.state.beginTime ,self.state.endTime)
-                    })
-                // }
+                self.setState({
+                    page:0,
+                },()=>{
+                    self.homeList._setTimer(self.state.beginTime ,self.state.endTime)
+                })
             })
         })
     }

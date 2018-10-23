@@ -97,11 +97,11 @@ export default class GWLogon extends BaseComponent {
 
             <ImageBackground style={styles.container} source={{uri:'bg'}}>
 
-                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:120}}>
+                <View style={{justifyContent:CENTER,alignItems:CENTER,marginTop:IOS?120:40}}>
                     <GWTag size={18} iconWidth={100}iconHeight={100} space={10} color="#fff" url="logo" title="国文人力资源" ps="top"/>
                 </View>
 
-                <View style={{marginTop:76,marginLeft:15,marginRight:15}}>
+                <View style={{marginTop:IOS?76:50,marginLeft:15,marginRight:15}}>
                     <EditInput ref={a=>this.tel=a}
                                padding={2}
                                value={telephone}

@@ -9,6 +9,7 @@ import {
     Image,
 } from 'react-native';
 
+import ScreenUtil from '../../config/ScreenUtil'
 export default class GWPickerView extends Component {
 
     constructor(props) {
@@ -186,7 +187,7 @@ export default class GWPickerView extends Component {
                     padding:10,
                     left:0,
                     right:0,
-                    bottom:250,
+                    bottom:IOS?ScreenUtil.isIPhoneX ? 250:240 :200,
                     flexDirection:ROW,
                     alignItems:CENTER,
                     justifyContent:SPACEAROUND
@@ -254,9 +255,10 @@ var styles = StyleSheet.create({
     },
     text:{
         flex:1,
-        // backgroundColor:'red',
-        padding:6,
+        height:24,
         color:'#666',
         textAlign:CENTER,
+        lineHeight:24
+
     }
 });
