@@ -1,6 +1,10 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
 ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12
+=======
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-33:12
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
 	package
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:3:5-31
 		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
@@ -26,28 +30,50 @@ MERGED from [com.facebook.react:react-native:0.57.0] /Users/linzaifei/.android/b
 	android:name
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:6:22-75
 application
+<<<<<<< HEAD
 ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:8:5-26:19
 MERGED from [com.facebook.react:react-native:0.57.0] /Users/linzaifei/.android/build-cache/74d393f2ec27ad98e21a51ef188adf0f08ab892b/output/AndroidManifest.xml:13:5-20
 MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/linzaifei/.android/build-cache/032595f3062893f7dfbcb0627162f093bef7ff38/output/AndroidManifest.xml:11:5-20
 MERGED from [org.webkit:android-jsc:r174650] /Users/linzaifei/.android/build-cache/4d761d1876afe2a45d5c59a565d07b96956985e5/output/AndroidManifest.xml:2:3-17
 MERGED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:11:5-15:19
+=======
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:8:5-31:19
+MERGED from [com.facebook.react:react-native:0.57.0] C:\Users\admin\.android\build-cache\041a9e2f2d67b1f89d2f6583d036638922c6592a\output\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\admin\.android\build-cache\6e6ba452f5dcd36a41d25bd613c121362cdff541\output\AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\admin\.android\build-cache\e728aaeb110f984910ba67aaba22a438d7dd6495\output\AndroidManifest.xml:2:3-17
+MERGED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:11:5-15:19
+	android:screenOrientation
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:12:7-43
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
 	android:label
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:10:7-39
 		REJECTED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:13:9-41
 	android:supportsRtl
 		ADDED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:14:9-35
 	android:allowBackup
+<<<<<<< HEAD
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:12:7-34
 		REJECTED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08fc262ac4a18b47b0f5b2f68a3bd459c8828707/output/AndroidManifest.xml:12:9-35
+=======
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:13:7-34
+		REJECTED from [com.zyao89:zloading:1.1.2] C:\Users\admin\.android\build-cache\eb4b58bc7473f0aca0aa3f1b558f3d862bcb42a1\output\AndroidManifest.xml:12:9-35
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
 	android:icon
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:11:7-34
 	android:theme
+<<<<<<< HEAD
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:14:7-38
 	tools:replace
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:13:9-58
+=======
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:16:7-38
+	tools:replace
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:15:9-58
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
 	android:name
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:9:7-38
 activity#com.workersystem.MainActivity
+<<<<<<< HEAD
 ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:15:7-24:18
 	android:label
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:17:9-41
@@ -71,6 +97,33 @@ activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:25:7-84
 	android:name
 		ADDED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:25:17-81
+=======
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:17:7-27:18
+	android:screenOrientation
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:20:8-44
+	android:label
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:19:9-41
+	android:configChanges
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:21:9-79
+	android:name
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:18:9-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:23:9-26:25
+action#android.intent.action.MAIN
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:24:13-65
+	android:name
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:24:21-62
+category#android.intent.category.LAUNCHER
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:25:13-73
+	android:name
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:25:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:28:7-30:13
+	android:screenOrientation
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:29:11-47
+	android:name
+		ADDED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:28:17-81
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
 uses-sdk
 INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [workerSystem:react-native-picker:unspecified] /Users/linzaifei/Desktop/linzaifei/RN/project/worker/node_modules/react-native-picker/android/build/intermediates/bundles/default/AndroidManifest.xml:7:5-9:41
@@ -101,8 +154,16 @@ MERGED from [com.zyao89:zloading:1.1.2] /Users/linzaifei/.android/build-cache/08
 		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+<<<<<<< HEAD
 IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
 IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 IMPLIED from /Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+=======
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-33:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-33:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from E:\rncode\gitcode\worker\android\app\src\main\AndroidManifest.xml:1:1-33:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c

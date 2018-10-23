@@ -2550,6 +2550,7 @@ containing a value of this type.
         public static final int ic_center_year=0x7f020060;
         public static final int ic_center_yx=0x7f020061;
         public static final int ic_check=0x7f020062;
+<<<<<<< HEAD
         public static final int ic_close=0x7f020063;
         public static final int ic_detail_null=0x7f020064;
         public static final int ic_home_calendar=0x7f020065;
@@ -2568,6 +2569,26 @@ containing a value of this type.
         public static final int ic_tab_home=0x7f020072;
         public static final int ic_tab_home_sel=0x7f020073;
         public static final int logo=0x7f020074;
+=======
+        public static final int ic_home_calendar=0x7f020063;
+        public static final int ic_home_found=0x7f020064;
+        public static final int ic_home_more=0x7f020065;
+        public static final int ic_home_not_found=0x7f020066;
+        public static final int ic_home_search=0x7f020067;
+        public static final int ic_logon_lock=0x7f020068;
+        public static final int ic_logon_user=0x7f020069;
+        public static final int ic_navi_notif=0x7f02006a;
+        public static final int ic_next_back=0x7f02006b;
+        public static final int ic_tab_add=0x7f02006c;
+        public static final int ic_tab_add_sel=0x7f02006d;
+        public static final int ic_tab_center=0x7f02006e;
+        public static final int ic_tab_center_sel=0x7f02006f;
+        public static final int ic_tab_home=0x7f020070;
+        public static final int ic_tab_home_sel=0x7f020071;
+        public static final int logo=0x7f020072;
+        public static final int node_modules_reactnativecalendars_src_calendar_img_next=0x7f020073;
+        public static final int node_modules_reactnativecalendars_src_calendar_img_previous=0x7f020074;
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
         public static final int node_modules_reactnativedropdownalert_assets_cancel=0x7f020075;
         public static final int node_modules_reactnativedropdownalert_assets_error=0x7f020076;
         public static final int node_modules_reactnativedropdownalert_assets_info=0x7f020077;

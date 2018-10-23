@@ -7,8 +7,13 @@
         jumboMode="false"
         optimize="true"
         revision="27.0.3"
+<<<<<<< HEAD
         sha1="083b65ed177797359e23134bcdab71f81d981eeb">
         <dex dex="/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/pre-dexed/debug/classes_a3b26a50efb730ddb68b305a953a2a99db6fe6aa.jar" />
+=======
+        sha1="3d120a8e3de59190c1bdf30887dda13db7827a61">
+        <dex dex="E:\rncode\gitcode\worker\android\app\build\intermediates\pre-dexed\release\classes_89bece6ce68c35afefe5729ac39626f9679c67e0.jar" />
+>>>>>>> c2c78d0a492c5bc4a4ebeb595462149f8581306c
     </item>
 
 </items>

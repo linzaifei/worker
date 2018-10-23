@@ -256,6 +256,7 @@ var styles = StyleSheet.create({
     text:{
         flex:1,
         height:24,
+        padding:6,
         color:'#666',
         textAlign:CENTER,
         lineHeight:24
