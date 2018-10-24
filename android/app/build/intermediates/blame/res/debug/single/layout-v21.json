@@ -1,34 +1,18 @@
 [
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/res/layout-v21/notification_action.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/res/layout-v21/notification_action_tombstone.xml"
-    },
-    {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_template_icon_group.xml"
-    },
-    {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/linzaifei/.android/build-cache/0ada9dcbe6173eccff12bc09dd62f91e37f1cbfe/output/res/layout-v21/notification_template_custom_big.xml"
-    },
-    {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "/Users/linzaifei/Desktop/linzaifei/RN/project/worker/android/C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_action.xml"
+        "merged": "E:\\rncode\\gitcode\\worker\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\admin\\.android\\build-cache\\f627f3c1f5fa5b44d4b35897874d6b1a82726d10\\output\\res\\layout-v21\\notification_action.xml"
     }
 ]

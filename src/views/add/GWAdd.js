@@ -10,7 +10,7 @@ import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import GWTag from "../../components/tag/GWTag";
 import InputView from "../../components/inputView/InputView";
 import BaseComponent from "../../components/base/BaseComponent";
-
+import  {DeviceEventEmitter} from 'react-native';
 
 export default class GWAdd extends BaseComponent {
     static navigationOptions=({navigation})=>{
@@ -55,6 +55,7 @@ export default class GWAdd extends BaseComponent {
             birthplaceName:'',//籍贯
             jobTypeList:[],//擅长工种
             jobtypeName:'',
+            jobEdit:false,
             workYear:'',//工作年限
             workExpect:'',//工作意向
             degree:-1,//学历
@@ -88,6 +89,7 @@ export default class GWAdd extends BaseComponent {
             workExpect,//工作意向
             degree,//
             degreeStr,
+            jobEdit,
         }=self.state;
         // var s='{"name":"哈哈哈","sex":0,"telephone":"15051857509","idcard":"123456789123456789","birthday":"2018-9-1","birthplaceCode":2,"workYear":"3","workplaceCode":4,"expectSalary":3,"workStatus":1,"workExpect":"工作一直","jobTypeList":[{"id":1,"name":"互联网","level":1,"parentId":0,"createTime":"2018-08-30 11:46:19","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":2,"name":"java开发","level":2,"parentId":1,"createTime":"2018-08-30 11:46:47","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null},{"id":3,"name":"C语言开发","level":2,"parentId":1,"createTime":"2018-08-30 11:47:11","createUser":null,"updateTime":null,"updateUser":null,"selected":1,"children":null}]}';
         if(!name){
@@ -153,8 +155,15 @@ export default class GWAdd extends BaseComponent {
         var joList=[];
         for(let i=0;i<jobTypeList.length;i++){
             let jobtype = new Object();
-            jobtype.firstId= workId>0 ?jobTypeList[i].firstId :jobTypeList[i].parentId;
-            jobtype.secondId=workId>0 ?jobTypeList[i].secondId:jobTypeList[i].id;
+            if(jobEdit){
+                jobtype.firstId=jobTypeList[i].parentId;
+                jobtype.secondId=jobTypeList[i].id;
+            }else{
+                jobtype.firstId=jobTypeList[i].firstId;
+                jobtype.secondId=jobTypeList[i].secondId;
+            }
+            // jobtype.firstId= workId>0 ?jobTypeList[i].firstId :jobTypeList[i].parentId;
+            // jobtype.secondId=workId>0 ?jobTypeList[i].secondId:jobTypeList[i].id;
             if(workId>0){
                 jobtype.workerId=workId;
             }
@@ -174,10 +183,9 @@ export default class GWAdd extends BaseComponent {
         var self = this;
         gwrequest.gw_tokenRequest(urls.updateWorker,worker,function (ret) {
             console.log("success"+JSON.stringify(ret))
-
+            DeviceEventEmitter.emit('freshen','');
             self.props.navigation.state.params.callback()
             self.props.navigation.goBack();
-
         },function (e) {
             console.log(e)
             if(e.msg){
@@ -191,6 +199,7 @@ export default class GWAdd extends BaseComponent {
         var self = this;
         gwrequest.gw_tokenRequest(urls.addWorker,worker,function (ret) {
             console.log("success============"+JSON.stringify(ret))
+            DeviceEventEmitter.emit('freshen','');
             self._showWarnAler('新增成功');
             self._clearInput();
         },function (e) {
@@ -226,6 +235,7 @@ export default class GWAdd extends BaseComponent {
             workYear:'',//工作年限
             workExpect:'',//工作意向
             degree:-1,
+            jobEdit:false,
         })
         self.props.navigate('HomeS')
     }
@@ -300,6 +310,7 @@ export default class GWAdd extends BaseComponent {
                         this.setState({
                             jobTypeList: selectItem,
                             jobtypeName:jobtypeName,
+                            jobEdit:true,
                         })
                     })
                 })
