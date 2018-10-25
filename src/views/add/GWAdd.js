@@ -283,7 +283,7 @@ export default class GWAdd extends BaseComponent {
                 });
                 break;
             case 1://出生日期
-                self.pickerView.showDatePicker('出生日期',true,function (value,index) {
+                self.pickerView.showDatePickerNoHome('出生日期',true,function (value,index) {
                     value = String(value).replace(/,/g,'-')
                     self.setState({
                         birthday:value,

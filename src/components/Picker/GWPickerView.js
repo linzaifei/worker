@@ -50,18 +50,31 @@ export default class GWPickerView extends Component {
         })
     }
 
+    showDatePickerNoHome(title,day,success){
+        Picker.showDatePicker(title,day,function (value,index) {
+            success && success(value,index)
+        },function (e) {
+        })
+    }
 
-    showDatePicker(title,day,success){
+
+    showDatePicker(title,day,success,nowData){
         var self  = this;
         self.setState({
             isAlert:true,
         },()=>{
             Picker.showDatePicker(title,day,function (value,index) {
+                value = String(value).replace(/,/g,'-')
+                console.log("huanghao2="+value+"mm"+nowData)
                 self.setState({
                     isAlert:false
                 },()=>{
-                    success && success(value,index)
+                    success && success(nowData,value)
                 })
+                // self.setState({
+                //     isAlert:false
+                // })
+
             },function (e) {
                 self.setState({
                     isAlert:false
@@ -89,21 +102,37 @@ export default class GWPickerView extends Component {
         },()=>{
             Picker.showDatePicker(title,day,function (value,index) {
                 value = String(value).replace(/,/g,'-')
+                console.log("huanghao="+value)
                 switch (self.state.index){
                     case 0:
+                        console.log('0nowData='+value);
                         self.setState({
                             nowData:value
                         },()=>{
-                            self.showDatePicker(title,day,success)
+                            self.showDatePicker(title,day,success,value)
                         })
-
                         break;
                     case 1:
-                        self.setState({
-                            nextData:value
-                        },()=>{
-                            self.showDatePicker(title,day,success)
-                        })
+                        if(self.state.nowData){
+                            self.setState({
+                                isAlert:false
+                            },()=>{
+                                success && success(self.state.nowData,value)
+                            })
+                        }else{
+                            self.setState({
+                                nextData:value,
+                                index:0
+                            },()=>{
+                                self.showDataTimerPicker(title,day,success)
+                            })
+                        }
+                        // console.log('1nowData='+value);
+                        // self.setState({
+                        //     nextData:value
+                        // },()=>{
+                        //     self.showDatePicker(title,day,success,value)
+                        // })
                         break;
                 }
 
@@ -144,14 +173,21 @@ export default class GWPickerView extends Component {
                 })
                 break;
             case 2:
-
                 self.setState({
                     time:false,
                     isAlert:false,
-                    index:2
+                    index:0
                 })
                 success(nowData,nextData)
                 Picker.hidden()
+                break;
+            case 100:
+                self.setState({
+                    time:false,
+                    isAlert:false,
+                    index:0
+                });
+                Picker.hidden();
                 break;
         }
     }
@@ -180,6 +216,9 @@ export default class GWPickerView extends Component {
         }=this.state;
         if(time){
             return (
+                <TouchableOpacity style={styles.item} onPress={()=>{
+                    this._onClickItem(100)
+                }}>
                 <View style={{
                     backgroundColor:'#eee',
                     position:ABSOLUTE,
@@ -220,6 +259,7 @@ export default class GWPickerView extends Component {
                         <Text style={{color:defaultColor,fontSize:13,padding:3,textAlign:CENTER}}>确认</Text>
                     </TouchableOpacity>
                 </View>
+                </TouchableOpacity>
             )
 
         }

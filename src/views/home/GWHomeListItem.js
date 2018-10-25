@@ -55,14 +55,14 @@ export default class GWHomeListItem extends Component {
                 <View style={styles.top}>
                     <View style={{flexDirection:ROW,alignItems:CENTER,}}>
                         <Text style={styles.title}>{name}</Text>
-                        {age !=0? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}</Text>:null}
+                        {age !=0? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}岁</Text>:null}
                     </View>
                     {this._getState()}
                 </View>
 
                 <View style={styles.bottom}>
                     <Text style={[styles.job,{flex:1.5}]}>{job}</Text>
-                    <Text style={[styles.job,{textAlign:'right',flex:1,}]}>{time}</Text>
+                    <Text style={[styles.time,{textAlign:'right',flex:1,}]}>{time}</Text>
                 </View>
 
             </TouchableOpacity>
@@ -93,7 +93,15 @@ var styles = StyleSheet.create({
     },
     job:{
         fontSize:13,
+        // color:'#808080',
+        color:'#e1bd97',
+        marginTop:8,
+
+    },
+    time:{
+        fontSize:13,
         color:'#808080',
+        // color:'#e1bd97',
         marginTop:8,
 
     },

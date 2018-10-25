@@ -78,12 +78,25 @@ export default class GWHome extends BaseComponent {
             beginTime,
             endTime,
         }=self.state;
+        console.log(beginTime+"=====kk"+endTime)
         self.pickerView._setData(beginTime,endTime);
         self.pickerView.showDataTimerPicker('选择日期',true, function (now,next) {
-            console.log(now+'-'+next)
+            console.log("huanghao3"+now+"kk"+next)
+            if(!self.compareDate(now,next)){
+                self.dropdown.alertWithType('info','开始时间不能大于结束时间','');
+                self._showDataTimerPicker();
+                return;
+            }
+            // var start_time= parseInt(String(now).replace(/-/g,''));
+            // var end_time= parseInt(String(next).replace(/-/g,''));
+            // if(start_time>end_time){
+            //     self._showDataTimerPicker();
+            //     return;
+            // }
             self.setState({
                 beginTime:now,
                 endTime:next,
+                index:0,
             },()=>{
                 self.setState({
                     page:0,
@@ -94,6 +107,24 @@ export default class GWHome extends BaseComponent {
         })
     }
 
+    //比较日前大小
+    compareDate(checkStartDate, checkEndDate) {
+        var arys1= new Array();
+        var arys2= new Array();
+        if(checkStartDate != null && checkEndDate != null) {
+            arys1=checkStartDate.split('-');
+            var sdate=new Date(arys1[0],parseInt(arys1[1]-1),arys1[2]);
+            arys2=checkEndDate.split('-');
+            var edate=new Date(arys2[0],parseInt(arys2[1]-1),arys2[2]);
+            if(sdate > edate) {
+                console.log("huanghao日期开始时间大于结束时间")
+                return false;
+            }  else {
+                console.log("huanghaosuccess")
+                return true;
+            }
+        }
+    }
 
     render() {
         var self = this;
@@ -146,6 +177,7 @@ export default class GWHome extends BaseComponent {
                    {this._titles()}
                </ScrollableTabView>
                {this._GWPickerView()}
+               {this._Alert()}
            </View>
         );
     }

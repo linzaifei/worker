@@ -82,7 +82,7 @@ export default class GWHomeList extends BaseListComponent {
 
         console.log(JSON.stringify(parmas))
         gwrequest.gw_tokenRequest(urls.list,parmas,function (ret) {
-            // console.log('+++++++++'+JSON.stringify(ret))
+            console.log('huanghao'+JSON.stringify(ret))
             isRefreshing && self.setState({isRefreshing:false})
             self.setState({
                 dataArr: pageNumber > 1 ?dataArr.concat(ret.data) :ret.data,
