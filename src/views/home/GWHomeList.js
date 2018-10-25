@@ -8,7 +8,7 @@ import {
 import BaseListComponent from "../../components/base/BaseListComponent";
 import GWHomeListItem from "./GWHomeListItem";
 import GWTag from "../../components/tag/GWTag";
-
+import  {DeviceEventEmitter} from 'react-native';
 
 export default class GWHomeList extends BaseListComponent {
 
@@ -27,7 +27,6 @@ export default class GWHomeList extends BaseListComponent {
             totalCount:0,//总人数
 
         }
-
     }
 
     _loadData(){
@@ -99,8 +98,16 @@ export default class GWHomeList extends BaseListComponent {
     }
 
     componentDidMount(){
-        this._loadData()
+        var self=this;
+        self._loadData();
+        this.subscription = DeviceEventEmitter.addListener('freshen',function () {
+            self._onRefresh();
+        });
     }
+
+    componentWillUnmount(){
+        this.subscription.remove();
+    };
 
     _setTimer(beginTime,endTime){
         console.log(beginTime +'======'+endTime)
