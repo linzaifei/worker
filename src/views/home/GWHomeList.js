@@ -50,8 +50,9 @@ export default class GWHomeList extends BaseListComponent {
         var parmas = {};
         switch (page){
             case 0:
-                parmas['keyWord'] = keyWord;
-
+                if(keyWord){
+                    parmas['keyWord'] = keyWord;
+                }
                 if(endTime){
                     parmas['endTime'] = endTime;
                 }

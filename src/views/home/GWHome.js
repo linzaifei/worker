@@ -64,8 +64,11 @@ export default class GWHome extends BaseComponent {
     }
 
     _onTextChange(text){
+        console.log('==='+text)
         this.setState({
             keyWords:text,
+        },()=>{
+            this.homeList._setkeyWord(text)
         })
     }
 

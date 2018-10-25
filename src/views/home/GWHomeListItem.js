@@ -52,16 +52,17 @@ export default class GWHomeListItem extends Component {
             <TouchableOpacity style={[styles.container,{marginTop}]} onPress={()=>{
                 onClickItem && onClickItem()
             }}>
-                <View style={styles.left}>
+                <View style={styles.top}>
                     <View style={{flexDirection:ROW,alignItems:CENTER,}}>
                         <Text style={styles.title}>{name}</Text>
                         {age !=0? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}</Text>:null}
                     </View>
-                    <Text style={styles.job}>{job}</Text>
-                </View>
-                <View style={styles.right}>
                     {this._getState()}
-                    <Text style={[styles.job,{textAlign:'right'}]}>{time}</Text>
+                </View>
+
+                <View style={styles.bottom}>
+                    <Text style={[styles.job,{flex:1.5}]}>{job}</Text>
+                    <Text style={[styles.job,{textAlign:'right',flex:1,}]}>{time}</Text>
                 </View>
 
             </TouchableOpacity>
@@ -73,11 +74,18 @@ export default class GWHomeListItem extends Component {
 var styles = StyleSheet.create({
     container: {
         borderRadius:5,
+        padding:10,
+        backgroundColor:'#fff',
+    },
+    top:{
         flexDirection:ROW,
         alignItems:CENTER,
         justifyContent:SPACEBETWEEN,
-        padding:10,
-        backgroundColor:'#fff',
+    },
+    bottom:{
+        flexDirection:ROW,
+        alignItems:CENTER,
+        justifyContent:SPACEBETWEEN,
     },
     title:{
         fontSize:15,
@@ -87,5 +95,6 @@ var styles = StyleSheet.create({
         fontSize:13,
         color:'#808080',
         marginTop:8,
+
     },
 });

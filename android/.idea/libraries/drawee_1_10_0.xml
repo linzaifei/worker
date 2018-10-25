@@ -5,6 +5,8 @@
       <root url="file://$USER_HOME$/.android/build-cache/d93943675287143bdac81d215d8bf9652a3e7bff/output/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/drawee/1.10.0/eb4e4743694bb2e81b6a7a7f9883d20bcc5b750b/drawee-1.10.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
