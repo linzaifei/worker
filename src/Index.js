@@ -25,6 +25,7 @@ import LogonScreen from './views/logon/GWLogon'
 import HomeScreen from './views/home/GWHome'
 import DetailScreen from './views/home/GWDetail'
 import CalendarsScreen from './views/home/GWCalendars'
+import GwQuery from './views/home/GWQueryDetail'
 
 
 //添加
@@ -146,8 +147,10 @@ const RootStack = createStackNavigator({
         screen:CalendarsScreen,
         navigationOptions: ({navigation}) => navigationRightOption({navigation})
     },
-
-
+    GwQuery:{
+        screen:GwQuery,
+        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+    },
 },{
 
 })

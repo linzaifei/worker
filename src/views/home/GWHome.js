@@ -107,6 +107,10 @@ export default class GWHome extends BaseComponent {
         })
     }
 
+    _goGwQuery(){
+        this.props.navigation.navigate('GwQuery');
+    }
+
     //比较日前大小
     compareDate(checkStartDate, checkEndDate) {
         var arys1= new Array();
@@ -158,7 +162,7 @@ export default class GWHome extends BaseComponent {
                        />
                    </View>
                    <TouchableOpacity onPress={()=>{
-                       {self._showDataTimerPicker()}
+                       {self._goGwQuery()}
                    }} style={{marginLeft:10}}>
                        <Image source={{uri:'ic_home_calendar'}} style={{width:27,height:27}}/>
                    </TouchableOpacity>
