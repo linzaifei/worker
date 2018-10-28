@@ -131,6 +131,7 @@ export default class EditInput extends Component {
                            placeholder={placeholder}
                            returnKeyType={returnKeyType}
                            style={[styles.textInputStyle,{textAlign,color,flex:1}]}
+
                            onFocus={()=>{
                                this.setState({
                                    img:imgName,

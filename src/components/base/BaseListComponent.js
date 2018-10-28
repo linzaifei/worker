@@ -88,6 +88,9 @@ export default class BaseListComponent extends ZFBaseComponent {
     _moreInfo(){
 
     }
+    topView(){
+
+    }
 
     //尾试图
     _listFoot(){
@@ -120,7 +123,8 @@ export default class BaseListComponent extends ZFBaseComponent {
             )
         }else {
             return (
-                <View>
+                <View style={styles.container}>
+                    {this.topView()}
                     <FlatList
                         data = {dataArr}
                         keyExtractor={this._keyExtractor}
@@ -143,5 +147,7 @@ export default class BaseListComponent extends ZFBaseComponent {
 }
 
 var styles = StyleSheet.create({
-    container: {}
+    container: {
+        // flex:1
+    }
 });

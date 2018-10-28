@@ -93,7 +93,6 @@ export default class GWHomeList extends BaseListComponent {
             }
         },function (e) {
             isRefreshing && self.setState({isRefreshing:false})
-            // console.log('============='+JSON.stringify(e))
         })
     }
 

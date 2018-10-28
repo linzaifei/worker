@@ -149,7 +149,7 @@ const RootStack = createStackNavigator({
     },
     GwQuery:{
         screen:GwQuery,
-        navigationOptions: ({navigation}) => navigationRightOption({navigation})
+        // navigationOptions: ({navigation}) => navigationRightOption({navigation})
     },
 },{
 

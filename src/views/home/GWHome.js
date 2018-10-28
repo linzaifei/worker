@@ -147,7 +147,6 @@ export default class GWHome extends BaseComponent {
                                   paddingLeft={10}
                                   backgroundColor='#fff'
                                   color={swColor}
-                                  // value={value}
                                   returnKeyType={'search'}
                                   imgName="ic_home_search"
                                   placeholder="搜索姓名和手机号码"
