@@ -139,18 +139,30 @@ export default class GWAdd extends BaseComponent {
         work.telephone=telephone;
         work.idcard=idcard;
         work.birthday=birthday;
-        work.birthplaceCode=birthplaceCode;
+        if(birthplaceCode && birthplaceCode!=-1){
+            work.birthplaceCode=birthplaceCode;
+        }else{
+            console.log("birthplaceCode:"+birthplaceCode);
+        }
         if(!workYear){
             work.workYear="";
         }else{
             work.workYear=workYear;
         }
         work.workplaceCode=workplaceCode;
-        work.expectSalary=expectSalary;
+        if(expectSalary && expectSalary!=-1){
+            work.expectSalary=expectSalary;
+        }else{
+            console.log("expectSalary:"+expectSalary);
+        }
         work.workStatus=workStatus;
         work.workExpect=workExpect;
         work.jobtypeName=jobtypeName;
-        work.degree=degree;
+        if(degree && degree!=-1){
+            work.degree=degree;
+        }else{
+            console.log("degree:"+degree);
+        }
 
         var joList=[];
         for(let i=0;i<jobTypeList.length;i++){
