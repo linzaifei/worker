@@ -141,7 +141,7 @@ export default class GWAdd extends BaseComponent {
         work.birthday=birthday;
         work.birthplaceCode=birthplaceCode;
         if(!workYear){
-            work.workYear=0;
+            work.workYear="";
         }else{
             work.workYear=workYear;
         }
