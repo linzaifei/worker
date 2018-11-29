@@ -10,7 +10,7 @@ import {
 import BaseComponent from "../../components/base/BaseComponent";
 import SingleCheckBox from "./SingleCheckBox";
 
-export default class CityPlaceSelect extends BaseComponent{
+export default class GWZone extends BaseComponent{
     static navigationOptions =({navigation})=>{
         const params = navigation.state.params || {};
         return{

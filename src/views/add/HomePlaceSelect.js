@@ -90,6 +90,7 @@ export default class HomePlaceSelect extends BaseComponent{
     _loadData(){
         var self = this;
         gwrequest.gw_tokenRequest(urls.queryAllProvince,{},function (ret) {
+            console.log('===='+JSON.stringify(ret))
             for(var i=0;i<ret.length;i++){
                 ret[i].isselect=-1;
             }

@@ -95,6 +95,13 @@ export default class GWPickerView extends Component {
                 transparent={true}
                 visible={this.state.isAlert}
                 style={{flex:1}}
+                onRequestClose={() => {
+                    self.setState({
+                        isAlert:false
+                    },()=>{
+                        Picker.hide();
+                    })
+                }}
             >
 
 

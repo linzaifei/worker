@@ -35,6 +35,8 @@ import HomePlaceSelect from './views/add/HomePlaceSelect'
 import WorkSelect from './views/add/WorkSelect'
 import CityPlaceSelect from './views/add/CityPlaceSelect'
 import WorkSelectHH from './views/add/WorkSelectHH'
+import GWZoneScreen from './views/add/GWZone'
+
 //个人中心
 import CenterScreen from './views/center/GWCenter'
 import ForgetPwdScreen from './views/center/GWForgetPwd'
@@ -151,6 +153,11 @@ const RootStack = createStackNavigator({
         screen:GwQuery,
         // navigationOptions: ({navigation}) => navigationRightOption({navigation})
     },
+    zone:{
+        screen:GWZoneScreen,
+        navigationOptions: ({navigation}) => navigationOption({navigation})
+    },
+
 },{
 
 })
