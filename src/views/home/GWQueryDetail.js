@@ -117,13 +117,15 @@ export default class GWQueryDetail extends BaseListComponent {
             endTime,
             keyWord,
         }=self.state
-
         if(!self.compareDate(beginTime,endTime)){
             self.dropdown.alertWithType('info','开始时间不能大于结束时间','');
             return;
         }
-        console.log(beginTime+"====="+endTime+"=========="+keyWord);
-        this._loadData();
+        self.setState({
+            pageNumber:1,
+        },()=>{
+            this._loadData();
+        })
     }
 
     //比较日前大小
@@ -191,13 +193,13 @@ export default class GWQueryDetail extends BaseListComponent {
                            imgName="ic_home_search"
                            placeholder="搜索姓名和手机号码"
                            onTextChange={(e)=>{this._onTextChange(e)}}
-                           onEndEditing={()=>{
-                               self.setState({
-                                   pageNumber:1,
-                               },()=>{
-                                   self._loadData()
-                               })
-                           }}
+                           // onEndEditing={()=>{
+                           //     self.setState({
+                           //         pageNumber:1,
+                           //     },()=>{
+                           //         self._loadData()
+                           //     })
+                           // }}
                        />
                    </View>
                </View>
@@ -271,40 +273,45 @@ export default class GWQueryDetail extends BaseListComponent {
         })
     }
 
-    render() {
+    _list_view(){
         const {
             dataArr,
             isRefreshing,
         }=this.state;
-
-        if(dataArr.length == 0){
+        if(dataArr.length==0){
             return (
                 <View style={{height:SCREEN_HEIGHT-250,alignItems:CENTER,justifyContent:CENTER}}>
                     {this._nullView()}
                 </View>
             )
-        }else {
+        }else{
             return (
-                <View style={{flex:1}}>
-                    {this.topView()}
-                    <FlatList
-                        data = {dataArr}
-                        keyExtractor={this._keyExtractor}
-                        renderItem = {({item,index})=> this._itemCell(item,index)}
-                        onRefresh = {this._reflashView.bind(this)}
-                        refreshing = {isRefreshing}
-                        onEndReachedThreshold={0.5}
-                        initialNumToRender={4}
-                        ListHeaderComponent={this._listHeader()}
-                        ListFooterComponent={this._listFoot()}
-                        onEndReached={this._endReflash.bind(this)}
-                    />
-                    {this._moreInfo()}
-                    {this._Alert()}
-                </View>
-            );
-
+                <FlatList
+                    data = {dataArr}
+                    keyExtractor={this._keyExtractor}
+                    renderItem = {({item,index})=> this._itemCell(item,index)}
+                    onRefresh = {this._reflashView.bind(this)}
+                    refreshing = {isRefreshing}
+                    onEndReachedThreshold={0.5}
+                    initialNumToRender={4}
+                    ListHeaderComponent={this._listHeader()}
+                    ListFooterComponent={this._listFoot()}
+                    onEndReached={this._endReflash.bind(this)}
+                />
+            )
         }
+    }
+
+    render() {
+        return (
+            <View style={{flex:1}}>
+                {this.topView()}
+                {this._list_view()}
+                {this._moreInfo()}
+                {this._Alert()}
+            </View>
+        );
+
     }
 
     }

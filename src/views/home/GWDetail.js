@@ -19,6 +19,9 @@ export default class GWDetail extends GWAdd {
     componentDidMount(){
         var item = this.props.navigation.getParam('item');
         // console.log(JSON.stringify(item))
+        if(!String(item.workYear) || 'null'==String(item.workYear)){
+            item.workYear='';
+        }
         this.setState({
             item,
             workId:item.id,

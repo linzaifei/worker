@@ -89,7 +89,9 @@ export default class GWPickerView extends Component {
 
 
     render() {
+        var self=this;
         return (
+
             <Modal
                 animationType={"none"}
                 transparent={true}
@@ -103,8 +105,14 @@ export default class GWPickerView extends Component {
                     })
                 }}
             >
-
-
+                <TouchableOpacity style={{backgroundColor:'transparent',flex:1}} onPress={()=>{
+                    self.setState({
+                        isAlert:false
+                    },()=>{
+                        Picker.hidden();
+                    })
+                }}>
+                </TouchableOpacity>
             </Modal>
         );
     }
