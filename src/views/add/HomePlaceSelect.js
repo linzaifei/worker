@@ -21,12 +21,15 @@ export default class HomePlaceSelect extends BaseComponent{
                     <Text style={{fontSize:16,color:'#fff'}}>{params.title}</Text>
                 </View>
             ),
+            headerRight:(
+                params.index == 2 ?
+                    <TouchableOpacity onPress={params.submit}>
+                        <Text style={{fontSize:15,color:'#fff',marginRight:15}}>完成</Text>
+                    </TouchableOpacity>:
+                    <View style={{height: 44,width: 55,justifyContent: 'center',paddingRight:15} }/>
+            )
         }
     }
-    componentWillMount() {
-        this._loadData();
-    }
-    // 构造
     constructor(props) {
         super(props);
         // 初始状态
@@ -34,62 +37,54 @@ export default class HomePlaceSelect extends BaseComponent{
             selectObject:'',
             data:[],
             lastSelectIndex:-1,
+            selectCode:'',
+            selectName:'',
+            code:'',
+            index:0,
         };
     }
-
-    _keyExtractor = (item, index) => String(index);
-    render(){
-        let self=this;
-        return(
-            <View style={styles.container}>
-                <FlatList
-                    keyExtractor={this._keyExtractor}
-                    data={self.state.data}
-                    extraData={self.state}
-                    renderItem={({item,index}) =>self._renderItemView(item,index)
-
-                    }
-                />
-            </View>
-        );
+    componentWillMount() {
+        this.props.navigation.setParams({ submit: this._submit });
     }
-    _renderItemView(item,index){
-        let self=this;
-        return(
-            <SingleCheckBox
-                marginTop={5} text={item.name} index={index} isSelect={item.isselect} onClickItem={(index)=>{
-                self._toCity(item.code,index,item.name);
-                var lastIndex=self.state.lastSelectIndex;
-                const tempdata=self.state.data;
-                if(lastIndex!=-1){
-                    tempdata[lastIndex].isselect=-1;
-                }
-                tempdata[index].isselect=1;
-                self.setState({
-                    lastSelectIndex:index,
-                    data:tempdata
-                })
-            }}
-            />
-        )
-    }
-    _toCity(code,index,prostr){
-        let self=this
-        self.props.navigation.navigate('SelectCity',{
-            code:code,
-            proStr:prostr,
-            title:'籍贯',
-            callback: ((str,code) => { //回调函数
-                if (self.props.navigation.state.params.callback) {
-                    self.props.navigation.state.params.callback(str,index,code)
-                }
-                self.props.navigation.goBack();
-            })
+
+    componentDidMount(){
+        this.setState({
+            code:this.props.navigation.getParam('code',''),
+            index:this.props.navigation.getParam('index',0),
+        },()=>{
+            console.log('=============='+this.state.index)
+            this._loadData();
         })
     }
+
+    _submit=()=>{
+        var self = this;
+        const {
+            selectCode,
+            selectName,
+        }=self.state
+
+        if (!selectName || selectCode == -1){
+            self.dropdown.alertWithType('info','请选择市','');
+            return;
+        }
+        if (this.props.navigation.state.params.callback) {
+            this.props.navigation.state.params.callback(selectName,selectCode)
+        }
+        this.props.navigation.navigate('Mediate');
+    }
+
     _loadData(){
         var self = this;
-        gwrequest.gw_tokenRequest(urls.queryAllProvince,{},function (ret) {
+        const {
+            code,
+        }=self.state;
+        var parmas={
+            parentCode:code,
+        }
+        console.log('======'+JSON.stringify(parmas))
+        var url = !code ?urls.queryAllProvince:urls.queryAreaByParentCode;
+        gwrequest.gw_tokenRequest(url,parmas,function (ret) {
             console.log('===='+JSON.stringify(ret))
             for(var i=0;i<ret.length;i++){
                 ret[i].isselect=-1;
@@ -102,6 +97,61 @@ export default class HomePlaceSelect extends BaseComponent{
         })
     }
 
+
+    _renderItemView(item,row){
+        let self=this;
+        const {
+            lastSelectIndex,
+            data,
+            index,
+
+        }=self.state;
+        return(
+            <SingleCheckBox
+                marginTop={5} text={item.name} index={row} isSelect={item.isselect} onClickItem={(i)=>{
+
+                if(index<2){
+                    self._toCity(item.code);
+                }
+                if(lastSelectIndex!=-1){
+                    data[lastSelectIndex].isselect=-1;
+                }
+                data[i].isselect=1;
+                self.setState({
+                    lastSelectIndex:i,
+                    data,
+                    selectCode:item.code,
+                    selectName:item.name,
+                })
+            }}
+            />
+        )
+    }
+    _toCity(code){
+        let self=this
+        self.props.navigation.push('SelectHomePlace',{
+            code,
+            title:self.props.navigation.getParam('title',''),
+            index:this.state.index+1,
+            callback:self.props.navigation.state.params.callback,
+        })
+    }
+
+    _keyExtractor = (item, index) => String(index);
+    render(){
+        let self=this;
+        return(
+            <View style={styles.container}>
+                <FlatList
+                    keyExtractor={this._keyExtractor}
+                    data={self.state.data}
+                    extraData={self.state}
+                    renderItem={({item,index}) =>self._renderItemView(item,index)}
+                />
+            </View>
+        );
+    }
+
 }
 
 var styles = StyleSheet.create({
@@ -109,10 +159,6 @@ var styles = StyleSheet.create({
         padding:5,
         flex: 1,
         backgroundColor:'#fafafa'
-        // paddingTop:5,
-        // paddingLeft:5,
-        // paddingRight:5,
-        // paddingBottom:20,
     },
     item: {
         padding: 10,

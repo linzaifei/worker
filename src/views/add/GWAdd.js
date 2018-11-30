@@ -320,7 +320,7 @@ export default class GWAdd extends BaseComponent {
                     title: '擅长工种',
                     workId: workId > 0 ? workId : 0,
                     callback: ((selectItem, jobtypeName) => { //回调函数
-                        // alert(JSON.stringify(selectItem))
+
                         this.setState({
                             jobTypeList: selectItem,
                             jobtypeName: jobtypeName,
@@ -332,10 +332,10 @@ export default class GWAdd extends BaseComponent {
             case 4://工作地点
                 self.props.navigation.navigate('SelectHomePlace', {
                     title: '工作地点',
-                    callback: ((info, index, code) => { //回调函数
-                        // alert(code);
+                    callback: ((name, code) => { //回调函数
+                        console.log('=========code'+code)
                         this.setState({
-                            workplaceName: info,
+                            workplaceName: name,
                             workplaceCode: code,
                         })
                     })
@@ -560,7 +560,7 @@ export default class GWAdd extends BaseComponent {
                     />
                     <GWSelectItem
                         title="学历"
-                        url="ic_center_state"
+                        url="ic_center_xl"
                         borderRadius={5}
                         value={degreeStr}
                         editable={false}
