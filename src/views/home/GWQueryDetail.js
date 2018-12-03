@@ -251,7 +251,7 @@ export default class GWQueryDetail extends BaseListComponent {
                 age={item.age}
                 workStatusName={item.workStatusName}
                 onClickItem={() => {
-                    self._queryDetail(item.id);
+                    self._queryDetail(item.id?item.id:'');
                 }}
             />
         )

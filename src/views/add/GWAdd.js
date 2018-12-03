@@ -60,6 +60,7 @@ export default class GWAdd extends BaseComponent {
             workExpect: '',//工作意向
             degree: -1,//学历
             degreeStr: '',
+            edit:false,
         }
     }
 
@@ -275,6 +276,7 @@ export default class GWAdd extends BaseComponent {
         const {
             selectSalaryIndex,
             workId,
+            edit,
         } = self.state;
 
         switch (index) {
@@ -307,10 +309,13 @@ export default class GWAdd extends BaseComponent {
             case 2://籍贯
                 self.props.navigation.navigate('SelectHomePlace', {
                     title: '籍贯',
-                    callback: ((info, index, code) => { //回调函数
+                    stopIndex:1,
+                    callName:edit?'Detail':'Mediate',
+                    callback: ((name, code) => { //回调函数
                         this.setState({
-                            birthplaceName: info,
+                            birthplaceName: name,
                             birthplaceCode: code,
+
                         })
                     })
                 })
@@ -320,7 +325,6 @@ export default class GWAdd extends BaseComponent {
                     title: '擅长工种',
                     workId: workId > 0 ? workId : 0,
                     callback: ((selectItem, jobtypeName) => { //回调函数
-
                         this.setState({
                             jobTypeList: selectItem,
                             jobtypeName: jobtypeName,
@@ -332,11 +336,14 @@ export default class GWAdd extends BaseComponent {
             case 4://工作地点
                 self.props.navigation.navigate('SelectHomePlace', {
                     title: '工作地点',
+                    callName:edit?'Detail':'Mediate',
+                    stopIndex:2,
                     callback: ((name, code) => { //回调函数
                         console.log('=========code'+code)
                         this.setState({
                             workplaceName: name,
                             workplaceCode: code,
+
                         })
                     })
                 })

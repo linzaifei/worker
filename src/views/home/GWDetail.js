@@ -11,20 +11,13 @@ import GWAdd from "../add/GWAdd";
 export default class GWDetail extends GWAdd {
 
 
-    constructor(props) {
-        super(props);
-
-    }
-
     componentDidMount(){
         var item = this.props.navigation.getParam('item');
-        // console.log(JSON.stringify(item))
-        if(!String(item.workYear) || 'null'==String(item.workYear)){
-            item.workYear='';
-        }
+        console.log('d================')
         this.setState({
             item,
             workId:item.id,
+            edit:true,
             name:item.name,
             sexStr:item.sexName+'性',
             sex:item.sex,
@@ -41,7 +34,7 @@ export default class GWDetail extends GWAdd {
             birthplaceName:item.birthplaceName,//籍贯
             jobTypeList:item.jobTypeList,//擅长工种
             jobtypeName:item.jobtypeName,//擅长工种字符串
-            workYear:String(item.workYear),//工作年限
+            workYear:String(item.workYear?item.workYear:''),//工作年限
             workExpect:item.workExpect,//工作意志
             degree:item.degree,//学历
             degreeStr:item.degreeName,//学历名称

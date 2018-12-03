@@ -8,9 +8,8 @@ import {
     ScrollView, TouchableOpacity,
 } from 'react-native';
 import BaseComponent from "../../components/base/BaseComponent";
-import GWSelectItem from "../../components/selectItem/GWSelectItem";
 import SingleCheckBox from "./SingleCheckBox";
-import CheckBox from "./CheckBox";
+
 
 export default class HomePlaceSelect extends BaseComponent{
     static navigationOptions =({navigation})=>{
@@ -22,7 +21,7 @@ export default class HomePlaceSelect extends BaseComponent{
                 </View>
             ),
             headerRight:(
-                params.index == 2 ?
+                (parseInt(params.index) == parseInt(params.stopIndex)) ?
                     <TouchableOpacity onPress={params.submit}>
                         <Text style={{fontSize:15,color:'#fff',marginRight:15}}>完成</Text>
                     </TouchableOpacity>:
@@ -40,7 +39,9 @@ export default class HomePlaceSelect extends BaseComponent{
             selectCode:'',
             selectName:'',
             code:'',
-            index:0,
+            index:0,//push多少层界面 内部控制
+            callName:'Mediate',//返回界面
+            stopIndex:3,//需要停止的index
         };
     }
     componentWillMount() {
@@ -51,8 +52,10 @@ export default class HomePlaceSelect extends BaseComponent{
         this.setState({
             code:this.props.navigation.getParam('code',''),
             index:this.props.navigation.getParam('index',0),
+            callName:this.props.navigation.getParam('callName','Mediate'),
+            stopIndex:this.props.navigation.getParam('stopIndex',1),
         },()=>{
-            console.log('=============='+this.state.index)
+            console.log('=============='+this.state.callName)
             this._loadData();
         })
     }
@@ -62,16 +65,18 @@ export default class HomePlaceSelect extends BaseComponent{
         const {
             selectCode,
             selectName,
+            callName,
         }=self.state
 
         if (!selectName || selectCode == -1){
             self.dropdown.alertWithType('info','请选择市','');
             return;
         }
-        if (this.props.navigation.state.params.callback) {
-            this.props.navigation.state.params.callback(selectName,selectCode)
+        if (self.props.navigation.state.params.callback) {
+            self.props.navigation.state.params.callback(selectName,selectCode)
         }
-        this.props.navigation.navigate('Mediate');
+        console.log('=============='+self.state.callName)
+        this.props.navigation.navigate(String(callName));
     }
 
     _loadData(){
@@ -85,7 +90,7 @@ export default class HomePlaceSelect extends BaseComponent{
         console.log('======'+JSON.stringify(parmas))
         var url = !code ?urls.queryAllProvince:urls.queryAreaByParentCode;
         gwrequest.gw_tokenRequest(url,parmas,function (ret) {
-            console.log('===='+JSON.stringify(ret))
+            // console.log('===='+JSON.stringify(ret))
             for(var i=0;i<ret.length;i++){
                 ret[i].isselect=-1;
             }
@@ -104,19 +109,20 @@ export default class HomePlaceSelect extends BaseComponent{
             lastSelectIndex,
             data,
             index,
-
+            stopIndex,
         }=self.state;
         return(
             <SingleCheckBox
                 marginTop={5} text={item.name} index={row} isSelect={item.isselect} onClickItem={(i)=>{
 
-                if(index<2){
+                if(index<stopIndex){
                     self._toCity(item.code);
                 }
                 if(lastSelectIndex!=-1){
                     data[lastSelectIndex].isselect=-1;
                 }
                 data[i].isselect=1;
+
                 self.setState({
                     lastSelectIndex:i,
                     data,
@@ -129,11 +135,19 @@ export default class HomePlaceSelect extends BaseComponent{
     }
     _toCity(code){
         let self=this
+        const {
+            index,
+            stopIndex,
+            callName,
+        }=self.state;
+
         self.props.navigation.push('SelectHomePlace',{
             code,
             title:self.props.navigation.getParam('title',''),
-            index:this.state.index+1,
+            index:index+1,
             callback:self.props.navigation.state.params.callback,
+            stopIndex:stopIndex,
+            callName,
         })
     }
 
