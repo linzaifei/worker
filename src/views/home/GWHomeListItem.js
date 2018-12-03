@@ -55,7 +55,7 @@ export default class GWHomeListItem extends Component {
                 <View style={styles.top}>
                     <View style={{flexDirection:ROW,alignItems:CENTER,}}>
                         <Text style={styles.title}>{name}</Text>
-                        {age !=0? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}岁</Text>:null}
+                        {(age&&age !=0)? <Text style={{fontSize:13,color:swColor,marginLeft:5}}>{age}岁</Text>:null}
                     </View>
                     {this._getState()}
                 </View>
